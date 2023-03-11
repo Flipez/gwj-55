@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dagh5lvllmcky"]
+[gd_scene load_steps=35 format=3 uid="uid://dagh5lvllmcky"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -13,13 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://cj4sat5twxjqp" path="res://assets/props/whiteboard.png" id="9_ttct5"]
 [ext_resource type="Texture2D" uid="uid://bj1oen2aso8cp" path="res://assets/props/whiteboard_2.png" id="10_lej0r"]
 [ext_resource type="Texture2D" uid="uid://dqfqtv1ghjr6j" path="res://assets/props/trash_can.png" id="11_sq22c"]
-[ext_resource type="Texture2D" uid="uid://c6vfu8n53qui2" path="res://assets/props/plant_1.png" id="12_4ax5a"]
 [ext_resource type="PackedScene" uid="uid://b2ps6x2otbfa8" path="res://props/office/plant_1.tscn" id="13_7paim"]
-[ext_resource type="Texture2D" uid="uid://dbw6gcv0cdd51" path="res://assets/props/couch_large_left.png" id="13_xxwuu"]
-[ext_resource type="Texture2D" uid="uid://djihotb6eyvth" path="res://assets/props/plant_2.png" id="15_ksh2f"]
+[ext_resource type="PackedScene" uid="uid://ci4wkeb1y0py3" path="res://props/office/table.tscn" id="15_ivxmn"]
 [ext_resource type="PackedScene" uid="uid://d3jppmd0n7cei" path="res://props/office/soda.tscn" id="15_spt2m"]
-[ext_resource type="Texture2D" uid="uid://dmacj4c8fwsk4" path="res://assets/props/table_small.png" id="16_u3d1d"]
 [ext_resource type="Texture2D" uid="uid://b35ssgj4ljf1c" path="res://assets/props/homelogo-400.png" id="18_gydbe"]
+[ext_resource type="PackedScene" uid="uid://cdt3anfrguhp7" path="res://props/office/couch.tscn" id="18_m2600"]
 [ext_resource type="PackedScene" uid="uid://bqex5o7t77xwp" path="res://props/office/chair_black_front.tscn" id="20_vvr5u"]
 [ext_resource type="Texture2D" uid="uid://bog0qb2ielr8d" path="res://assets/props/papersheet.png" id="22_uhpob"]
 [ext_resource type="PackedScene" uid="uid://c562u381hgksv" path="res://props/office/chair_black_back.tscn" id="23_bqsoi"]
@@ -30,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://btcehpkbbqu1w" path="res://props/office/whiteboard_2.tscn" id="28_e0i4w"]
 [ext_resource type="Texture2D" uid="uid://cgmareexk5ory" path="res://assets/props/fire_extinguisher.png" id="29_vv17v"]
 [ext_resource type="PackedScene" uid="uid://b2rkjgxo6xkpn" path="res://props/office/copy_machine.tscn" id="30_dtfxj"]
+[ext_resource type="PackedScene" uid="uid://de3ev4cjvt82p" path="res://scenes/player.tscn" id="31_5toy6"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="32_svpw8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
 texture = ExtResource("1_wf3p5")
@@ -57,12 +57,15 @@ texture = ExtResource("1_wf3p5")
 14:0/0 = 0
 14:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:0/0/physics_layer_0/angular_velocity = 0.0
+14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:0/0 = 0
 15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:0/0/physics_layer_0/angular_velocity = 0.0
+15:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:0/0 = 0
 16:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:0/0/physics_layer_0/angular_velocity = 0.0
+16:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 20:0/0 = 0
 20:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:0/0/physics_layer_0/angular_velocity = 0.0
@@ -177,9 +180,11 @@ texture = ExtResource("1_wf3p5")
 15:1/0 = 0
 15:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:1/0/physics_layer_0/angular_velocity = 0.0
+15:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:1/0 = 0
 16:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:1/0/physics_layer_0/angular_velocity = 0.0
+16:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 17:1/0 = 0
 17:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:1/0/physics_layer_0/angular_velocity = 0.0
@@ -303,12 +308,15 @@ texture = ExtResource("1_wf3p5")
 7:2/0 = 0
 7:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:2/0/physics_layer_0/angular_velocity = 0.0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:2/0 = 0
 8:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:2/0/physics_layer_0/angular_velocity = 0.0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:2/0 = 0
 9:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:2/0/physics_layer_0/angular_velocity = 0.0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:2/0 = 0
 11:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:2/0/physics_layer_0/angular_velocity = 0.0
@@ -318,12 +326,15 @@ texture = ExtResource("1_wf3p5")
 14:2/0 = 0
 14:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:2/0/physics_layer_0/angular_velocity = 0.0
+14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:2/0 = 0
 15:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:2/0/physics_layer_0/angular_velocity = 0.0
+15:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:2/0 = 0
 16:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:2/0/physics_layer_0/angular_velocity = 0.0
+16:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 17:2/0 = 0
 17:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:2/0/physics_layer_0/angular_velocity = 0.0
@@ -435,12 +446,15 @@ texture = ExtResource("1_wf3p5")
 14:3/0 = 0
 14:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:3/0/physics_layer_0/angular_velocity = 0.0
+14:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:3/0 = 0
 15:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:3/0/physics_layer_0/angular_velocity = 0.0
+15:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:3/0 = 0
 16:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:3/0/physics_layer_0/angular_velocity = 0.0
+16:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 17:3/0 = 0
 17:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:3/0/physics_layer_0/angular_velocity = 0.0
@@ -1419,15 +1433,19 @@ texture = ExtResource("1_wf3p5")
 0:11/0 = 0
 0:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:11/0/physics_layer_0/angular_velocity = 0.0
+0:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:11/0 = 0
 1:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:11/0/physics_layer_0/angular_velocity = 0.0
+1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:11/0 = 0
 2:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:11/0/physics_layer_0/angular_velocity = 0.0
+2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:11/0 = 0
 3:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:11/0/physics_layer_0/angular_velocity = 0.0
+3:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:11/0 = 0
 7:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:11/0/physics_layer_0/angular_velocity = 0.0
@@ -3519,6 +3537,7 @@ texture = ExtResource("1_wf3p5")
 22:27/0 = 0
 22:27/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 22:27/0/physics_layer_0/angular_velocity = 0.0
+22:27/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 23:27/0 = 0
 23:27/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 23:27/0/physics_layer_0/angular_velocity = 0.0
@@ -3526,9 +3545,11 @@ texture = ExtResource("1_wf3p5")
 24:27/0 = 0
 24:27/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 24:27/0/physics_layer_0/angular_velocity = 0.0
+24:27/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 25:27/0 = 0
 25:27/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 25:27/0/physics_layer_0/angular_velocity = 0.0
+25:27/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 29:27/0 = 0
 29:27/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 29:27/0/physics_layer_0/angular_velocity = 0.0
@@ -36295,6 +36316,8 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lygpe")
 sources/3 = SubResource("TileSetAtlasSource_h04x6")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycmlh"]
+
 [node name="Office" type="Node2D"]
 
 [node name="WallsAndFloor" type="TileMap" parent="."]
@@ -36393,46 +36416,26 @@ texture = ExtResource("11_sq22c")
 [node name="CouchArea" type="Node2D" parent="."]
 position = Vector2(240, 152)
 
-[node name="Couch" type="StaticBody2D" parent="CouchArea"]
-
-[node name="Sprite2D" type="Sprite2D" parent="CouchArea/Couch"]
-texture = ExtResource("13_xxwuu")
-
 [node name="Soda" parent="CouchArea" instance=ExtResource("15_spt2m")]
 
-[node name="Plant" type="StaticBody2D" parent="CouchArea"]
-position = Vector2(70, -5)
+[node name="Table" parent="CouchArea" instance=ExtResource("15_ivxmn")]
 
-[node name="Sprite2D" type="Sprite2D" parent="CouchArea/Plant"]
-texture = ExtResource("15_ksh2f")
+[node name="Plant1" parent="CouchArea" instance=ExtResource("27_li6ah")]
+position = Vector2(72, -8)
 
-[node name="Table" type="StaticBody2D" parent="CouchArea"]
-
-[node name="Sprite2D2" type="Sprite2D" parent="CouchArea/Table"]
-position = Vector2(11, 16)
-texture = ExtResource("16_u3d1d")
+[node name="Couch" parent="CouchArea" instance=ExtResource("18_m2600")]
 
 [node name="CouchArea2" type="Node2D" parent="."]
 position = Vector2(952, 40)
 
-[node name="Couch" type="StaticBody2D" parent="CouchArea2"]
-
-[node name="Sprite2D" type="Sprite2D" parent="CouchArea2/Couch"]
-texture = ExtResource("13_xxwuu")
+[node name="Couch" parent="CouchArea2" instance=ExtResource("18_m2600")]
 
 [node name="Soda" parent="CouchArea2" instance=ExtResource("15_spt2m")]
 
-[node name="Plant" type="StaticBody2D" parent="CouchArea2"]
-position = Vector2(70, -5)
+[node name="Plant1" parent="CouchArea2" instance=ExtResource("27_li6ah")]
+position = Vector2(-16, 32)
 
-[node name="Sprite2D" type="Sprite2D" parent="CouchArea2/Plant"]
-texture = ExtResource("15_ksh2f")
-
-[node name="Table" type="StaticBody2D" parent="CouchArea2"]
-
-[node name="Sprite2D2" type="Sprite2D" parent="CouchArea2/Table"]
-position = Vector2(11, 16)
-texture = ExtResource("16_u3d1d")
+[node name="Table" parent="CouchArea2" instance=ExtResource("15_ivxmn")]
 
 [node name="OpenOffice1" type="Node2D" parent="."]
 
@@ -36525,17 +36528,11 @@ position = Vector2(286, 241)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("18_gydbe")
 
-[node name="Plant2" type="StaticBody2D" parent="LogoArea"]
-position = Vector2(236, 254)
+[node name="Plant1" parent="LogoArea" instance=ExtResource("13_7paim")]
+position = Vector2(232, 256)
 
-[node name="Sprite2D" type="Sprite2D" parent="LogoArea/Plant2"]
-texture = ExtResource("15_ksh2f")
-
-[node name="Plant3" type="StaticBody2D" parent="LogoArea"]
-position = Vector2(334, 253)
-
-[node name="Sprite2D" type="Sprite2D" parent="LogoArea/Plant3"]
-texture = ExtResource("12_4ax5a")
+[node name="Plant2" parent="LogoArea" instance=ExtResource("27_li6ah")]
+position = Vector2(344, 256)
 
 [node name="ConferenceRoom2" type="Node2D" parent="."]
 position = Vector2(448, -304)
@@ -36802,3 +36799,14 @@ texture = ExtResource("29_vv17v")
 
 [node name="CopyMachine2" parent="." instance=ExtResource("30_dtfxj")]
 position = Vector2(264, 376)
+
+[node name="Player" parent="." instance=ExtResource("31_5toy6")]
+position = Vector2(296, 280)
+script = ExtResource("32_svpw8")
+speed = 150
+friction = 0.35
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_ycmlh")
