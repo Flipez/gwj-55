@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqex5o7t77xwp"]
+
+[ext_resource type="Texture2D" uid="uid://bfpcmpywdjgtc" path="res://assets/props/desk_chair_1_front.png" id="1_h737s"]
+
+[node name="ChairBlackFront" type="StaticBody2D"]
+position = Vector2(1080, 392)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h737s")

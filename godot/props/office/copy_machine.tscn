@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2rkjgxo6xkpn"]
+
+[ext_resource type="Texture2D" uid="uid://cldt6hblpt247" path="res://assets/props/copy_machine.png" id="1_jo1yc"]
+
+[node name="CopyMachine" type="StaticBody2D"]
+position = Vector2(248, 376)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jo1yc")

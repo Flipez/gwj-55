@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://nlnf7gqbqkge"]
+
+[ext_resource type="Texture2D" uid="uid://l3hiea671rj" path="res://assets/props/corner_desk/right_normal.png" id="1_jcumj"]
+[ext_resource type="Texture2D" uid="uid://payvmhg35fjo" path="res://assets/props/desk_stuff_2.png" id="2_3f278"]
+[ext_resource type="Texture2D" uid="uid://dftstq4fdd1yy" path="res://assets/props/desk_chair_1_back.png" id="3_htffc"]
+[ext_resource type="Texture2D" uid="uid://ta6abvqsxob0" path="res://assets/props/desk_lamp.png" id="4_qxb00"]
+
+[node name="CornerDeskRightNormal" type="StaticBody2D"]
+position = Vector2(-24, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jcumj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-2, -19)
+texture = ExtResource("2_3f278")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-7, -1)
+texture = ExtResource("3_htffc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(15, -9)
+texture = ExtResource("4_qxb00")
+flip_h = true

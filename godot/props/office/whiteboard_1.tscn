@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://imkxutkqo1ep"]
+
+[ext_resource type="Texture2D" uid="uid://cj4sat5twxjqp" path="res://assets/props/whiteboard.png" id="1_nngaf"]
+
+[node name="Whiteboard1" type="StaticBody2D"]
+z_index = 1
+position = Vector2(1076, 370)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nngaf")
