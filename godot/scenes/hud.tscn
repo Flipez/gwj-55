@@ -23,8 +23,6 @@ unicode = 106
 events = [SubResource("InputEventKey_2b5ay")]
 
 [node name="HUD" type="CanvasLayer"]
-scale = Vector2(0.25, 0.25)
-transform = Transform2D(0.25, 0, 0, 0.25, 0, 0)
 script = ExtResource("1_4358g")
 
 [node name="UI" type="Control" parent="."]

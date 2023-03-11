@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsx7aucxrpur3"]
+
+[ext_resource type="PackedScene" uid="uid://dagh5lvllmcky" path="res://scenes/office.tscn" id="1_an0jp"]
+[ext_resource type="PackedScene" uid="uid://dplq7pgybgilo" path="res://scenes/hud.tscn" id="2_yewid"]
+
+[node name="Game" type="Node"]
+
+[node name="HUD" parent="." instance=ExtResource("2_yewid")]
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="PixelArt" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 4.0
+
+[node name="Office" parent="PixelArt" instance=ExtResource("1_an0jp")]

@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://btcehpkbbqu1w" path="res://props/office/whiteboard_2.tscn" id="28_e0i4w"]
 [ext_resource type="Texture2D" uid="uid://cgmareexk5ory" path="res://assets/props/fire_extinguisher.png" id="29_vv17v"]
 [ext_resource type="PackedScene" uid="uid://b2rkjgxo6xkpn" path="res://props/office/copy_machine.tscn" id="30_dtfxj"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="31_5toy6"]
+[ext_resource type="PackedScene" uid="uid://67dx3x7eqt3f" path="res://scenes/player.tscn" id="31_5toy6"]
 [ext_resource type="PackedScene" uid="uid://dplq7pgybgilo" path="res://scenes/hud.tscn" id="31_vvys1"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="32_svpw8"]
 
@@ -36813,3 +36813,5 @@ friction = 0.35
 shape = SubResource("CircleShape2D_ycmlh")
 
 [node name="HUD" parent="." instance=ExtResource("31_vvys1")]
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
