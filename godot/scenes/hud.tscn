@@ -49,20 +49,14 @@ flat = true
 icon_alignment = 1
 
 [node name="StatusMessage" type="RichTextLabel" parent="UI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.65
-anchor_top = 0.918
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 148.2
-offset_top = 15.136
-offset_right = -4.0
-offset_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 88.0
+offset_top = 656.0
+offset_right = 436.0
+offset_bottom = 712.0
 theme_override_fonts/normal_font = ExtResource("3_w4uc1")
 theme_override_font_sizes/normal_font_size = 23
+text = "Test"
 scroll_active = false
 
 [node name="HideStatus" type="Timer" parent="UI"]
