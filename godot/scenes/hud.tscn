@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://dplq7pgybgilo"]
+
+[ext_resource type="Script" path="res://scenes/hud.gd" id="1_4358g"]
+[ext_resource type="Texture2D" uid="uid://xrinmivk82p5" path="res://assets/white-book.png" id="1_gerog"]
+[ext_resource type="FontFile" uid="uid://mp1ljy5uk88x" path="res://fonts/IndieFlower-Regular.ttf" id="3_w4uc1"]
+[ext_resource type="PackedScene" uid="uid://csylntjtnmsra" path="res://scenes/journal.tscn" id="4_0wvsj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkbsl"]
+bg_color = Color(0.458824, 0.603922, 0.835294, 0.686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_2b5ay"]
+device = -1
+keycode = 74
+unicode = 106
+
+[sub_resource type="Shortcut" id="Shortcut_5q8u3"]
+events = [SubResource("InputEventKey_2b5ay")]
+
+[node name="HUD" type="CanvasLayer"]
+scale = Vector2(0.25, 0.25)
+transform = Transform2D(0.25, 0, 0, 0.25, 0, 0)
+script = ExtResource("1_4358g")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 643.0
+offset_right = 121.0
+offset_bottom = 751.0
+scale = Vector2(0.6, 0.6)
+theme_override_styles/hover = SubResource("StyleBoxFlat_dkbsl")
+shortcut = SubResource("Shortcut_5q8u3")
+icon = ExtResource("1_gerog")
+flat = true
+icon_alignment = 1
+
+[node name="StatusMessage" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65
+anchor_top = 0.918
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 148.2
+offset_top = 15.136
+offset_right = -4.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("3_w4uc1")
+theme_override_font_sizes/normal_font_size = 23
+scroll_active = false
+
+[node name="HideStatus" type="Timer" parent="UI"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Journal" parent="." instance=ExtResource("4_0wvsj")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 189.0
+offset_top = 88.0
+offset_right = 189.0
+offset_bottom = 88.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="UI/HideStatus" to="." method="_on_hide_status_timeout"]
