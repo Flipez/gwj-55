@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dagh5lvllmcky"]
+[gd_scene load_steps=35 format=3 uid="uid://dagh5lvllmcky"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://cgmareexk5ory" path="res://assets/props/fire_extinguisher.png" id="29_vv17v"]
 [ext_resource type="PackedScene" uid="uid://b2rkjgxo6xkpn" path="res://props/office/copy_machine.tscn" id="30_dtfxj"]
 [ext_resource type="PackedScene" uid="uid://67dx3x7eqt3f" path="res://scenes/player.tscn" id="31_5toy6"]
-[ext_resource type="PackedScene" uid="uid://dplq7pgybgilo" path="res://scenes/hud.tscn" id="31_vvys1"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="32_svpw8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
@@ -36811,7 +36810,3 @@ friction = 0.35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_ycmlh")
-
-[node name="HUD" parent="." instance=ExtResource("31_vvys1")]
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)

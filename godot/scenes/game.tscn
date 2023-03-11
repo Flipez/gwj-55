@@ -5,12 +5,10 @@
 
 [node name="Game" type="Node"]
 
-[node name="HUD" parent="." instance=ExtResource("2_yewid")]
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
-
 [node name="PixelArt" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 follow_viewport_scale = 4.0
 
 [node name="Office" parent="PixelArt" instance=ExtResource("1_an0jp")]
+
+[node name="HUD" parent="." instance=ExtResource("2_yewid")]
