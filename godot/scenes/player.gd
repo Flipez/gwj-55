@@ -16,6 +16,10 @@ func get_input():
 		input.y -= 1
 	return input
 
+func _unhandled_input(event):
+	if Input.is_action_pressed("ui_accept"):
+		Globals.emit_signal("initiate_chat", "Nothing here I can interact with.")	
+
 func _physics_process(delta):
 	var direction = get_input()
 	if direction.length() > 0:
