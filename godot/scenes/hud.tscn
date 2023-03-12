@@ -1,0 +1,133 @@
+[gd_scene load_steps=13 format=3 uid="uid://dplq7pgybgilo"]
+
+[ext_resource type="Script" path="res://scenes/hud.gd" id="1_4358g"]
+[ext_resource type="Texture2D" uid="uid://xrinmivk82p5" path="res://assets/white-book.png" id="1_gerog"]
+[ext_resource type="FontFile" uid="uid://mp1ljy5uk88x" path="res://fonts/IndieFlower-Regular.ttf" id="3_w4uc1"]
+[ext_resource type="PackedScene" uid="uid://csylntjtnmsra" path="res://scenes/journal.tscn" id="4_0wvsj"]
+[ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="5_aavwy"]
+[ext_resource type="FontFile" uid="uid://5q4su2qmavjw" path="res://fonts/CrimsonText-Bold.ttf" id="6_5o0ng"]
+[ext_resource type="Texture2D" uid="uid://ccl0pgs17b74h" path="res://assets/sideswipe.png" id="7_ic485"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkbsl"]
+bg_color = Color(0.458824, 0.603922, 0.835294, 0.686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_2b5ay"]
+device = -1
+keycode = 74
+unicode = 106
+
+[sub_resource type="Shortcut" id="Shortcut_5q8u3"]
+events = [SubResource("InputEventKey_2b5ay")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_1phmc"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_cysj5"]
+events = [SubResource("InputEventKey_1phmc")]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_4358g")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 643.0
+offset_right = 121.0
+offset_bottom = 751.0
+scale = Vector2(0.6, 0.6)
+theme_override_styles/hover = SubResource("StyleBoxFlat_dkbsl")
+shortcut = SubResource("Shortcut_5q8u3")
+icon = ExtResource("1_gerog")
+flat = true
+icon_alignment = 1
+
+[node name="StatusMessage" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 656.0
+offset_right = 436.0
+offset_bottom = 712.0
+theme_override_fonts/normal_font = ExtResource("3_w4uc1")
+theme_override_font_sizes/normal_font_size = 23
+scroll_active = false
+
+[node name="HideStatus" type="Timer" parent="UI"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Journal" parent="." instance=ExtResource("4_0wvsj")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 189.0
+offset_top = 88.0
+offset_right = 189.0
+offset_bottom = 88.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Text" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 200.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Panel" type="PanelContainer" parent="Text"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -174.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Box" type="MarginContainer" parent="Text/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Content" type="RichTextLabel" parent="Text/Panel/Box"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_aavwy")
+theme_override_fonts/bold_font = ExtResource("6_5o0ng")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "Hi, I'm Detective Dave Jackson. Did you call us?"
+
+[node name="NextText" type="TextureButton" parent="Text"]
+layout_mode = 0
+offset_left = 1211.0
+offset_top = 457.0
+offset_right = 1731.0
+offset_bottom = 977.0
+scale = Vector2(0.1, 0.1)
+shortcut = SubResource("Shortcut_cysj5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+texture_normal = ExtResource("7_ic485")
+flip_h = true
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="UI/HideStatus" to="." method="_on_hide_status_timeout"]
+[connection signal="pressed" from="Text/NextText" to="." method="_on_next_text_pressed"]
