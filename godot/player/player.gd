@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var MAX_SPEED = 100
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var interaction_shape = $InteractionArea/InteractionShape
 
 enum {
 	RUN,
@@ -15,7 +16,17 @@ var state = RUN
 var targets = []
 var direction = Vector2.ZERO
 	
+	
+func _ready():
+	interaction_shape.disabled = true
+
 func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_interact"):
+		interaction_shape.disabled = false
+	else:
+		interaction_shape.disabled = true
+	
+	interaction_shape.rotation_degrees = rad_to_deg(direction_vector.angle()) - 90
 	match state:
 		RUN:	
 			run_state(delta)
@@ -56,13 +67,25 @@ func _get_direction_string(angle: float) -> String:
 	var angle_deg = round(rad_to_deg(angle))
 	
 	if angle_deg > -45.0 and angle_deg < 45.0:
+		interaction_shape.position.x = 6
+		interaction_shape.position.y = 10
 		return "Right"
 	elif angle_deg >= 45.0 and angle_deg <= 135.0:
+		interaction_shape.position.y = 20
+		interaction_shape.position.x = 0
 		return "Down"
 	elif angle_deg <= -45.0 and angle_deg >= -135.0:
+		interaction_shape.position.x = 0
+		interaction_shape.position.y = -2
 		return "Up"
+	
+	interaction_shape.position.y = 10
+	interaction_shape.position.x = -6
 	return "Left"
 
 func _play_animation(animation_type: String) -> void:
 	var animation_name = animation_type + "_" + _get_direction_string(direction_vector.angle())
 	animated_sprite.play(animation_name)
+
+func _on_interaction_area_area_entered(area):
+	area.interact()

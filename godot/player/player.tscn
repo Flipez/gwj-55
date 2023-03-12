@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://de3ev4cjvt82p"]
+[gd_scene load_steps=54 format=3 uid="uid://de3ev4cjvt82p"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_kdoyi"]
 [ext_resource type="Texture2D" uid="uid://mio5pgtutc08" path="res://assets/Bob_16x16.png" id="1_o8wq3"]
@@ -382,6 +382,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47ev8"]
+size = Vector2(14, 20)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_voql1"]
 radius = 6.08276
 
@@ -393,6 +396,14 @@ sprite_frames = SubResource("SpriteFrames_nbgul")
 animation = &"Run_Down"
 frame_progress = 0.584828
 
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="InteractionShape" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_47ev8")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_voql1")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]

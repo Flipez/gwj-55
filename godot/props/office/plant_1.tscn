@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2ps6x2otbfa8"]
+[gd_scene load_steps=4 format=3 uid="uid://b2ps6x2otbfa8"]
 
 [ext_resource type="Texture2D" uid="uid://c6vfu8n53qui2" path="res://assets/props/plant_1.png" id="1_vd5rt"]
+[ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="2_86g1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17k8r"]
 size = Vector2(12, 12)
@@ -10,6 +11,8 @@ position = Vector2(519, 333)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vd5rt")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_86g1t")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
