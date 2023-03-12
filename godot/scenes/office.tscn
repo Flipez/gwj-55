@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dagh5lvllmcky"]
+[gd_scene load_steps=33 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -28,8 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://btcehpkbbqu1w" path="res://props/office/whiteboard_2.tscn" id="28_e0i4w"]
 [ext_resource type="Texture2D" uid="uid://cgmareexk5ory" path="res://assets/props/fire_extinguisher.png" id="29_vv17v"]
 [ext_resource type="PackedScene" uid="uid://b2rkjgxo6xkpn" path="res://props/office/copy_machine.tscn" id="30_dtfxj"]
-[ext_resource type="PackedScene" uid="uid://de3ev4cjvt82p" path="res://scenes/player.tscn" id="31_5toy6"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="32_svpw8"]
+[ext_resource type="PackedScene" uid="uid://de3ev4cjvt82p" path="res://player/player.tscn" id="31_5toy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
 texture = ExtResource("1_wf3p5")
@@ -36316,8 +36315,6 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lygpe")
 sources/3 = SubResource("TileSetAtlasSource_h04x6")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ycmlh"]
-
 [node name="Office" type="Node2D"]
 
 [node name="WallsAndFloor" type="TileMap" parent="."]
@@ -36802,11 +36799,5 @@ position = Vector2(264, 376)
 
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
 position = Vector2(296, 280)
-script = ExtResource("32_svpw8")
-speed = 150
-friction = 0.35
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_ycmlh")
