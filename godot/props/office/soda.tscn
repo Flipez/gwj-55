@@ -1,15 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3jppmd0n7cei"]
+[gd_scene load_steps=6 format=3 uid="uid://d3jppmd0n7cei"]
 
 [ext_resource type="Texture2D" uid="uid://csy3hcap15bm1" path="res://assets/props/soda_machine.png" id="1_7j6p6"]
+[ext_resource type="Script" path="res://props/office/soda.gd" id="1_yspdh"]
+[ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="2_hxhs5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nl1u2"]
 size = Vector2(22, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pypca"]
+size = Vector2(22, 13)
+
 [node name="Soda" type="StaticBody2D"]
 position = Vector2(48, -8)
+script = ExtResource("1_yspdh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7j6p6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nl1u2")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_hxhs5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_pypca")
