@@ -54,7 +54,6 @@ func _on_Hitbox_body_exited(body):
 	
 func _get_direction_string(angle: float) -> String:
 	var angle_deg = round(rad_to_deg(angle))
-	print(angle_deg)
 	
 	if angle_deg > -45.0 and angle_deg < 45.0:
 		return "Right"
