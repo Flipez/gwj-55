@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://82dyff558c36"]
+
+[ext_resource type="Texture2D" uid="uid://dkrdaijflr6vu" path="res://assets/props/toilet_closed.png" id="1_oviie"]
+[ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="2_1unae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v34t"]
+size = Vector2(14, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwxda"]
+size = Vector2(14, 18)
+
+[node name="Toilet" type="StaticBody2D"]
+position = Vector2(847, 145)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oviie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0v34t")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_1unae")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_vwxda")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcuy4a582pvrh"]
+
+[ext_resource type="Texture2D" uid="uid://ce1f35obru2ax" path="res://assets/props/poempel.png" id="1_lbdwv"]
+
+[node name="Poempel" type="StaticBody2D"]
+position = Vector2(837, 140)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lbdwv")

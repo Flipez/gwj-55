@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://buxc0ktdnelu"]
+
+[ext_resource type="Texture2D" uid="uid://cl083hsgvsov7" path="res://assets/props/toilet_paper_roll.png" id="1_fw3wq"]
+
+[node name="ToiletPaperRoll" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fw3wq")

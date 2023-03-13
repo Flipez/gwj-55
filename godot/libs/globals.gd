@@ -8,3 +8,6 @@ func _ready():
 	
 func _debug_signal(payload):
 	print_debug(payload)
+
+func chat(message : String):
+	Globals.emit_signal("initiate_chat", message)

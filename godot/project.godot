@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://libs/globals.gd"
+InteractionHandler="*res://libs/interaction_handler.gd"
 
 [display]
 
