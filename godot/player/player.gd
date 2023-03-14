@@ -31,7 +31,7 @@ func _physics_process(delta):
 		RUN:	
 			run_state(delta)
 	
-func run_state(delta):
+func run_state(_delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -88,4 +88,5 @@ func _play_animation(animation_type: String) -> void:
 	animated_sprite.play(animation_name)
 
 func _on_interaction_area_area_entered(area):
+	print_debug(area)
 	InteractionHandler.interact(area.interaction_id)

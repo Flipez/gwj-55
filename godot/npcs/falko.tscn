@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://5tf14h8epbiy"]
+
+[ext_resource type="PackedScene" uid="uid://bg33505x82d35" path="res://npcs/npc.tscn" id="1_cd77q"]
+
+[node name="Falko" instance=ExtResource("1_cd77q")]
+
+[node name="Name" parent="." index="0"]
+text = "Falko"
+
+[node name="InteractionArea2" parent="." index="3"]
+interaction_id = "FAL"

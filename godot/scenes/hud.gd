@@ -12,8 +12,9 @@ func _ready():
 	Globals.connect("update_journal", _update_journal)
 	Globals.connect("initiate_chat", _start_chat)
 	Globals.connect("continue_chat", _append_message)
+	Globals.connect("abort_chat", _abort_chat)
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _update_journal(_msg):
@@ -33,8 +34,7 @@ func _on_button_pressed():
 
 func _on_next_text_pressed():
 	if len(message_queue) == 0:
-		chat.hide()
-		chatbox.text = ""
+		_abort_chat()
 	else:
 		var msg = message_queue.pop_front()
 		chatbox.text = "[b]%s[/b]: " % msg[0]
@@ -46,6 +46,11 @@ func _start_chat(speaker : String, message : String):
 	chat.show()
 	chatbox.text = "[b]%s[/b]: " % speaker
 	chatbox.text += message
+
+func _abort_chat():
+	message_queue.clear()
+	chat.hide()
+	chatbox.text = ""
 
 func _append_message(speaker : String, message : String):
 	message_queue.push_back([speaker, message])
