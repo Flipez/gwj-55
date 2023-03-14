@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://nlnf7gqbqkge"]
+[gd_scene load_steps=9 format=3 uid="uid://nlnf7gqbqkge"]
 
+[ext_resource type="Script" path="res://props/office/desk_normal.gd" id="1_f4u5g"]
 [ext_resource type="Texture2D" uid="uid://l3hiea671rj" path="res://assets/props/corner_desk/right_normal.png" id="1_jcumj"]
 [ext_resource type="Texture2D" uid="uid://payvmhg35fjo" path="res://assets/props/desk_stuff_2.png" id="2_3f278"]
 [ext_resource type="Texture2D" uid="uid://dftstq4fdd1yy" path="res://assets/props/desk_chair_1_back.png" id="3_htffc"]
 [ext_resource type="Texture2D" uid="uid://ta6abvqsxob0" path="res://assets/props/desk_lamp.png" id="4_qxb00"]
+[ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="6_eegm5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0502y"]
 size = Vector2(48, 19)
@@ -13,6 +15,7 @@ size = Vector2(16, 21)
 
 [node name="CornerDeskRightNormal" type="StaticBody2D"]
 position = Vector2(-24, 8)
+script = ExtResource("1_f4u5g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jcumj")
@@ -37,3 +40,8 @@ shape = SubResource("RectangleShape2D_0502y")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(16, 9.5)
 shape = SubResource("RectangleShape2D_y2tme")
+
+[node name="InteractionArea" parent="." instance=ExtResource("6_eegm5")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+polygon = PackedVector2Array(24, 20, 6, 20, 6, 1, -24, 1, -24, -20, 24, -20)

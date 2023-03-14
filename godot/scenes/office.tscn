@@ -36430,6 +36430,7 @@ position = Vector2(316, 334)
 texture = ExtResource("11_sq22c")
 
 [node name="Plant1" parent="Tiles/ConferenceRoom1" instance=ExtResource("13_7paim")]
+interaction_id = "P00"
 
 [node name="CouchArea" type="Node2D" parent="Tiles"]
 position = Vector2(240, 152)
@@ -36440,6 +36441,7 @@ position = Vector2(240, 152)
 
 [node name="Plant1" parent="Tiles/CouchArea" instance=ExtResource("27_li6ah")]
 position = Vector2(72, -8)
+interaction_id = "P00"
 
 [node name="Couch" parent="Tiles/CouchArea" instance=ExtResource("18_m2600")]
 
@@ -36452,6 +36454,7 @@ position = Vector2(952, 40)
 
 [node name="Plant1" parent="Tiles/CouchArea2" instance=ExtResource("27_li6ah")]
 position = Vector2(-16, 32)
+interaction_id = "P00"
 
 [node name="Table" parent="Tiles/CouchArea2" instance=ExtResource("15_ivxmn")]
 
@@ -36548,9 +36551,11 @@ texture = ExtResource("18_gydbe")
 
 [node name="Plant1" parent="Tiles/LogoArea" instance=ExtResource("13_7paim")]
 position = Vector2(232, 256)
+interaction_id = "P00"
 
 [node name="Plant2" parent="Tiles/LogoArea" instance=ExtResource("27_li6ah")]
 position = Vector2(344, 256)
+interaction_id = "P00"
 
 [node name="ConferenceRoom2" type="Node2D" parent="Tiles"]
 position = Vector2(448, -304)
@@ -36599,6 +36604,7 @@ position = Vector2(512, 464)
 
 [node name="Plant1" parent="Tiles/OpenOffice2" instance=ExtResource("13_7paim")]
 position = Vector2(536, 464)
+interaction_id = "P00"
 
 [node name="CornerDeskRightUpside2" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(644, 352)
@@ -36710,6 +36716,7 @@ position = Vector2(979, 288)
 
 [node name="Plant2" parent="Tiles/OpenOffice2" instance=ExtResource("13_7paim")]
 position = Vector2(999, 287)
+interaction_id = "P00"
 
 [node name="InterviewRoom" type="Node2D" parent="Tiles/OpenOffice2"]
 
@@ -36738,6 +36745,7 @@ texture = ExtResource("22_uhpob")
 
 [node name="Plant2" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("13_7paim")]
 position = Vector2(1048, 384)
+interaction_id = "P00"
 
 [node name="ChairBlackBack" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("23_bqsoi")]
 
@@ -36777,6 +36785,7 @@ texture = ExtResource("26_3fin3")
 
 [node name="Plant1" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("27_li6ah")]
 position = Vector2(1120, 480)
+interaction_id = "P00"
 
 [node name="Whiteboard1" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("28_e0i4w")]
 position = Vector2(1091, 466)
@@ -36785,6 +36794,7 @@ position = Vector2(1091, 466)
 
 [node name="CornerDeskLeftNormal" parent="Tiles/OfficeRightMiddle" instance=ExtResource("2_28je1")]
 position = Vector2(1232, 160)
+interaction_id = "D00"
 
 [node name="CornerDeskRightNormal" parent="Tiles/OfficeRightMiddle" instance=ExtResource("4_w0sc1")]
 position = Vector2(1184, 160)
