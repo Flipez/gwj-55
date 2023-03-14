@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=54 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://bggexf2itluku" path="res://props/toilet_open.tscn" id="45_h3se4"]
 [ext_resource type="Texture2D" uid="uid://cb7qign5gwgwx" path="res://assets/props/tissue_box.png" id="46_r1ugf"]
 [ext_resource type="Texture2D" uid="uid://un0gkl1brtne" path="res://assets/props/pee.png" id="48_yxoxu"]
+[ext_resource type="PackedScene" uid="uid://6qxh46dxjnq6" path="res://player/npc.tscn" id="49_1826u"]
 [ext_resource type="PackedScene" uid="uid://byukqm682xubo" path="res://props/toilet_door.tscn" id="49_xc74u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
@@ -36334,7 +36335,9 @@ sources/3 = SubResource("TileSetAtlasSource_h04x6")
 
 [node name="Office" type="Node2D"]
 
-[node name="WallsAndFloor" type="TileMap" parent="."]
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="WallsAndFloor" type="TileMap" parent="Tiles"]
 tile_set = SubResource("TileSet_ib3n7")
 format = 2
 layer_0/name = "Ground"
@@ -36347,698 +36350,703 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(458771, 1507329, 26, 458770, 1507329, 26, 458769, 1507329, 26, 458768, 1507329, 26, 458767, 1507329, 26, 458766, 1507329, 26, 458765, 1441793, 26, 458761, 1572865, 26, 458760, 1507329, 26, 458759, 1507329, 26, 458758, 1507329, 26, 458757, 1507329, 26, 458756, 1507329, 26, 458755, 1507329, 26, 458754, 1507329, 26, 458753, 1507329, 26, 458752, 1507329, 26, 917504, 983041, 2, 917505, 983041, 2, 917506, 983041, 2, 917507, 983041, 2, 917508, 1048577, 2, 917509, 1507329, 26, 917510, 1507329, 26, 917511, 1507329, 26, 917512, 1507329, 26, 917513, 917505, 0, 917517, 1441793, 26, 917518, 1507329, 26, 917519, 1507329, 26, 917520, 1507329, 26, 917521, 1507329, 26, 917522, 1507329, 26, 917523, 1507329, 26, 983040, 983041, 3, 983041, 983041, 3, 983042, 983041, 3, 983043, 983041, 3, 1048579, 983041, 3, 1114115, 983041, 3, 1179651, 983041, 3, 1179650, 983041, 3, 1179649, 983041, 3, 1179648, 983041, 3, 1114112, 983041, 3, 1048576, 983041, 3, 1048577, 983041, 3, 1114113, 983041, 3, 1048578, 983041, 3, 1114114, 983041, 3, 983044, 1048577, 3, 1048580, 1048577, 3, 1114116, 1048577, 3, 1179652, 1048577, 3, 1245184, 1507329, 26, 1245185, 1507329, 26, 1245186, 1507329, 26, 1245187, 1507329, 26, 1245188, 1572865, 26, 1507332, 524289, 2, 1245198, 524289, 2, 1245202, 1048577, 0, 2097166, 524289, 2, 1245203, 1507329, 26, 1245204, 1507329, 26, 1245205, 1507329, 26, 1245206, 1507329, 26, 1245207, 1507329, 26, 1245208, 1507329, 26, 1245209, 1507329, 26, 1245210, 1572865, 26, 1245214, 1441793, 26, 1245215, 1507329, 26, 1245216, 1507329, 26, 1245218, 1507329, 26, 1245219, 1507329, 26, 1245220, 1507329, 26, 1245221, 1507329, 26, 1245222, 1507329, 26, 1245223, 1507329, 26, 1245224, 1507329, 26, 1245225, 1507329, 26, 1245226, 1507329, 26, 1769493, 1507329, 26, 1769492, 1507329, 26, 1769491, 1507329, 26, 1769495, 983041, 0, 1769494, 1507329, 26, 1769496, 1507329, 26, 1769497, 1507329, 26, 1769498, 1507329, 26, 1769499, 1507329, 26, 1769500, 1507329, 26, 1769501, 1507329, 26, 1769502, 1507329, 26, 1769503, 1507329, 26, 1769504, 1507329, 26, 1769505, 1572865, 26, 1245217, 983041, 0, 917525, 1507329, 26, 917526, 1572865, 26, 917532, 1507329, 26, 917533, 1507329, 26, 917534, 1507329, 26, 917535, 1507329, 26, 917536, 1507329, 26, 917537, 1507329, 26, 917538, 1507329, 26, 917539, 1507329, 26, 917540, 1507329, 26, 917541, 1507329, 26, 917542, 1507329, 26, 917543, 1507329, 26, 917544, 1507329, 26, 917545, 1507329, 26, 917546, 1507329, 26, 917531, 1507329, 26, 23, 65537, 10, 24, 65537, 10, 25, 65537, 10, 26, 65537, 10, 27, 65537, 10, 28, 65537, 10, 29, 65537, 10, 30, 65537, 10, 31, 65537, 10, 32, 65537, 10, 33, 65537, 10, 34, 65537, 10, 35, 65537, 10, 36, 65537, 10, 37, 65537, 10, 38, 65537, 10, 39, 65537, 10, 40, 65537, 10, 41, 65537, 10, 42, 65537, 10, 43, 65537, 10, 44, 65537, 10, 45, 65537, 10, 47, 65537, 10, 48, 65537, 10, 49, 65537, 10, 917547, 1507329, 26, 917548, 1507329, 26, 917549, 1507329, 26, 50, 65537, 10, 51, 65537, 10, 52, 65537, 10, 53, 65537, 10, 54, 65537, 10, 55, 65537, 10, 56, 65537, 10, 458808, 1507329, 20, 458807, 1507329, 20, 458806, 983041, 0, 458805, 1507329, 20, 458804, 1507329, 20, 458803, 983041, 0, 458802, 1441793, 26, 1245227, 1507329, 26, 1245228, 1507329, 26, 1245229, 1507329, 26, 1245230, 1507329, 26, 1245231, 1507329, 26, 1245232, 1507329, 26, 1245233, 1507329, 26, 1245234, 1507329, 26, 1245235, 1507329, 26, 1245236, 1507329, 26, 1245237, 1507329, 26, 1245238, 1507329, 26, 1245239, 1507329, 26, 1245240, 1507329, 26, 1245241, 1507329, 26, 1048634, 1048577, 0, 1048635, 1507329, 26, 1048636, 1507329, 26, 1048637, 1507329, 26, 1048638, 1507329, 26, 1048639, 1507329, 26, 58, 65537, 10, 59, 65537, 10, 60, 65537, 10, 61, 65537, 10, 62, 65537, 10, 63, 65537, 10, 64, 65537, 10, 65, 65537, 10, 66, 65537, 10, 67, 65537, 10, 393278, 1048577, 0, 393279, 1507329, 26, 393280, 1572865, 26, 393283, 1441793, 26, 393284, 1507329, 26, 1048640, 917505, 0, 1441857, 1507329, 26, 1441858, 1507329, 26, 1441859, 1507329, 26, 1441860, 1507329, 26, 1835076, 1507329, 26, 1835075, 1507329, 26, 1835074, 1507329, 26, 1835073, 1507329, 26, 2097216, 524289, 2, 1835072, 1441793, 26, 2228247, 983041, 2, 2228248, 983041, 2, 2228249, 983041, 2, 2228250, 983041, 2, 2228251, 983041, 2, 2228252, 983041, 2, 2228253, 983041, 2, 2228254, 983041, 2, 2228262, 983041, 2, 2228263, 983041, 2, 2228255, 983041, 2, 2228256, 983041, 2, 2228257, 983041, 2, 2228258, 983041, 2, 2228259, 983041, 2, 2228260, 983041, 2, 2228261, 983041, 2, 2228264, 983041, 2, 2228265, 983041, 2, 2228266, 983041, 2, 2228267, 983041, 2, 2228268, 983041, 2, 2228269, 983041, 2, 2228270, 983041, 2, 2228271, 983041, 2, 2228272, 983041, 2, 2228273, 983041, 2, 2228274, 983041, 2, 2228275, 983041, 2, 2228276, 983041, 2, 2228277, 983041, 2, 2228278, 983041, 2, 2228279, 983041, 2, 2228280, 983041, 2, 2228246, 983041, 2, 2228245, 983041, 2, 2228244, 983041, 2, 2228243, 983041, 2, 2228242, 983041, 2, 2228241, 983041, 2, 2228281, 983041, 2, 2228282, 983041, 2, 2228283, 983041, 2, 2228284, 983041, 2, 2228285, 983041, 2, 2228286, 983041, 2, 2228287, 983041, 2, 2228288, 983041, 2, 2228240, 983041, 2, 2228239, 983041, 2, 2228238, 983041, 2, 2228237, 983041, 2, 2228236, 983041, 2, 2228235, 983041, 2, 2228234, 983041, 2, 2228233, 983041, 2, 2228232, 983041, 2, 2228231, 983041, 2, 2228230, 983041, 2, 2228229, 983041, 2, 2228228, 983041, 2, 2228227, 983041, 2, 2228226, 983041, 2, 2228225, 983041, 2, 2228224, 983041, 2, 1376320, 524289, 2, 2097221, 524289, 2, 2228290, 983041, 2, 2228291, 983041, 2, 2228289, 983041, 2, 2228292, 983041, 2, 2228293, 983041, 2, 2228294, 983041, 2, 2228295, 983041, 2, 2228296, 983041, 2, 2228297, 983041, 2, 2228298, 983041, 2, 1835077, 1507329, 26, 1835078, 1507329, 26, 1835079, 1507329, 26, 1835080, 1507329, 26, 1835081, 1507329, 26, 2228299, 983041, 2, 2228300, 983041, 2, 2228301, 983041, 2, 2228302, 983041, 2, 2228303, 983041, 2, 79, 917505, 0, 78, 65537, 10, 77, 65537, 10, 76, 65537, 10, 75, 65537, 10, 74, 65537, 10, 73, 65537, 10, 72, 65537, 10, 71, 65537, 10, 70, 65537, 10, 69, 917505, 0, 1376325, 524289, 2, 1048645, 524289, 2, 1114181, 1441793, 26, 1114182, 1507329, 26, 1114183, 1507329, 26, 1114184, 1507329, 26, 1114185, 1507329, 26, 1114186, 917505, 2, 1114187, 983041, 2, 1114190, 983041, 2, 1179722, 917505, 3, 1245258, 917505, 3, 1310794, 917505, 3, 1376330, 917505, 3, 1114188, 983041, 2, 1114189, 983041, 2, 68, 65537, 10, 720963, 1507329, 26, 720964, 1507329, 26, 720965, 917505, 0, 458830, 1507329, 26, 458829, 1507329, 26, 458828, 1507329, 26, 458827, 1507329, 26, 458826, 1507329, 26, 458825, 1507329, 26, 458824, 1507329, 26, 458823, 1507329, 26, 458822, 1507329, 26, 327749, 524289, 2, 720949, 1441793, 26, 720952, 1441793, 26)
 
-[node name="Elevator" type="Sprite2D" parent="WallsAndFloor"]
+[node name="Elevator" type="Sprite2D" parent="Tiles/WallsAndFloor"]
 z_index = 1
 position = Vector2(36, 323)
 texture = ExtResource("3_t5ms7")
 
-[node name="Elevator2" type="Sprite2D" parent="WallsAndFloor"]
+[node name="Elevator2" type="Sprite2D" parent="Tiles/WallsAndFloor"]
 z_index = 1
 position = Vector2(1225, 371)
 texture = ExtResource("3_t5ms7")
 
-[node name="OfficeTopLeft" type="Node2D" parent="."]
+[node name="OfficeTopLeft" type="Node2D" parent="Tiles"]
 
-[node name="CornerDeskLeftNormal" parent="OfficeTopLeft" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal" parent="Tiles/OfficeTopLeft" instance=ExtResource("2_28je1")]
 position = Vector2(24, 40)
 
-[node name="CornerDeskLeftNormal2" parent="OfficeTopLeft" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal2" parent="Tiles/OfficeTopLeft" instance=ExtResource("2_28je1")]
 position = Vector2(120, 40)
 
-[node name="CornerDeskLeftNormal3" parent="OfficeTopLeft" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal3" parent="Tiles/OfficeTopLeft" instance=ExtResource("2_28je1")]
 position = Vector2(248, 40)
 
-[node name="CornerDeskLeftUpside" parent="OfficeTopLeft" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside" parent="Tiles/OfficeTopLeft" instance=ExtResource("3_l75j3")]
 position = Vector2(24, 104)
 
-[node name="CornerDeskLeftUpside2" parent="OfficeTopLeft" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside2" parent="Tiles/OfficeTopLeft" instance=ExtResource("3_l75j3")]
 position = Vector2(120, 104)
 
-[node name="CornerDeskLeftUpside3" parent="OfficeTopLeft" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside3" parent="Tiles/OfficeTopLeft" instance=ExtResource("3_l75j3")]
 position = Vector2(248, 104)
 
-[node name="CornerDeskRightNormal" parent="OfficeTopLeft" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal" parent="Tiles/OfficeTopLeft" instance=ExtResource("4_w0sc1")]
 position = Vector2(72, 40)
 
-[node name="CornerDeskRightNormal2" parent="OfficeTopLeft" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal2" parent="Tiles/OfficeTopLeft" instance=ExtResource("4_w0sc1")]
 position = Vector2(200, 40)
 
-[node name="CornerDeskRightNormal3" parent="OfficeTopLeft" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal3" parent="Tiles/OfficeTopLeft" instance=ExtResource("4_w0sc1")]
 position = Vector2(296, 40)
 
-[node name="CornerDeskRightUpside" parent="OfficeTopLeft" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside" parent="Tiles/OfficeTopLeft" instance=ExtResource("5_ivkia")]
 position = Vector2(72, 104)
 
-[node name="CornerDeskRightUpside2" parent="OfficeTopLeft" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside2" parent="Tiles/OfficeTopLeft" instance=ExtResource("5_ivkia")]
 position = Vector2(296, 104)
 
-[node name="Shelf" parent="OfficeTopLeft" instance=ExtResource("8_6gk6s")]
+[node name="Shelf" parent="Tiles/OfficeTopLeft" instance=ExtResource("8_6gk6s")]
 
-[node name="OfficeBelowTopLeft" type="Node2D" parent="."]
+[node name="OfficeBelowTopLeft" type="Node2D" parent="Tiles"]
 
-[node name="CornerDeskLeftNormal" parent="OfficeBelowTopLeft" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal" parent="Tiles/OfficeBelowTopLeft" instance=ExtResource("2_28je1")]
 position = Vector2(72, 161)
 
-[node name="CornerDeskRightNormal" parent="OfficeBelowTopLeft" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal" parent="Tiles/OfficeBelowTopLeft" instance=ExtResource("4_w0sc1")]
 position = Vector2(136, 161)
 
-[node name="CornerDeskRightNormal2" parent="OfficeBelowTopLeft" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal2" parent="Tiles/OfficeBelowTopLeft" instance=ExtResource("4_w0sc1")]
 position = Vector2(24, 161)
 
-[node name="ConferenceRoom1" type="Node2D" parent="."]
+[node name="ConferenceRoom1" type="Node2D" parent="Tiles"]
 
-[node name="Conference Table" parent="ConferenceRoom1" instance=ExtResource("8_cm6yu")]
+[node name="Conference Table" parent="Tiles/ConferenceRoom1" instance=ExtResource("8_cm6yu")]
 
-[node name="Sprite2D" type="Sprite2D" parent="ConferenceRoom1"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/ConferenceRoom1"]
 z_index = 1
 position = Vector2(383, 322)
 texture = ExtResource("9_ttct5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ConferenceRoom1"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/ConferenceRoom1"]
 z_index = 1
 position = Vector2(352, 322)
 texture = ExtResource("10_lej0r")
 
-[node name="TrashCan" type="StaticBody2D" parent="ConferenceRoom1"]
+[node name="TrashCan" type="StaticBody2D" parent="Tiles/ConferenceRoom1"]
 position = Vector2(316, 334)
 
-[node name="Sprite2D" type="Sprite2D" parent="ConferenceRoom1/TrashCan"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/ConferenceRoom1/TrashCan"]
 texture = ExtResource("11_sq22c")
 
-[node name="Plant1" parent="ConferenceRoom1" instance=ExtResource("13_7paim")]
+[node name="Plant1" parent="Tiles/ConferenceRoom1" instance=ExtResource("13_7paim")]
 
-[node name="CouchArea" type="Node2D" parent="."]
+[node name="CouchArea" type="Node2D" parent="Tiles"]
 position = Vector2(240, 152)
 
-[node name="Soda" parent="CouchArea" instance=ExtResource("15_spt2m")]
+[node name="Soda" parent="Tiles/CouchArea" instance=ExtResource("15_spt2m")]
 
-[node name="Table" parent="CouchArea" instance=ExtResource("15_ivxmn")]
+[node name="Table" parent="Tiles/CouchArea" instance=ExtResource("15_ivxmn")]
 
-[node name="Plant1" parent="CouchArea" instance=ExtResource("27_li6ah")]
+[node name="Plant1" parent="Tiles/CouchArea" instance=ExtResource("27_li6ah")]
 position = Vector2(72, -8)
 
-[node name="Couch" parent="CouchArea" instance=ExtResource("18_m2600")]
+[node name="Couch" parent="Tiles/CouchArea" instance=ExtResource("18_m2600")]
 
-[node name="CouchArea2" type="Node2D" parent="."]
+[node name="CouchArea2" type="Node2D" parent="Tiles"]
 position = Vector2(952, 40)
 
-[node name="Couch" parent="CouchArea2" instance=ExtResource("18_m2600")]
+[node name="Couch" parent="Tiles/CouchArea2" instance=ExtResource("18_m2600")]
 
-[node name="Soda" parent="CouchArea2" instance=ExtResource("15_spt2m")]
+[node name="Soda" parent="Tiles/CouchArea2" instance=ExtResource("15_spt2m")]
 
-[node name="Plant1" parent="CouchArea2" instance=ExtResource("27_li6ah")]
+[node name="Plant1" parent="Tiles/CouchArea2" instance=ExtResource("27_li6ah")]
 position = Vector2(-16, 32)
 
-[node name="Table" parent="CouchArea2" instance=ExtResource("15_ivxmn")]
+[node name="Table" parent="Tiles/CouchArea2" instance=ExtResource("15_ivxmn")]
 
-[node name="OpenOffice1" type="Node2D" parent="."]
+[node name="OpenOffice1" type="Node2D" parent="Tiles"]
 
-[node name="CornerDeskLeftUpside" parent="OpenOffice1" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside" parent="Tiles/OpenOffice1" instance=ExtResource("3_l75j3")]
 position = Vector2(360, 56)
 
-[node name="CornerDeskLeftUpside2" parent="OpenOffice1" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside2" parent="Tiles/OpenOffice1" instance=ExtResource("3_l75j3")]
 position = Vector2(360, 136)
 
-[node name="CornerDeskLeftNormal" parent="OpenOffice1" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal" parent="Tiles/OpenOffice1" instance=ExtResource("2_28je1")]
 position = Vector2(360, 91)
 
-[node name="CornerDeskLeftNormal2" parent="OpenOffice1" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal2" parent="Tiles/OpenOffice1" instance=ExtResource("2_28je1")]
 position = Vector2(360, 171)
 
-[node name="CornerDeskRightNormal" parent="OpenOffice1" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal" parent="Tiles/OpenOffice1" instance=ExtResource("4_w0sc1")]
 position = Vector2(448, 48)
 
-[node name="CornerDeskRightNormal2" parent="OpenOffice1" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal2" parent="Tiles/OpenOffice1" instance=ExtResource("4_w0sc1")]
 position = Vector2(576, 48)
 
-[node name="CornerDeskLeftNormal3" parent="OpenOffice1" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal3" parent="Tiles/OpenOffice1" instance=ExtResource("2_28je1")]
 position = Vector2(496, 48)
 
-[node name="CornerDeskLeftNormal4" parent="OpenOffice1" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal4" parent="Tiles/OpenOffice1" instance=ExtResource("2_28je1")]
 position = Vector2(624, 48)
 
-[node name="CornerDeskRightNormal3" parent="OpenOffice1" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal3" parent="Tiles/OpenOffice1" instance=ExtResource("4_w0sc1")]
 position = Vector2(713, 48)
 
-[node name="Shelf" parent="OpenOffice1" instance=ExtResource("8_6gk6s")]
+[node name="Shelf" parent="Tiles/OpenOffice1" instance=ExtResource("8_6gk6s")]
 position = Vector2(536, 32)
 
-[node name="Shelf2" parent="OpenOffice1" instance=ExtResource("8_6gk6s")]
+[node name="Shelf2" parent="Tiles/OpenOffice1" instance=ExtResource("8_6gk6s")]
 position = Vector2(669, 32)
 
-[node name="Shelf3" parent="OpenOffice1" instance=ExtResource("8_6gk6s")]
+[node name="Shelf3" parent="Tiles/OpenOffice1" instance=ExtResource("8_6gk6s")]
 position = Vector2(504, 224)
 
-[node name="CornerDeskLeftUpside3" parent="OpenOffice1" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside3" parent="Tiles/OpenOffice1" instance=ExtResource("3_l75j3")]
 position = Vector2(516, 110)
 
-[node name="CornerDeskLeftUpside4" parent="OpenOffice1" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside4" parent="Tiles/OpenOffice1" instance=ExtResource("3_l75j3")]
 position = Vector2(612, 110)
 
-[node name="CornerDeskRightUpside" parent="OpenOffice1" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside" parent="Tiles/OpenOffice1" instance=ExtResource("5_ivkia")]
 position = Vector2(564, 110)
 
-[node name="CornerDeskRightUpside2" parent="OpenOffice1" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside2" parent="Tiles/OpenOffice1" instance=ExtResource("5_ivkia")]
 position = Vector2(468, 110)
 
-[node name="CornerDeskRightNormal4" parent="OpenOffice1" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal4" parent="Tiles/OpenOffice1" instance=ExtResource("4_w0sc1")]
 position = Vector2(468, 150)
 
-[node name="CornerDeskRightNormal5" parent="OpenOffice1" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal5" parent="Tiles/OpenOffice1" instance=ExtResource("4_w0sc1")]
 position = Vector2(564, 150)
 
-[node name="CornerDeskLeftNormal5" parent="OpenOffice1" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal5" parent="Tiles/OpenOffice1" instance=ExtResource("2_28je1")]
 position = Vector2(516, 150)
 
-[node name="CornerDeskLeftNormal6" parent="OpenOffice1" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal6" parent="Tiles/OpenOffice1" instance=ExtResource("2_28je1")]
 position = Vector2(612, 150)
 
-[node name="CornerDeskLeftUpside5" parent="OpenOffice1" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside5" parent="Tiles/OpenOffice1" instance=ExtResource("3_l75j3")]
 position = Vector2(464, 216)
 
-[node name="CornerDeskLeftUpside6" parent="OpenOffice1" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside6" parent="Tiles/OpenOffice1" instance=ExtResource("3_l75j3")]
 position = Vector2(592, 216)
 
-[node name="CornerDeskRightUpside3" parent="OpenOffice1" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside3" parent="Tiles/OpenOffice1" instance=ExtResource("5_ivkia")]
 position = Vector2(544, 216)
 
-[node name="CornerDeskRightUpside4" parent="OpenOffice1" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside4" parent="Tiles/OpenOffice1" instance=ExtResource("5_ivkia")]
 position = Vector2(713, 88)
 
-[node name="CornerDeskRightUpside5" parent="OpenOffice1" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside5" parent="Tiles/OpenOffice1" instance=ExtResource("5_ivkia")]
 position = Vector2(713, 165)
 
-[node name="CornerDeskRightNormal6" parent="OpenOffice1" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal6" parent="Tiles/OpenOffice1" instance=ExtResource("4_w0sc1")]
 position = Vector2(713, 123)
 
-[node name="CornerDeskRightNormal7" parent="OpenOffice1" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal7" parent="Tiles/OpenOffice1" instance=ExtResource("4_w0sc1")]
 position = Vector2(713, 200)
 
-[node name="LogoArea" type="Node2D" parent="."]
+[node name="LogoArea" type="Node2D" parent="Tiles"]
 
-[node name="Logo" type="Sprite2D" parent="LogoArea"]
+[node name="Logo" type="Sprite2D" parent="Tiles/LogoArea"]
 z_index = 1
 position = Vector2(286, 241)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("18_gydbe")
 
-[node name="Plant1" parent="LogoArea" instance=ExtResource("13_7paim")]
+[node name="Plant1" parent="Tiles/LogoArea" instance=ExtResource("13_7paim")]
 position = Vector2(232, 256)
 
-[node name="Plant2" parent="LogoArea" instance=ExtResource("27_li6ah")]
+[node name="Plant2" parent="Tiles/LogoArea" instance=ExtResource("27_li6ah")]
 position = Vector2(344, 256)
 
-[node name="ConferenceRoom2" type="Node2D" parent="."]
+[node name="ConferenceRoom2" type="Node2D" parent="Tiles"]
 position = Vector2(448, -304)
 
-[node name="Conference Table" parent="ConferenceRoom2" instance=ExtResource("8_cm6yu")]
+[node name="Conference Table" parent="Tiles/ConferenceRoom2" instance=ExtResource("8_cm6yu")]
 position = Vector2(384, 392)
 
-[node name="Sprite2D" type="Sprite2D" parent="ConferenceRoom2"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/ConferenceRoom2"]
 z_index = 1
 position = Vector2(383, 322)
 texture = ExtResource("9_ttct5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ConferenceRoom2"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/ConferenceRoom2"]
 z_index = 1
 position = Vector2(352, 322)
 texture = ExtResource("10_lej0r")
 
-[node name="OpenOffice2" type="Node2D" parent="."]
+[node name="OpenOffice2" type="Node2D" parent="Tiles"]
 
-[node name="CornerDeskLeftNormal" parent="OpenOffice2" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal" parent="Tiles/OpenOffice2" instance=ExtResource("2_28je1")]
 position = Vector2(408, 480)
 
-[node name="CornerDeskLeftUpside" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(408, 536)
 
-[node name="CornerDeskLeftUpside3" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside3" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(568, 352)
 
-[node name="CornerDeskLeftUpside2" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside2" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(536, 536)
 
-[node name="CornerDeskRightUpside" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(488, 536)
 
-[node name="Shelf" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(448, 544)
 
-[node name="Shelf2" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf2" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(448, 464)
 
-[node name="Shelf3" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf3" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(480, 464)
 
-[node name="Shelf4" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf4" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(512, 464)
 
-[node name="Plant1" parent="OpenOffice2" instance=ExtResource("13_7paim")]
+[node name="Plant1" parent="Tiles/OpenOffice2" instance=ExtResource("13_7paim")]
 position = Vector2(536, 464)
 
-[node name="CornerDeskRightUpside2" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside2" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(644, 352)
 
-[node name="CornerDeskRightUpside3" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside3" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(768, 352)
 
-[node name="CornerDeskRightUpside4" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside4" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(892, 352)
 
-[node name="CornerDeskLeftUpside4" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside4" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(692, 352)
 
-[node name="CornerDeskLeftUpside5" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside5" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(816, 352)
 
-[node name="CornerDeskLeftUpside6" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside6" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(940, 352)
 
-[node name="CornerDeskLeftNormal2" parent="OpenOffice2" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal2" parent="Tiles/OpenOffice2" instance=ExtResource("2_28je1")]
 position = Vector2(568, 387)
 
-[node name="CornerDeskLeftNormal3" parent="OpenOffice2" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal3" parent="Tiles/OpenOffice2" instance=ExtResource("2_28je1")]
 position = Vector2(692, 387)
 
-[node name="CornerDeskRightNormal" parent="OpenOffice2" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal" parent="Tiles/OpenOffice2" instance=ExtResource("4_w0sc1")]
 position = Vector2(644, 387)
 
-[node name="CornerDeskRightNormal2" parent="OpenOffice2" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal2" parent="Tiles/OpenOffice2" instance=ExtResource("4_w0sc1")]
 position = Vector2(768, 387)
 
-[node name="CornerDeskLeftNormal4" parent="OpenOffice2" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal4" parent="Tiles/OpenOffice2" instance=ExtResource("2_28je1")]
 position = Vector2(816, 387)
 
-[node name="CornerDeskRightNormal3" parent="OpenOffice2" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal3" parent="Tiles/OpenOffice2" instance=ExtResource("4_w0sc1")]
 position = Vector2(892, 387)
 
-[node name="CornerDeskLeftNormal5" parent="OpenOffice2" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal5" parent="Tiles/OpenOffice2" instance=ExtResource("2_28je1")]
 position = Vector2(940, 387)
 
-[node name="CornerDeskRightUpside6" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside6" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(768, 422)
 
-[node name="CornerDeskRightUpside7" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside7" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(892, 422)
 
-[node name="CornerDeskLeftUpside7" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside7" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(692, 422)
 
-[node name="CornerDeskLeftUpside8" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside8" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(816, 422)
 
-[node name="CornerDeskRightUpside5" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside5" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(644, 422)
 
-[node name="CornerDeskLeftUpside9" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside9" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(940, 422)
 
-[node name="CornerDeskRightUpside8" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside8" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(768, 536)
 
-[node name="CornerDeskRightUpside9" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside9" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(892, 536)
 
-[node name="CornerDeskLeftUpside10" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside10" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(692, 536)
 
-[node name="CornerDeskLeftUpside11" parent="OpenOffice2" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside11" parent="Tiles/OpenOffice2" instance=ExtResource("3_l75j3")]
 position = Vector2(816, 536)
 
-[node name="CornerDeskRightUpside10" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside10" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(644, 536)
 
-[node name="CornerDeskRightUpside11" parent="OpenOffice2" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside11" parent="Tiles/OpenOffice2" instance=ExtResource("5_ivkia")]
 position = Vector2(1000, 536)
 
-[node name="Shelf5" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf5" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(648, 440)
 
-[node name="Shelf6" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf6" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(680, 440)
 
-[node name="Shelf7" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf7" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(760, 440)
 
-[node name="Shelf8" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf8" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(792, 440)
 
-[node name="Shelf9" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf9" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(824, 440)
 
-[node name="Shelf10" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf10" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(904, 440)
 
-[node name="Shelf11" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf11" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(936, 440)
 
-[node name="Shelf12" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf12" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(960, 544)
 
-[node name="Shelf13" parent="OpenOffice2" instance=ExtResource("8_6gk6s")]
+[node name="Shelf13" parent="Tiles/OpenOffice2" instance=ExtResource("8_6gk6s")]
 position = Vector2(932, 544)
 
-[node name="Soda" parent="OpenOffice2" instance=ExtResource("15_spt2m")]
+[node name="Soda" parent="Tiles/OpenOffice2" instance=ExtResource("15_spt2m")]
 position = Vector2(956, 288)
 
-[node name="Soda2" parent="OpenOffice2" instance=ExtResource("15_spt2m")]
+[node name="Soda2" parent="Tiles/OpenOffice2" instance=ExtResource("15_spt2m")]
 position = Vector2(979, 288)
 
-[node name="Plant2" parent="OpenOffice2" instance=ExtResource("13_7paim")]
+[node name="Plant2" parent="Tiles/OpenOffice2" instance=ExtResource("13_7paim")]
 position = Vector2(999, 287)
 
-[node name="InterviewRoom" type="Node2D" parent="OpenOffice2"]
+[node name="InterviewRoom" type="Node2D" parent="Tiles/OpenOffice2"]
 
-[node name="ChairBlackFront" parent="OpenOffice2/InterviewRoom" instance=ExtResource("20_vvr5u")]
+[node name="ChairBlackFront" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("20_vvr5u")]
 position = Vector2(1080, 400)
 
-[node name="InterviewTable" type="StaticBody2D" parent="OpenOffice2/InterviewRoom"]
+[node name="InterviewTable" type="StaticBody2D" parent="Tiles/OpenOffice2/InterviewRoom"]
 position = Vector2(1080, 416)
 
-[node name="Sprite2D" type="Sprite2D" parent="OpenOffice2/InterviewRoom/InterviewTable"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/InterviewRoom/InterviewTable"]
 texture = ExtResource("6_7bjyy")
 
-[node name="Sprite2D2" type="Sprite2D" parent="OpenOffice2/InterviewRoom/InterviewTable"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/OpenOffice2/InterviewRoom/InterviewTable"]
 position = Vector2(2, -1)
 rotation = -0.958186
 texture = ExtResource("22_uhpob")
 
-[node name="Sprite2D3" type="Sprite2D" parent="OpenOffice2/InterviewRoom/InterviewTable"]
+[node name="Sprite2D3" type="Sprite2D" parent="Tiles/OpenOffice2/InterviewRoom/InterviewTable"]
 position = Vector2(8, 0)
 texture = ExtResource("22_uhpob")
 
-[node name="Sprite2D4" type="Sprite2D" parent="OpenOffice2/InterviewRoom/InterviewTable"]
+[node name="Sprite2D4" type="Sprite2D" parent="Tiles/OpenOffice2/InterviewRoom/InterviewTable"]
 position = Vector2(-5, -1)
 rotation = -1.55509
 texture = ExtResource("22_uhpob")
 
-[node name="Plant2" parent="OpenOffice2/InterviewRoom" instance=ExtResource("13_7paim")]
+[node name="Plant2" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("13_7paim")]
 position = Vector2(1048, 384)
 
-[node name="ChairBlackBack" parent="OpenOffice2/InterviewRoom" instance=ExtResource("23_bqsoi")]
+[node name="ChairBlackBack" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("23_bqsoi")]
 
-[node name="Whiteboard1" parent="OpenOffice2/InterviewRoom" instance=ExtResource("24_ilfqg")]
+[node name="Whiteboard1" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("24_ilfqg")]
 
-[node name="ManagerFrontOffice" type="Node2D" parent="OpenOffice2"]
+[node name="ManagerFrontOffice" type="Node2D" parent="Tiles/OpenOffice2"]
 
-[node name="FrontOfficeTable" type="StaticBody2D" parent="OpenOffice2/ManagerFrontOffice"]
+[node name="FrontOfficeTable" type="StaticBody2D" parent="Tiles/OpenOffice2/ManagerFrontOffice"]
 position = Vector2(1061, 524)
 
-[node name="Sprite2D" type="Sprite2D" parent="OpenOffice2/ManagerFrontOffice/FrontOfficeTable"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerFrontOffice/FrontOfficeTable"]
 texture = ExtResource("6_7bjyy")
 
-[node name="Sprite2D2" type="Sprite2D" parent="OpenOffice2/ManagerFrontOffice/FrontOfficeTable"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerFrontOffice/FrontOfficeTable"]
 position = Vector2(0, -9)
 texture = ExtResource("25_1t21j")
 
-[node name="ChairBlackBack" parent="OpenOffice2/ManagerFrontOffice" instance=ExtResource("23_bqsoi")]
+[node name="ChairBlackBack" parent="Tiles/OpenOffice2/ManagerFrontOffice" instance=ExtResource("23_bqsoi")]
 position = Vector2(-19, 108)
 
-[node name="ManagerOffice" type="Node2D" parent="OpenOffice2"]
+[node name="ManagerOffice" type="Node2D" parent="Tiles/OpenOffice2"]
 
-[node name="CornerDeskRightNormal" parent="OpenOffice2/ManagerOffice" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("4_w0sc1")]
 position = Vector2(1160, 528)
 
-[node name="Couch" type="StaticBody2D" parent="OpenOffice2/ManagerOffice"]
+[node name="Couch" type="StaticBody2D" parent="Tiles/OpenOffice2/ManagerOffice"]
 position = Vector2(1158, 480)
 
-[node name="Sprite2D" type="Sprite2D" parent="OpenOffice2/ManagerOffice/Couch"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
 texture = ExtResource("26_3fin3")
 
-[node name="Couch" type="StaticBody2D" parent="OpenOffice2/ManagerOffice/Couch"]
+[node name="Couch" type="StaticBody2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
 position = Vector2(1158, 480)
 
-[node name="Sprite2D" type="Sprite2D" parent="OpenOffice2/ManagerOffice/Couch/Couch"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch/Couch"]
 texture = ExtResource("26_3fin3")
 
-[node name="Plant1" parent="OpenOffice2/ManagerOffice" instance=ExtResource("27_li6ah")]
+[node name="Plant1" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("27_li6ah")]
 position = Vector2(1120, 480)
 
-[node name="Whiteboard1" parent="OpenOffice2/ManagerOffice" instance=ExtResource("28_e0i4w")]
+[node name="Whiteboard1" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("28_e0i4w")]
 position = Vector2(1091, 466)
 
-[node name="OfficeRightMiddle" type="Node2D" parent="."]
+[node name="OfficeRightMiddle" type="Node2D" parent="Tiles"]
 
-[node name="CornerDeskLeftNormal" parent="OfficeRightMiddle" instance=ExtResource("2_28je1")]
+[node name="CornerDeskLeftNormal" parent="Tiles/OfficeRightMiddle" instance=ExtResource("2_28je1")]
 position = Vector2(1232, 160)
 
-[node name="CornerDeskRightNormal" parent="OfficeRightMiddle" instance=ExtResource("4_w0sc1")]
+[node name="CornerDeskRightNormal" parent="Tiles/OfficeRightMiddle" instance=ExtResource("4_w0sc1")]
 position = Vector2(1184, 160)
 
-[node name="CornerDeskLeftUpside" parent="OfficeRightMiddle" instance=ExtResource("3_l75j3")]
+[node name="CornerDeskLeftUpside" parent="Tiles/OfficeRightMiddle" instance=ExtResource("3_l75j3")]
 position = Vector2(1232, 264)
 
-[node name="CornerDeskRightUpside" parent="OfficeRightMiddle" instance=ExtResource("5_ivkia")]
+[node name="CornerDeskRightUpside" parent="Tiles/OfficeRightMiddle" instance=ExtResource("5_ivkia")]
 position = Vector2(1184, 264)
 
-[node name="FireExtinguisher" type="StaticBody2D" parent="."]
+[node name="FireExtinguisher" type="StaticBody2D" parent="Tiles"]
 position = Vector2(8, 328)
 
-[node name="Sprite2D" type="Sprite2D" parent="FireExtinguisher"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/FireExtinguisher"]
 texture = ExtResource("29_vv17v")
 
-[node name="FireExtinguisher2" type="StaticBody2D" parent="."]
+[node name="FireExtinguisher2" type="StaticBody2D" parent="Tiles"]
 position = Vector2(808, 136)
 
-[node name="Sprite2D" type="Sprite2D" parent="FireExtinguisher2"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/FireExtinguisher2"]
 texture = ExtResource("29_vv17v")
 
-[node name="FireExtinguisher3" type="StaticBody2D" parent="."]
+[node name="FireExtinguisher3" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1256, 376)
 
-[node name="Sprite2D" type="Sprite2D" parent="FireExtinguisher3"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/FireExtinguisher3"]
 texture = ExtResource("29_vv17v")
 
-[node name="CopyMachine" parent="." instance=ExtResource("30_dtfxj")]
+[node name="CopyMachine" parent="Tiles" instance=ExtResource("30_dtfxj")]
 
-[node name="CopyMachine2" parent="." instance=ExtResource("30_dtfxj")]
+[node name="CopyMachine2" parent="Tiles" instance=ExtResource("30_dtfxj")]
 position = Vector2(264, 376)
 
-[node name="Player" parent="." instance=ExtResource("31_5toy6")]
-position = Vector2(296, 280)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="Fridge" type="StaticBody2D" parent="."]
+[node name="Fridge" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1238, 26)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fridge"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/Fridge"]
 position = Vector2(18, 0)
 texture = ExtResource("30_n7hgf")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Fridge"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Fridge"]
 visible = false
 position = Vector2(21.376, -0.0352937)
 scale = Vector2(1, 1.02857)
 texture = ExtResource("31_43jcg")
 
-[node name="Fridge2" type="StaticBody2D" parent="."]
+[node name="Fridge2" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1222, 26)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fridge2"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/Fridge2"]
 position = Vector2(18, 0)
 texture = ExtResource("30_n7hgf")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Fridge2"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Fridge2"]
 visible = false
 position = Vector2(21.376, -0.0352937)
 scale = Vector2(1, 1.02857)
 texture = ExtResource("31_43jcg")
 
-[node name="Oven" type="StaticBody2D" parent="."]
+[node name="Oven" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1126, 31)
 
-[node name="Sprite2D" type="Sprite2D" parent="Oven"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/Oven"]
 position = Vector2(18, 0.5)
 texture = ExtResource("32_68tp7")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Oven"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Oven"]
 visible = false
 position = Vector2(18, 2)
-scale = Vector2(1, 1)
 texture = ExtResource("33_c0doo")
 
-[node name="Countertop" type="StaticBody2D" parent="."]
+[node name="Countertop" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1238, 29)
 
-[node name="Sprite2D" type="Sprite2D" parent="Countertop"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/Countertop"]
 position = Vector2(-38, 9.5)
 texture = ExtResource("32_rrnon")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Countertop"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Countertop"]
 position = Vector2(-38.0001, -1)
 texture = ExtResource("33_gupos")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Countertop"]
+[node name="Sprite2D3" type="Sprite2D" parent="Tiles/Countertop"]
 position = Vector2(-21.0001, -3)
 scale = Vector2(1, 0.857143)
 texture = ExtResource("36_b1r01")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Countertop"]
+[node name="Sprite2D6" type="Sprite2D" parent="Tiles/Countertop"]
 position = Vector2(-60.9999, -7)
 texture = ExtResource("37_ova1f")
 
-[node name="Sprite2D7" type="Sprite2D" parent="Countertop"]
+[node name="Sprite2D7" type="Sprite2D" parent="Tiles/Countertop"]
 position = Vector2(-78, 2.5)
 texture = ExtResource("38_b8gub")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Countertop"]
+[node name="Sprite2D4" type="Sprite2D" parent="Tiles/Countertop"]
 position = Vector2(-110, -3)
 texture = ExtResource("39_7tv72")
 
-[node name="SeatingGroup" type="StaticBody2D" parent="."]
+[node name="SeatingGroup" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1138, 109)
 
-[node name="Sprite2D" type="Sprite2D" parent="SeatingGroup"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/SeatingGroup"]
 position = Vector2(0.00012207, 0)
 texture = ExtResource("40_sjsod")
 
-[node name="Sprite2D2" type="Sprite2D" parent="SeatingGroup"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/SeatingGroup"]
 position = Vector2(-9.5, -10)
 texture = ExtResource("41_kvnf5")
 
-[node name="Sprite2D3" type="Sprite2D" parent="SeatingGroup"]
+[node name="Sprite2D3" type="Sprite2D" parent="Tiles/SeatingGroup"]
 position = Vector2(-9.5, 4)
 texture = ExtResource("41_kvnf5")
 
-[node name="Sprite2D4" type="Sprite2D" parent="SeatingGroup"]
+[node name="Sprite2D4" type="Sprite2D" parent="Tiles/SeatingGroup"]
 position = Vector2(9.5, -10)
 texture = ExtResource("41_kvnf5")
 flip_h = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="SeatingGroup"]
+[node name="Sprite2D5" type="Sprite2D" parent="Tiles/SeatingGroup"]
 position = Vector2(9.5, 4)
 texture = ExtResource("41_kvnf5")
 flip_h = true
 
-[node name="SeatingGroup2" type="StaticBody2D" parent="."]
+[node name="SeatingGroup2" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1175, 109)
 
-[node name="Sprite2D" type="Sprite2D" parent="SeatingGroup2"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/SeatingGroup2"]
 position = Vector2(0.00012207, 0)
 texture = ExtResource("40_sjsod")
 
-[node name="Sprite2D2" type="Sprite2D" parent="SeatingGroup2"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/SeatingGroup2"]
 position = Vector2(-9.5, -10)
 texture = ExtResource("41_kvnf5")
 
-[node name="Sprite2D3" type="Sprite2D" parent="SeatingGroup2"]
+[node name="Sprite2D3" type="Sprite2D" parent="Tiles/SeatingGroup2"]
 position = Vector2(-9.5, 4)
 texture = ExtResource("41_kvnf5")
 
-[node name="Sprite2D4" type="Sprite2D" parent="SeatingGroup2"]
+[node name="Sprite2D4" type="Sprite2D" parent="Tiles/SeatingGroup2"]
 position = Vector2(9.5, -10)
 texture = ExtResource("41_kvnf5")
 flip_h = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="SeatingGroup2"]
+[node name="Sprite2D5" type="Sprite2D" parent="Tiles/SeatingGroup2"]
 position = Vector2(9.5, 4)
 texture = ExtResource("41_kvnf5")
 flip_h = true
 
-[node name="SeatingGroup3" type="StaticBody2D" parent="."]
+[node name="SeatingGroup3" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1212, 109)
 
-[node name="Sprite2D" type="Sprite2D" parent="SeatingGroup3"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/SeatingGroup3"]
 position = Vector2(0.00012207, 0)
 texture = ExtResource("40_sjsod")
 
-[node name="Sprite2D2" type="Sprite2D" parent="SeatingGroup3"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/SeatingGroup3"]
 position = Vector2(-9.5, -10)
 texture = ExtResource("41_kvnf5")
 
-[node name="Sprite2D3" type="Sprite2D" parent="SeatingGroup3"]
+[node name="Sprite2D3" type="Sprite2D" parent="Tiles/SeatingGroup3"]
 position = Vector2(-9.5, 4)
 texture = ExtResource("41_kvnf5")
 
-[node name="Sprite2D4" type="Sprite2D" parent="SeatingGroup3"]
+[node name="Sprite2D4" type="Sprite2D" parent="Tiles/SeatingGroup3"]
 position = Vector2(9.5, -10)
 texture = ExtResource("41_kvnf5")
 flip_h = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="SeatingGroup3"]
+[node name="Sprite2D5" type="Sprite2D" parent="Tiles/SeatingGroup3"]
 position = Vector2(9.5, 4)
 texture = ExtResource("41_kvnf5")
 flip_h = true
 
-[node name="SeatingGroup4" type="StaticBody2D" parent="."]
+[node name="SeatingGroup4" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1245, 109)
 
-[node name="Sprite2D" type="Sprite2D" parent="SeatingGroup4"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/SeatingGroup4"]
 position = Vector2(0.00012207, 0)
 texture = ExtResource("40_sjsod")
 
-[node name="Sprite2D2" type="Sprite2D" parent="SeatingGroup4"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/SeatingGroup4"]
 position = Vector2(-9.5, -10)
 texture = ExtResource("41_kvnf5")
 
-[node name="Sprite2D3" type="Sprite2D" parent="SeatingGroup4"]
+[node name="Sprite2D3" type="Sprite2D" parent="Tiles/SeatingGroup4"]
 position = Vector2(-9.5, 4)
 texture = ExtResource("41_kvnf5")
 
-[node name="Sprite2D4" type="Sprite2D" parent="SeatingGroup4"]
+[node name="Sprite2D4" type="Sprite2D" parent="Tiles/SeatingGroup4"]
 position = Vector2(9.5, -10)
 texture = ExtResource("41_kvnf5")
 flip_h = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="SeatingGroup4"]
+[node name="Sprite2D5" type="Sprite2D" parent="Tiles/SeatingGroup4"]
 position = Vector2(9.5, 4)
 texture = ExtResource("41_kvnf5")
 flip_h = true
 
-[node name="Toilet1" type="Node2D" parent="."]
+[node name="Toilet1" type="Node2D" parent="Tiles"]
 
-[node name="ToiletOpen" parent="Toilet1" instance=ExtResource("45_h3se4")]
+[node name="ToiletOpen" parent="Tiles/Toilet1" instance=ExtResource("45_h3se4")]
 position = Vector2(847, 145)
 
-[node name="Poempel" parent="Toilet1/ToiletOpen" instance=ExtResource("43_j3i42")]
+[node name="Poempel" parent="Tiles/Toilet1/ToiletOpen" instance=ExtResource("43_j3i42")]
 position = Vector2(-10, -5)
 
-[node name="ToiletPaperRoll" parent="Toilet1/ToiletOpen" instance=ExtResource("44_h8ok1")]
+[node name="ToiletPaperRoll" parent="Tiles/Toilet1/ToiletOpen" instance=ExtResource("44_h8ok1")]
 position = Vector2(11, -1)
 
-[node name="Pee" type="Sprite2D" parent="Toilet1/ToiletOpen"]
+[node name="Pee" type="Sprite2D" parent="Tiles/Toilet1/ToiletOpen"]
 modulate = Color(1, 1, 1, 0.615686)
 self_modulate = Color(0.862745, 0.85098, 0, 1)
 position = Vector2(8, 21)
 texture = ExtResource("48_yxoxu")
 
-[node name="Pee2" type="Sprite2D" parent="Toilet1/ToiletOpen"]
+[node name="Pee2" type="Sprite2D" parent="Tiles/Toilet1/ToiletOpen"]
 modulate = Color(1, 1, 1, 0.615686)
 self_modulate = Color(0.862745, 0.85098, 0, 1)
 position = Vector2(-4, 9)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("48_yxoxu")
 
-[node name="Pee3" type="Sprite2D" parent="Toilet1/ToiletOpen"]
+[node name="Pee3" type="Sprite2D" parent="Tiles/Toilet1/ToiletOpen"]
 modulate = Color(1, 1, 1, 0.615686)
 self_modulate = Color(0.862745, 0.85098, 0, 1)
 position = Vector2(-3, 10)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("48_yxoxu")
 
-[node name="Pee4" type="Sprite2D" parent="Toilet1/ToiletOpen"]
+[node name="Pee4" type="Sprite2D" parent="Tiles/Toilet1/ToiletOpen"]
 modulate = Color(1, 1, 1, 0.615686)
 self_modulate = Color(0.862745, 0.85098, 0, 1)
 position = Vector2(3, 10.5)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("48_yxoxu")
 
-[node name="ToiletDoor" parent="Toilet1" instance=ExtResource("49_xc74u")]
+[node name="ToiletDoor" parent="Tiles/Toilet1" instance=ExtResource("49_xc74u")]
 
-[node name="Toilet3" type="Node2D" parent="."]
+[node name="Toilet3" type="Node2D" parent="Tiles"]
 
-[node name="ToiletDoor" parent="Toilet3" instance=ExtResource("49_xc74u")]
+[node name="ToiletDoor" parent="Tiles/Toilet3" instance=ExtResource("49_xc74u")]
 position = Vector2(904, 185)
 
-[node name="Toilet2" parent="Toilet3" instance=ExtResource("42_nv858")]
+[node name="Toilet2" parent="Tiles/Toilet3" instance=ExtResource("42_nv858")]
 position = Vector2(897, 145)
 
-[node name="ToiletPaperRollEmpty" parent="Toilet3/Toilet2" instance=ExtResource("45_5qpkf")]
+[node name="ToiletPaperRollEmpty" parent="Tiles/Toilet3/Toilet2" instance=ExtResource("45_5qpkf")]
 position = Vector2(-11, -4)
 
-[node name="TissueBox" type="StaticBody2D" parent="Toilet3/Toilet2"]
+[node name="TissueBox" type="StaticBody2D" parent="Tiles/Toilet3/Toilet2"]
 position = Vector2(-1, -16)
 
-[node name="Sprite2D" type="Sprite2D" parent="Toilet3/Toilet2/TissueBox"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/Toilet3/Toilet2/TissueBox"]
 texture = ExtResource("46_r1ugf")
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="NPC" parent="NPCs" instance=ExtResource("49_1826u")]
+position = Vector2(1228, 55)
+
+[node name="Player" parent="." instance=ExtResource("31_5toy6")]
+position = Vector2(1144, 51)
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
