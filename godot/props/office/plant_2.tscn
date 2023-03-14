@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpant5c07c0wa"]
+[gd_scene load_steps=5 format=3 uid="uid://dpant5c07c0wa"]
 
 [ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="1_7simt"]
 [ext_resource type="Texture2D" uid="uid://djihotb6eyvth" path="res://assets/props/plant_2.png" id="1_evmks"]
 [ext_resource type="Script" path="res://props/office/plant_1.gd" id="1_qigss"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqjyu"]
-size = Vector2(10, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37sfb"]
 size = Vector2(10, 7)
@@ -14,14 +11,13 @@ size = Vector2(10, 7)
 position = Vector2(519, 333)
 script = ExtResource("1_qigss")
 
-[node name="InteractionArea" parent="." instance=ExtResource("1_7simt")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_nqjyu")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_evmks")
+
+[node name="InteractionArea" parent="." instance=ExtResource("1_7simt")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+polygon = PackedVector2Array(8, 2.7, 6.6, 9, -5, 9, -8, 4.4, -8, -9, 8, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.5)

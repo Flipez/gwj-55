@@ -1,6 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://byukqm682xubo"]
 
 [ext_resource type="Texture2D" uid="uid://ctlq41aimnahw" path="res://assets/props/animated_door_big_2.png" id="1_5gcac"]
+[ext_resource type="Script" path="res://props/toilet_door.gd" id="1_bi2v0"]
 [ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="2_w7e3e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o78be"]
@@ -46,14 +47,12 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf1lf"]
-size = Vector2(16, 27)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewheo"]
 size = Vector2(16, 13)
 
 [node name="ToiletDoor" type="StaticBody2D"]
 position = Vector2(856, 185)
+script = ExtResource("1_bi2v0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-16, 0)
@@ -61,9 +60,8 @@ sprite_frames = SubResource("SpriteFrames_d14gw")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_w7e3e")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-16, 9.5)
-shape = SubResource("RectangleShape2D_nf1lf")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+polygon = PackedVector2Array(-24, -5, -24, 23, -8, 23, -8, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-16, 16.5)

@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://wq4b2fmyip02"]
+[gd_scene load_steps=5 format=3 uid="uid://wq4b2fmyip02"]
 
+[ext_resource type="Script" path="res://props/office/shelf.gd" id="1_6psrg"]
 [ext_resource type="Texture2D" uid="uid://jdr2v8insjk5" path="res://assets/props/shelf_full.png" id="1_44vsh"]
+[ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="3_pvn58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsvcb"]
 size = Vector2(30, 28)
 
 [node name="Shelf" type="StaticBody2D"]
 position = Vector2(160, 24)
+script = ExtResource("1_6psrg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_44vsh")
@@ -14,3 +17,8 @@ texture = ExtResource("1_44vsh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_fsvcb")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_pvn58")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+polygon = PackedVector2Array(1, -15, 8, -15.5, 8, -11.5, 10, -11.5, 10, -15.5, 15, -15.5, 15, 15.5, -15, 15.5, -15, -15.5, -10, -12.9, -10, -15.5, -0.7, -15.5)

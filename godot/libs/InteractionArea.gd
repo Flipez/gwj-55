@@ -9,3 +9,7 @@ func _ready():
 		interaction_id = "NOPE"
 
 	$Label.text = interaction_id
+
+func interaction_callback():
+	if get_parent().has_method("interaction_callback"):
+		get_parent().interaction_callback()

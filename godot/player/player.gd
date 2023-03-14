@@ -88,5 +88,5 @@ func _play_animation(animation_type: String) -> void:
 	animated_sprite.play(animation_name)
 
 func _on_interaction_area_area_entered(area):
-	print_debug(area)
 	InteractionHandler.interact(area.interaction_id)
+	area.interaction_callback()
