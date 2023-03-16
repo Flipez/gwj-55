@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=57 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://cldt6hblpt247" path="res://assets/props/copy_machine.png" id="51_awgc0"]
 [ext_resource type="PackedScene" uid="uid://cx0posk61mann" path="res://npcs/helmine.tscn" id="52_5pl3r"]
 [ext_resource type="PackedScene" uid="uid://b2amvmjranb1j" path="res://props/office/fridge.tscn" id="52_e5rf7"]
+[ext_resource type="PackedScene" uid="uid://bmcm2bdinl8fi" path="res://npcs/fred.tscn" id="53_axrwr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
 texture = ExtResource("1_wf3p5")
@@ -36806,3 +36807,7 @@ texture = ExtResource("51_awgc0")
 [node name="CopyMachine2" type="Sprite2D" parent="."]
 position = Vector2(1016, 157)
 texture = ExtResource("51_awgc0")
+
+[node name="Fred" parent="." instance=ExtResource("53_axrwr")]
+position = Vector2(1080, 422)
+view_direction = "Up"

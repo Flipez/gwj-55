@@ -5,6 +5,8 @@ var objects = {
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
 	"KAR" = Callable(self, "karen"),
 	"FAL" = Callable(self, "falko"),
+	"HEL" = Callable(self, "helmine"),
+	"FRE" = Callable(self, "fred"),
 	"D00" = func(): chat("DJ", "A normal desk full of stuff for work"), # Generic desk
 	"P00" = func(): chat("DJ", "This is a plant. They absorb CO2 from the air."), # Generic plant
 	"INT" = Callable(self, "intro"),
@@ -112,3 +114,37 @@ func falko():
 		unlock("PRANKSTER_HELMINE")
 	else:
 		chat("Falko", "I'm in an important meeting. Can you come back later?")
+
+func helmine():
+	if has_found("PRANKSTER_HELMINE") and not has_found("HELMINE_IS_INNOCENT"):
+		chat("DJ", "I heard that you don't like Karen.")
+		add_to_chat("Helmine", "Hardly a secret. No one likes her.")
+		add_to_chat("DJ", "But you in particular, have poisoned her food. That sounds more that a little dislike.")
+		add_to_chat("Helmine", "(giggles) A glorious day. She made noises like a thunderstorm and you should have seen the toi....")
+		add_to_chat("DJ", "No need for details. But why? And did you try that again, today?")
+		add_to_chat("Helmine", "No, why would I do that? That would be boring. I don't do these things twice.")
+		add_to_chat("DJ", "So today you just ate her yoghurt instead of exchanging it?")
+		add_to_chat("Helmine", "Is that the reasons she's yelling all the time? No. In fact. I haven't been to the kitchen today. Ask Fred over there.")
+		journal("Helmine claims to be innocent and that she hasn't been in the kitchen today. Someone named Fred could confirm that.")
+		unlock("HELMINE_IS_INNOCENT")
+	else:
+		chat("Helmine", "Don't interrupt me. I have to keep my community happy.")
+
+func fred():
+	if has_found("HELMINE_IS_INNOCENT") and not has_found("ONLYFANS"):
+		chat("DJ", "Can you confirm that Helmine hasn't been to the kitchen today?")
+		add_to_chat("Fred", "Absolutely.")
+		add_to_chat("DJ", "Why so sure?")
+		add_to_chat("Fred", "Well. We've entered the office together today and went straight to our desks.")
+		add_to_chat("DJ", "Hardly a proof. Couldn't she have left the room for a couple of minutes without you noticing?")
+		add_to_chat("Fred", "Impossible. I constantly watch here onlyfans livestream.")
+		add_to_chat("DJ", "Aren't you supposed to be working?")
+		add_to_chat("Fred", "What do you think I'm doing. I'm her stream moderator.")
+		add_to_chat("DJ", "But... anyhow. Have you been to the kitchen today?")
+		add_to_chat("Fred", "No I haven't. Niclas was kind enough the bring me a coffee so I can focus on my task.")
+		add_to_chat("DJ", "Ok. Niclas then...")
+		unlock("ONLYFANS")
+		journal("Helmine is streaming on OnlyFans while Fred constanly watches here. And both get PAID for that?")
+		journal("Niclas has been to the kitchen to fetch Fred a coffee.")
+	else:
+		chat("Fred", "A lot of trolls today...")

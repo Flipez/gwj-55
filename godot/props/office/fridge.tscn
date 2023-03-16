@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2amvmjranb1j"]
+
+[ext_resource type="Script" path="res://props/office/fridge.gd" id="1_tuawh"]
+[ext_resource type="Texture2D" uid="uid://crrehat7dw6fd" path="res://assets/props/fridge_closed.png" id="2_ba3ss"]
+[ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="3_fuoab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl1u2"]
+size = Vector2(15, 34)
+
+[node name="Fridge" type="StaticBody2D"]
+position = Vector2(48, -8)
+script = ExtResource("1_tuawh")
+interaction_id = "FRI"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ba3ss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_nl1u2")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_fuoab")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+polygon = PackedVector2Array(8, 19, -8, 19, -8, -18, 8, -18)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx0posk61mann"]
+
+[ext_resource type="PackedScene" uid="uid://bg33505x82d35" path="res://npcs/npc.tscn" id="1_jbrnl"]
+
+[node name="Helmine" instance=ExtResource("1_jbrnl")]
+interaction_id = "HEL"
+
+[node name="Name" parent="." index="0"]
+text = "Helmine"
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+modulate = Color(0.980392, 0.505882, 0.196078, 1)
+frame_progress = 0.866951
