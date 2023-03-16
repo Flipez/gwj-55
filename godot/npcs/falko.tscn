@@ -7,3 +7,6 @@ interaction_id = "FAL"
 
 [node name="Name" parent="." index="0"]
 text = "Falko"
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+modulate = Color(0, 0.92549, 0.831373, 1)

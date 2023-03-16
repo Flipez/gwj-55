@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=56 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://byukqm682xubo" path="res://props/toilet_door.tscn" id="49_xc74u"]
 [ext_resource type="PackedScene" uid="uid://5tf14h8epbiy" path="res://npcs/falko.tscn" id="50_gatu7"]
 [ext_resource type="Texture2D" uid="uid://cldt6hblpt247" path="res://assets/props/copy_machine.png" id="51_awgc0"]
+[ext_resource type="PackedScene" uid="uid://cx0posk61mann" path="res://npcs/helmine.tscn" id="52_5pl3r"]
 [ext_resource type="PackedScene" uid="uid://b2amvmjranb1j" path="res://props/office/fridge.tscn" id="52_e5rf7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
@@ -36783,6 +36784,11 @@ position = Vector2(1234, 55)
 
 [node name="Falko" parent="NPCs" instance=ExtResource("50_gatu7")]
 position = Vector2(1178, 154)
+view_direction = "Up"
+
+[node name="Helmine" parent="NPCs" instance=ExtResource("52_5pl3r")]
+position = Vector2(908, 402)
+view_direction = "Down"
 
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
 position = Vector2(1144, 51)
