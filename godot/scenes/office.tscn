@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=56 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -51,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://bx0ecabvq4g1w" path="res://npcs/karen.tscn" id="49_i4iy2"]
 [ext_resource type="PackedScene" uid="uid://byukqm682xubo" path="res://props/toilet_door.tscn" id="49_xc74u"]
 [ext_resource type="PackedScene" uid="uid://5tf14h8epbiy" path="res://npcs/falko.tscn" id="50_gatu7"]
+[ext_resource type="PackedScene" uid="uid://b2amvmjranb1j" path="res://props/office/fridge.tscn" id="52_e5rf7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
 texture = ExtResource("1_wf3p5")
@@ -36841,19 +36842,6 @@ position = Vector2(21.376, -0.0352937)
 scale = Vector2(1, 1.02857)
 texture = ExtResource("31_43jcg")
 
-[node name="Fridge2" type="StaticBody2D" parent="Tiles"]
-position = Vector2(1222, 26)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tiles/Fridge2"]
-position = Vector2(18, 0)
-texture = ExtResource("30_n7hgf")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Fridge2"]
-visible = false
-position = Vector2(21.376, -0.0352937)
-scale = Vector2(1, 1.02857)
-texture = ExtResource("31_43jcg")
-
 [node name="Oven" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1126, 31)
 
@@ -37055,12 +37043,17 @@ texture = ExtResource("46_r1ugf")
 
 [node name="Karen" parent="NPCs" instance=ExtResource("49_i4iy2")]
 position = Vector2(1234, 55)
+interaction_id = ""
 
 [node name="Falko" parent="NPCs" instance=ExtResource("50_gatu7")]
 position = Vector2(1178, 154)
+interaction_id = ""
 
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
 position = Vector2(1144, 51)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Fridge" parent="." instance=ExtResource("52_e5rf7")]
+position = Vector2(1240, 26)

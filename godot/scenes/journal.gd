@@ -1,7 +1,7 @@
 extends Control
 class_name Journal
 
-var pages = ["03/10/2023 - Herzmut Games, Munich\n\nI arrived 10:03 at the crime scene - the lunch room in the HQ of the famous Game-Studio.\n"]
+var pages = ["03/10/2023 - Herzmut Games, Munich\n\nI arrived 10:03 at the crime scene - the lunch room in the HQ of the famous Game-Studio.\n\n"]
 var current_page = 0
 
 @onready var left_page = $Page/Left/Content
@@ -53,7 +53,7 @@ func _on_update_journal(content: String):
 		if char_count >= 800:
 			pages.push_back(page_data)
 			page_data = ""
-	page_data += "\n"
+	page_data += "\n\n"
 	char_count += 42
 	pages.push_back(page_data)
 	if char_count > 700:

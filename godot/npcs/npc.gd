@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var interaction_id : String
+
 const SPEED = 300.0
 func _physics_process(_delta):
 	pass
