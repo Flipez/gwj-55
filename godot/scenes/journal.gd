@@ -25,7 +25,7 @@ func turn_page(direction):
 	else:
 		$PrevPage.show()
 		
-	if current_page < len(pages) - 1:
+	if current_page + 2 < len(pages):
 		$NextPage.show()
 	else:
 		$NextPage.hide()
