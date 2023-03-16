@@ -4,12 +4,12 @@ var milestones = []
 var objects = {
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
 	"KAR" = Callable(self, "karen"),
+	"FAL" = Callable(self, "falko"),
 	"D00" = func(): chat("DJ", "A normal desk full of stuff for work"), # Generic desk
 	"P00" = func(): chat("DJ", "This is a plant. They absorb CO2 from the air."), # Generic plant
 	"INT" = Callable(self, "intro"),
 	"FRI" = Callable(self, "fridge"),
 }
-
 func _ready():
 	randomize()
 
@@ -94,3 +94,21 @@ func fridge():
 		journal("I found a yoghurt in the fridge labeled 'KAREN'. I should ask her about it.")
 		unlock("FRIDGE")
 	
+func falko():
+	if has_found("BIG_FINGERPRINT") and not has_found("PRANKSTER_HELMINE"):
+		chat("DJ", "Can you show me your hands?")
+		add_to_chat("Falko", "Sure, but why?")
+		add_to_chat("DJ", "Kinda big hands for a programmer. Did you by chance, move Karens label. It has big finger prints on it?")
+		add_to_chat("Falko", "Yes I did. Because someone put it on my soy milk.")
+		add_to_chat("DJ", "Interesting. Do you know why and who might have done that?")
+		add_to_chat("Falko", "Probably someone holding a grudge against her. It looks similar to her jumbo thingy and she has a soy allergy.")
+		add_to_chat("DJ", "So someone tried to cause an allergic reaction? No trivial offense. Allergic reactions can be fatal...")
+		add_to_chat("Falko", "Nah. She's exaggerating. She just starts to fart a lot and spend even more time in the bathroom.")
+		add_to_chat("DJ", "How do you know?")
+		add_to_chat("Falko", "Because the last time Helmine pulled that off it that toilet was unusable for days.")
+		add_to_chat("DJ", "Helmine?")
+		add_to_chat("Falko", "Our Lead-Social Media Manager. Shes over in the big office on the other side of the building.")
+		journal("Helmine seems to have issues with Karen and has interfered with her food in the past. Shes over in the office on the west side of the building.")
+		unlock("PRANKSTER_HELMINE")
+	else:
+		chat("Falko", "I'm in an important meeting. Can you come back later?")
