@@ -37043,11 +37043,9 @@ texture = ExtResource("46_r1ugf")
 
 [node name="Karen" parent="NPCs" instance=ExtResource("49_i4iy2")]
 position = Vector2(1234, 55)
-interaction_id = ""
 
 [node name="Falko" parent="NPCs" instance=ExtResource("50_gatu7")]
 position = Vector2(1178, 154)
-interaction_id = ""
 
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
 position = Vector2(1144, 51)
