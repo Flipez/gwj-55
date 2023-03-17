@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dplq7pgybgilo"]
+[gd_scene load_steps=12 format=3 uid="uid://dplq7pgybgilo"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_4358g"]
 [ext_resource type="Texture2D" uid="uid://xrinmivk82p5" path="res://assets/white-book.png" id="1_gerog"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="5_aavwy"]
 [ext_resource type="FontFile" uid="uid://5q4su2qmavjw" path="res://fonts/CrimsonText-Bold.ttf" id="6_5o0ng"]
 [ext_resource type="Texture2D" uid="uid://ccl0pgs17b74h" path="res://assets/sideswipe.png" id="7_ic485"]
+[ext_resource type="PackedScene" uid="uid://dn3v3gpwwefoq" path="res://scenes/help_screen.tscn" id="8_4jijh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkbsl"]
 bg_color = Color(0.458824, 0.603922, 0.835294, 0.686275)
@@ -120,6 +121,8 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 texture_normal = ExtResource("7_ic485")
 flip_h = true
+
+[node name="HelpScreen" parent="." instance=ExtResource("8_4jijh")]
 
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="UI/HideStatus" to="." method="_on_hide_status_timeout"]

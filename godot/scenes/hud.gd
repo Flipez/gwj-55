@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var journal = $Journal
 @onready var chatbox = $Text/Panel/Box/Content
 @onready var chat = $Text
+@onready var help_screen = $HelpScreen
 
 var message_queue = []
 
@@ -13,6 +14,10 @@ func _ready():
 	Globals.connect("initiate_chat", _start_chat)
 	Globals.connect("continue_chat", _append_message)
 	Globals.connect("abort_chat", _abort_chat)
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("help"):
+		help_screen.visible = !help_screen.visible
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_interact") && chat.visible:
