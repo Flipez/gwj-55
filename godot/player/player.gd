@@ -23,9 +23,6 @@ func _ready():
 	interaction_shape.disabled = true
 
 func _physics_process(delta):
-	dream_shader_rect.visible = Globals.dream_mode
-	dream_shader_rect_2.visible = Globals.dream_mode
-		
 	if Input.is_action_just_pressed("ui_interact"):
 		interaction_shape.disabled = false
 	else:
@@ -100,9 +97,9 @@ func _dream_mode_toggled(dream_state : bool):
 	var tween = get_tree().create_tween().set_parallel()
 	if dream_state:
 		animated_sprite.modulate.a = 0.5
-		tween.tween_property(dream_shader_rect, "modulate:a", 1.0, 2.0)
-		tween.tween_property(dream_shader_rect_2, "modulate:a", 1.0, 2.0)
+		dream_shader_rect.modulate.a = 1
+		dream_shader_rect_2.modulate.a = 1
 	else:
 		animated_sprite.modulate.a = 1
-		tween.tween_property(dream_shader_rect, "modulate:a", 0.0, 2.0)
-		tween.tween_property(dream_shader_rect_2, "modulate:a", 0.0, 2.0)
+		dream_shader_rect.modulate.a = 0
+		dream_shader_rect_2.modulate.a = 0
