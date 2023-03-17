@@ -12,6 +12,9 @@ signal initiate_chat(speaker : String, message: String)
 signal continue_chat(speaker : String, message: String)
 signal abort_chat()
 signal dream_mode_toggled(state : bool)
+signal new_game()
+signal game_over(score : int)
+const max_milestones = 6
 
 func _ready():
 	get_parent().add_child.call_deferred(audio_player)

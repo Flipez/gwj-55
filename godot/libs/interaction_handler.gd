@@ -16,10 +16,12 @@ var objects = {
 	"P00" = func(): chat("DJ", "This is a plant. They absorb CO2 from the air."), # Generic plant
 	"INT" = Callable(self, "intro"),
 	"FRI" = Callable(self, "fridge"),
+	"END" = func(): Globals.game_over.emit(len(milestones)),
 	"S00" = func(): chat("DJ", "A vending machine full of Spezi. I should ask Robert which one is the best!")
 }
 func _ready():
 	randomize()
+	Globals.new_game.connect(intro)
 
 func chat(speaker : String, message : String):
 	Globals.emit_signal("initiate_chat", speaker, message)

@@ -14,7 +14,7 @@ enum {
 	INTERACT,
 }
 
-var direction_vector = Vector2.DOWN
+var direction_vector = Vector2.RIGHT
 var state = RUN
 var targets = []
 var direction = Vector2.ZERO
@@ -24,6 +24,7 @@ func _ready():
 	InteractionHandler.connect("interaction_started", _interaction_started)
 	InteractionHandler.connect("interaction_stopped", _interaction_stopped)
 	interaction_shape.disabled = true
+	_play_animation("Idle")
 
 func _physics_process(delta):	
 	interaction_shape.rotation_degrees = rad_to_deg(direction_vector.angle()) - 90

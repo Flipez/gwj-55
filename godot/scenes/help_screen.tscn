@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn3v3gpwwefoq"]
+
+[ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="1_dbphm"]
+[ext_resource type="FontFile" uid="uid://5q4su2qmavjw" path="res://fonts/CrimsonText-Bold.ttf" id="2_bopsq"]
+
+[node name="HelpScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OuterBorder" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="BG" type="ColorRect" parent="OuterBorder"]
+layout_mode = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.952941)
+
+[node name="InnerBorder" type="MarginContainer" parent="OuterBorder"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Text" type="RichTextLabel" parent="OuterBorder/InnerBorder"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_dbphm")
+theme_override_fonts/bold_font = ExtResource("2_bopsq")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[b]Controls[/b]
+
+WASD	- Movement
+F				- Interaction
+
+Interact with the Couch to Toggle Dream Mode"

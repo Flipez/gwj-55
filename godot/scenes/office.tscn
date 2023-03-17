@@ -36486,7 +36486,7 @@ position = Vector2(979, 288)
 
 [node name="Plant2" parent="Tiles/OpenOffice2" instance=ExtResource("13_7paim")]
 position = Vector2(999, 287)
-interaction_id = "P00"
+interaction_id = "END"
 
 [node name="InterviewRoom" type="Node2D" parent="Tiles/OpenOffice2"]
 
@@ -36546,6 +36546,12 @@ position = Vector2(1160, 528)
 position = Vector2(1158, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
+texture = ExtResource("26_3fin3")
+
+[node name="Couch" type="StaticBody2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
+position = Vector2(1158, 480)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch/Couch"]
 texture = ExtResource("26_3fin3")
 
 [node name="Plant1" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("27_li6ah")]
@@ -36823,7 +36829,7 @@ scale = Vector2(1, 1)
 script = ExtResource("58_1lvaa")
 
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
-position = Vector2(1144, 51)
+position = Vector2(1209, 57)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
