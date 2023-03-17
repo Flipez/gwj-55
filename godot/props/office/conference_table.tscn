@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pikwt"]
 size = Vector2(121, 50)
 
-[node name="Conference Table" type="Node2D"]
+[node name="Conference Table" type="StaticBody2D"]
 y_sort_enabled = true
 position = Vector2(462, 396)
 

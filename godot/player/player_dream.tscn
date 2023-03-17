@@ -218,7 +218,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle_Down",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -388,3 +388,5 @@ script = ExtResource("1_fwbop")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nbgul")
 animation = &"Idle_Down"
+autoplay = "Idle_Down"
+frame = 5

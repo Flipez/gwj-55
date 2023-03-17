@@ -1,6 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx0ecabvq4g1w"]
+[gd_scene load_steps=10 format=3 uid="uid://bx0ecabvq4g1w"]
 
 [ext_resource type="PackedScene" uid="uid://bg33505x82d35" path="res://npcs/npc.tscn" id="1_55pyf"]
+[ext_resource type="Texture2D" uid="uid://ca7awq6ox4l67" path="res://assets/karen_idle_anim_16x16.png" id="2_jo340"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw4tn"]
+atlas = ExtResource("2_jo340")
+region = Rect2(192, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jrn1"]
+atlas = ExtResource("2_jo340")
+region = Rect2(208, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe8d6"]
+atlas = ExtResource("2_jo340")
+region = Rect2(224, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlwyt"]
+atlas = ExtResource("2_jo340")
+region = Rect2(240, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ry13"]
+atlas = ExtResource("2_jo340")
+region = Rect2(256, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgqdm"]
+atlas = ExtResource("2_jo340")
+region = Rect2(272, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fln4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw4tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jrn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe8d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlwyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ry13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgqdm")
+}],
+"loop": true,
+"name": &"Idle_Left",
+"speed": 10.0
+}]
 
 [node name="Karen" instance=ExtResource("1_55pyf")]
 interaction_id = "KAR"
@@ -9,4 +60,6 @@ interaction_id = "KAR"
 text = "Karen"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-modulate = Color(1, 1, 0.247059, 1)
+sprite_frames = SubResource("SpriteFrames_fln4d")
+animation = &"Idle_Left"
+autoplay = "Idle_Left"

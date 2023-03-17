@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://da6ln40e5m0ky"]
+
+[ext_resource type="PackedScene" uid="uid://bg33505x82d35" path="res://npcs/npc.tscn" id="1_bclai"]
+[ext_resource type="Texture2D" uid="uid://cc58yt0cm8di8" path="res://assets/Adam_idle_anim_16x16.png" id="2_mppcr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqdgy"]
+atlas = ExtResource("2_mppcr")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el0yw"]
+atlas = ExtResource("2_mppcr")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8456"]
+atlas = ExtResource("2_mppcr")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmogk"]
+atlas = ExtResource("2_mppcr")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nljit"]
+atlas = ExtResource("2_mppcr")
+region = Rect2(160, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r4v5"]
+atlas = ExtResource("2_mppcr")
+region = Rect2(176, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43swb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqdgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el0yw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8456")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmogk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nljit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r4v5")
+}],
+"loop": true,
+"name": &"Idle_Up",
+"speed": 1.0
+}]
+
+[node name="Falko" instance=ExtResource("1_bclai")]
+interaction_id = "FAL"
+view_direction = "Up"
+
+[node name="Name" parent="." index="0"]
+text = "Adam"
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_43swb")
+animation = &"Idle_Up"
+autoplay = "Idle_Up"
+flip_h = true

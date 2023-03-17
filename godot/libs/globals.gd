@@ -29,3 +29,4 @@ func toggle_dream():
 		audio_player.stream = dream_on_sound
 		audio_player.play()
 	emit_signal("dream_mode_toggled", dream_mode)
+	InteractionHandler.emit_signal("interaction_stopped")

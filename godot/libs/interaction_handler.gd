@@ -10,6 +10,7 @@ var objects = {
 	"KAR" = Callable(self, "karen"),
 	"FAL" = Callable(self, "falko"),
 	"HEL" = Callable(self, "helmine"),
+	"JOH" = func(): chat("Johannes", "I've learned to not ask questions I don't want the answer to."),
 	"FRE" = Callable(self, "fred"),
 	"D00" = func(): chat("DJ", "A normal desk full of stuff for work"), # Generic desk
 	"P00" = func(): chat("DJ", "This is a plant. They absorb CO2 from the air."), # Generic plant
@@ -36,6 +37,10 @@ func has_found(milestone) -> bool:
 	return milestones.find(milestone) > -1
 
 func interact(id : String):
+	# Do not allow interaction in dream mode except couch to end it
+	if Globals.dream_mode && id != "C00":
+		return
+
 	if objects.has(id):
 		emit_signal("interaction_started")
 		objects[id].call()

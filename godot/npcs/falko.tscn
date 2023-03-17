@@ -1,6 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://5tf14h8epbiy"]
+[gd_scene load_steps=10 format=3 uid="uid://5tf14h8epbiy"]
 
 [ext_resource type="PackedScene" uid="uid://bg33505x82d35" path="res://npcs/npc.tscn" id="1_cd77q"]
+[ext_resource type="Texture2D" uid="uid://yw1ir6xnfl46" path="res://assets/falko_idle_anim_16x16.png" id="2_5tpjk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl8ca"]
+atlas = ExtResource("2_5tpjk")
+region = Rect2(192, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebq0n"]
+atlas = ExtResource("2_5tpjk")
+region = Rect2(208, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vass5"]
+atlas = ExtResource("2_5tpjk")
+region = Rect2(224, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s42vc"]
+atlas = ExtResource("2_5tpjk")
+region = Rect2(240, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syfl8"]
+atlas = ExtResource("2_5tpjk")
+region = Rect2(256, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqblc"]
+atlas = ExtResource("2_5tpjk")
+region = Rect2(272, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00awg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl8ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebq0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vass5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s42vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syfl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqblc")
+}],
+"loop": true,
+"name": &"Idle_Left",
+"speed": 5.0
+}]
 
 [node name="Falko" instance=ExtResource("1_cd77q")]
 interaction_id = "FAL"
@@ -9,4 +60,6 @@ interaction_id = "FAL"
 text = "Falko"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-modulate = Color(0, 0.92549, 0.831373, 1)
+sprite_frames = SubResource("SpriteFrames_00awg")
+animation = &"Idle_Left"
+autoplay = "Idle_Left"
