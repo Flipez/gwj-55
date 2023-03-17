@@ -94,7 +94,6 @@ func _on_interaction_area_area_entered(area):
 	area.interaction_callback()
 
 func _dream_mode_toggled(dream_state : bool):
-	var tween = get_tree().create_tween().set_parallel()
 	if dream_state:
 		animated_sprite.modulate.a = 0.5
 		dream_shader_rect.modulate.a = 1
