@@ -3,6 +3,7 @@ extends Node
 var milestones = []
 var objects = {
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
+	"C00" = func(): Globals.toggle_dream(), # Couch that triggers dream mode
 	"KAR" = Callable(self, "karen"),
 	"FAL" = Callable(self, "falko"),
 	"HEL" = Callable(self, "helmine"),
@@ -11,6 +12,7 @@ var objects = {
 	"P00" = func(): chat("DJ", "This is a plant. They absorb CO2 from the air."), # Generic plant
 	"INT" = Callable(self, "intro"),
 	"FRI" = Callable(self, "fridge"),
+	"S00" = func(): chat("DJ", "A vending machine full of Spezi. I should ask Robert which one is the best!")
 }
 func _ready():
 	randomize()

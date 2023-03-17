@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdt3anfrguhp7"]
 
-[ext_resource type="Script" path="res://props/office/couch.gd" id="1_nsllv"]
+[ext_resource type="Script" path="res://props/office/generic_interaction.gd" id="1_h7jjo"]
 [ext_resource type="Texture2D" uid="uid://dbw6gcv0cdd51" path="res://assets/props/couch_large_left.png" id="1_rxbor"]
 [ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="3_e51p8"]
 
@@ -11,7 +11,7 @@ size = Vector2(40, 15)
 size = Vector2(15, 14)
 
 [node name="Couch" type="StaticBody2D"]
-script = ExtResource("1_nsllv")
+script = ExtResource("1_h7jjo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rxbor")

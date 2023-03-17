@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=64 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://nlnf7gqbqkge" path="res://props/office/corner_desk_right_normal.tscn" id="4_w0sc1"]
 [ext_resource type="PackedScene" uid="uid://dmklbyve52tjc" path="res://props/office/corner_desk_right_upside.tscn" id="5_ivkia"]
 [ext_resource type="Texture2D" uid="uid://bs1cft4ag6s4h" path="res://assets/props/desk_large_flat.png" id="6_7bjyy"]
+[ext_resource type="Script" path="res://props/office/generic_interaction.gd" id="7_2iagv"]
 [ext_resource type="PackedScene" uid="uid://wq4b2fmyip02" path="res://props/office/shelf.tscn" id="8_6gk6s"]
 [ext_resource type="PackedScene" uid="uid://c5pn1kt4r5wsw" path="res://props/office/conference_table.tscn" id="8_cm6yu"]
 [ext_resource type="Texture2D" uid="uid://cj4sat5twxjqp" path="res://assets/props/whiteboard.png" id="9_ttct5"]
@@ -49,10 +50,14 @@
 [ext_resource type="PackedScene" uid="uid://bx0ecabvq4g1w" path="res://npcs/karen.tscn" id="49_i4iy2"]
 [ext_resource type="PackedScene" uid="uid://byukqm682xubo" path="res://props/toilet_door.tscn" id="49_xc74u"]
 [ext_resource type="PackedScene" uid="uid://5tf14h8epbiy" path="res://npcs/falko.tscn" id="50_gatu7"]
+[ext_resource type="Shader" path="res://shaders/dream.gdshader" id="51_3vlb3"]
 [ext_resource type="Texture2D" uid="uid://cldt6hblpt247" path="res://assets/props/copy_machine.png" id="51_awgc0"]
 [ext_resource type="PackedScene" uid="uid://cx0posk61mann" path="res://npcs/helmine.tscn" id="52_5pl3r"]
 [ext_resource type="PackedScene" uid="uid://b2amvmjranb1j" path="res://props/office/fridge.tscn" id="52_e5rf7"]
+[ext_resource type="Shader" path="res://shaders/dream2.gdshader" id="52_xxq1s"]
 [ext_resource type="PackedScene" uid="uid://bmcm2bdinl8fi" path="res://npcs/fred.tscn" id="53_axrwr"]
+[ext_resource type="PackedScene" uid="uid://cn6ltmahm6nrd" path="res://player/player_dream.tscn" id="57_hj08r"]
+[ext_resource type="Script" path="res://player/player_dream.gd" id="58_1lvaa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
 texture = ExtResource("1_wf3p5")
@@ -36336,6 +36341,20 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lygpe")
 sources/3 = SubResource("TileSetAtlasSource_h04x6")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ix70y"]
+shader = ExtResource("52_xxq1s")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0.0823529, 0.0784314, 0.0941176, 1)
+shader_parameter/MULTIPLIER = 0.56
+shader_parameter/SCALE = 0.5
+shader_parameter/SOFTNESS = 0.45
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0ylv"]
+shader = ExtResource("51_3vlb3")
+shader_parameter/wave_count = 20.0
+shader_parameter/speed = 0.1
+shader_parameter/height = 0.003
+
 [node name="Office" type="Node2D"]
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -36368,12 +36387,16 @@ texture = ExtResource("3_t5ms7")
 position = Vector2(952, 40)
 
 [node name="Couch" parent="Tiles/CouchArea2" instance=ExtResource("18_m2600")]
+interaction_id = "C00"
 
 [node name="Soda" parent="Tiles/CouchArea2" instance=ExtResource("15_spt2m")]
+interaction_id = "S00"
+item_of_interest = true
 
 [node name="Plant1" parent="Tiles/CouchArea2" instance=ExtResource("27_li6ah")]
 position = Vector2(-16, 32)
-interaction_id = "P00"
+script = ExtResource("7_2iagv")
+item_of_interest = true
 
 [node name="Table" parent="Tiles/CouchArea2" instance=ExtResource("15_ivxmn")]
 
@@ -36797,6 +36820,27 @@ metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
+
+[node name="DreamShaderRect2" type="ColorRect" parent="Player/Camera2D/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_ix70y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DreamShaderRect" type="ColorRect" parent="Player/Camera2D/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_o0ylv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+
 [node name="Fridge" parent="." instance=ExtResource("52_e5rf7")]
 position = Vector2(1240, 26)
 
@@ -36811,3 +36855,8 @@ texture = ExtResource("51_awgc0")
 [node name="Fred" parent="." instance=ExtResource("53_axrwr")]
 position = Vector2(1080, 422)
 view_direction = "Up"
+
+[node name="Player2" parent="." instance=ExtResource("57_hj08r")]
+position = Vector2(943, 31)
+rotation = -1.43641
+script = ExtResource("58_1lvaa")

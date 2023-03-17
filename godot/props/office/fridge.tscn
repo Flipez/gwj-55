@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2amvmjranb1j"]
 
-[ext_resource type="Script" path="res://props/office/fridge.gd" id="1_tuawh"]
+[ext_resource type="Script" path="res://props/office/generic_interaction.gd" id="1_54nyg"]
 [ext_resource type="Texture2D" uid="uid://crrehat7dw6fd" path="res://assets/props/fridge_closed.png" id="2_ba3ss"]
 [ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="3_fuoab"]
 
@@ -9,8 +9,7 @@ size = Vector2(15, 34)
 
 [node name="Fridge" type="StaticBody2D"]
 position = Vector2(48, -8)
-script = ExtResource("1_tuawh")
-interaction_id = "FRI"
+script = ExtResource("1_54nyg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ba3ss")

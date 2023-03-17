@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var interaction_shape = $InteractionArea/InteractionShape
+@onready var dream_shader_rect = $Camera2D/CanvasLayer/DreamShaderRect
+@onready var dream_shader_rect_2 = $Camera2D/CanvasLayer/DreamShaderRect2
 
 enum {
 	RUN,
@@ -21,6 +23,10 @@ func _ready():
 	interaction_shape.disabled = true
 
 func _physics_process(delta):
+	_handle_dream_mode()
+	dream_shader_rect.visible = Globals.dream_mode
+	dream_shader_rect_2.visible = Globals.dream_mode
+		
 	if Input.is_action_just_pressed("ui_interact"):
 		interaction_shape.disabled = false
 	else:
@@ -90,3 +96,9 @@ func _play_animation(animation_type: String) -> void:
 func _on_interaction_area_area_entered(area):
 	InteractionHandler.interact(area.interaction_id)
 	area.interaction_callback()
+
+func _handle_dream_mode():
+	if Globals.dream_mode:
+		animated_sprite.modulate.a = 0.5
+	else:
+		animated_sprite.modulate.a = 1

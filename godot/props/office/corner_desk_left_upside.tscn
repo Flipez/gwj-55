@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://do6rcpyvxdkl4"]
 
-[ext_resource type="Script" path="res://props/office/desk_normal.gd" id="1_5xxef"]
+[ext_resource type="Script" path="res://props/office/generic_interaction.gd" id="1_mj33q"]
 [ext_resource type="Texture2D" uid="uid://bl3dhx7v7rl7w" path="res://assets/props/corner_desk/left_upside_down.png" id="1_pw6yt"]
 [ext_resource type="Texture2D" uid="uid://bfpcmpywdjgtc" path="res://assets/props/desk_chair_1_front.png" id="1_yqkex"]
 [ext_resource type="Texture2D" uid="uid://jk6h0ljpgksq" path="res://assets/props/desk_stuff_back_3.png" id="2_sm5bs"]
@@ -14,7 +14,7 @@ size = Vector2(16, 18)
 
 [node name="CornerDeskLeftUpside" type="StaticBody2D"]
 position = Vector2(-24, 8)
-script = ExtResource("1_5xxef")
+script = ExtResource("1_mj33q")
 metadata/_edit_vertical_guides_ = [-75.0]
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]

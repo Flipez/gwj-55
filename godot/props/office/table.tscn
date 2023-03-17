@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://ci4wkeb1y0py3"]
 
+[ext_resource type="Script" path="res://props/office/generic_interaction.gd" id="1_4byce"]
 [ext_resource type="Texture2D" uid="uid://dmacj4c8fwsk4" path="res://assets/props/table_small.png" id="1_8yysr"]
-[ext_resource type="Script" path="res://props/office/table.gd" id="1_yq1cb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w21pu"]
 size = Vector2(26, 17)
 
 [node name="Table" type="StaticBody2D"]
-script = ExtResource("1_yq1cb")
+script = ExtResource("1_4byce")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(11, 16)
 texture = ExtResource("1_8yysr")
 
