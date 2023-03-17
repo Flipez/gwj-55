@@ -1,5 +1,8 @@
 extends Node
 
+signal interaction_started
+signal interaction_stopped
+
 var milestones = []
 var objects = {
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
@@ -34,6 +37,7 @@ func has_found(milestone) -> bool:
 
 func interact(id : String):
 	if objects.has(id):
+		emit_signal("interaction_started")
 		objects[id].call()
 	else:
 		chat("Lt. Oak", "This itsn't the time to use that.")

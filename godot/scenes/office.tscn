@@ -36546,12 +36546,6 @@ position = Vector2(1158, 480)
 [node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
 texture = ExtResource("26_3fin3")
 
-[node name="Couch" type="StaticBody2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
-position = Vector2(1158, 480)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch/Couch"]
-texture = ExtResource("26_3fin3")
-
 [node name="Plant1" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("27_li6ah")]
 position = Vector2(1120, 480)
 interaction_id = "P00"
@@ -36835,12 +36829,17 @@ material = SubResource("ShaderMaterial_o0ylv")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = 5.0
+offset_right = -41.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.333333)
 
 [node name="Fridge" parent="." instance=ExtResource("52_e5rf7")]
 position = Vector2(1240, 26)
+interaction_id = "FRI"
 
 [node name="CopyMachine" type="Sprite2D" parent="."]
 position = Vector2(1016, 131)

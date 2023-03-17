@@ -15,7 +15,8 @@ func _ready():
 	Globals.connect("abort_chat", _abort_chat)
 
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("ui_interact") && chat.visible:
+		_on_next_text_pressed()
 
 func _update_journal(_msg):
 	status_message.text = "Journal updated"
@@ -50,6 +51,7 @@ func _abort_chat():
 	message_queue.clear()
 	chat.hide()
 	chatbox.text = ""
+	InteractionHandler.emit_signal("interaction_stopped")
 
 func _append_message(speaker : String, message : String):
 	message_queue.push_back([speaker, message])

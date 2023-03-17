@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dplq7pgybgilo"]
+[gd_scene load_steps=11 format=3 uid="uid://dplq7pgybgilo"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_4358g"]
 [ext_resource type="Texture2D" uid="uid://xrinmivk82p5" path="res://assets/white-book.png" id="1_gerog"]
@@ -24,14 +24,6 @@ unicode = 106
 
 [sub_resource type="Shortcut" id="Shortcut_5q8u3"]
 events = [SubResource("InputEventKey_2b5ay")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_1phmc"]
-device = -1
-keycode = 32
-unicode = 32
-
-[sub_resource type="Shortcut" id="Shortcut_cysj5"]
-events = [SubResource("InputEventKey_1phmc")]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_4358g")
@@ -124,7 +116,6 @@ offset_top = 457.0
 offset_right = 1731.0
 offset_bottom = 977.0
 scale = Vector2(0.1, 0.1)
-shortcut = SubResource("Shortcut_cysj5")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 texture_normal = ExtResource("7_ic485")

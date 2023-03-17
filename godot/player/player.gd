@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 enum {
 	RUN,
+	INTERACT,
 }
 
 var direction_vector = Vector2.DOWN
@@ -20,14 +21,11 @@ var direction = Vector2.ZERO
 	
 func _ready():
 	Globals.connect("dream_mode_toggled", _dream_mode_toggled)
+	InteractionHandler.connect("interaction_started", _interaction_started)
+	InteractionHandler.connect("interaction_stopped", _interaction_stopped)
 	interaction_shape.disabled = true
 
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_interact"):
-		interaction_shape.disabled = false
-	else:
-		interaction_shape.disabled = true
-	
+func _physics_process(delta):	
 	interaction_shape.rotation_degrees = rad_to_deg(direction_vector.angle()) - 90
 	match state:
 		RUN:	
@@ -48,6 +46,11 @@ func run_state(_delta):
 		_play_animation("Idle")
 		
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("ui_interact"):
+		interaction_shape.disabled = false
+	else:
+		interaction_shape.disabled = true
 	
 
 func animation_finished():	
@@ -102,3 +105,9 @@ func _dream_mode_toggled(dream_state : bool):
 		animated_sprite.modulate.a = 1
 		dream_shader_rect.modulate.a = 0
 		dream_shader_rect_2.modulate.a = 0
+
+func _interaction_started():
+	state = INTERACT
+	
+func _interaction_stopped():
+	state = RUN
