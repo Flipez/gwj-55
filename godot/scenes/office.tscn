@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=63 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://nlnf7gqbqkge" path="res://props/office/corner_desk_right_normal.tscn" id="4_w0sc1"]
 [ext_resource type="PackedScene" uid="uid://dmklbyve52tjc" path="res://props/office/corner_desk_right_upside.tscn" id="5_ivkia"]
 [ext_resource type="Texture2D" uid="uid://bs1cft4ag6s4h" path="res://assets/props/desk_large_flat.png" id="6_7bjyy"]
-[ext_resource type="Script" path="res://props/office/generic_interaction.gd" id="7_2iagv"]
 [ext_resource type="PackedScene" uid="uid://wq4b2fmyip02" path="res://props/office/shelf.tscn" id="8_6gk6s"]
 [ext_resource type="PackedScene" uid="uid://c5pn1kt4r5wsw" path="res://props/office/conference_table.tscn" id="8_cm6yu"]
 [ext_resource type="Texture2D" uid="uid://cj4sat5twxjqp" path="res://assets/props/whiteboard.png" id="9_ttct5"]
@@ -36395,7 +36394,6 @@ item_of_interest = true
 
 [node name="Plant1" parent="Tiles/CouchArea2" instance=ExtResource("27_li6ah")]
 position = Vector2(-16, 32)
-script = ExtResource("7_2iagv")
 item_of_interest = true
 
 [node name="Table" parent="Tiles/CouchArea2" instance=ExtResource("15_ivxmn")]
@@ -36823,7 +36821,6 @@ metadata/_edit_group_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
 
 [node name="DreamShaderRect2" type="ColorRect" parent="Player/Camera2D/CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_ix70y")
 anchors_preset = 15
 anchor_right = 1.0
@@ -36832,7 +36829,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DreamShaderRect" type="ColorRect" parent="Player/Camera2D/CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_o0ylv")
 anchors_preset = 15
 anchor_right = 1.0

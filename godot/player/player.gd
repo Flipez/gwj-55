@@ -18,12 +18,11 @@ var state = RUN
 var targets = []
 var direction = Vector2.ZERO
 	
-	
 func _ready():
+	Globals.connect("dream_mode_toggled", _dream_mode_toggled)
 	interaction_shape.disabled = true
 
 func _physics_process(delta):
-	_handle_dream_mode()
 	dream_shader_rect.visible = Globals.dream_mode
 	dream_shader_rect_2.visible = Globals.dream_mode
 		
@@ -97,8 +96,13 @@ func _on_interaction_area_area_entered(area):
 	InteractionHandler.interact(area.interaction_id)
 	area.interaction_callback()
 
-func _handle_dream_mode():
-	if Globals.dream_mode:
+func _dream_mode_toggled(dream_state : bool):
+	var tween = get_tree().create_tween().set_parallel()
+	if dream_state:
 		animated_sprite.modulate.a = 0.5
+		tween.tween_property(dream_shader_rect, "modulate:a", 1.0, 2.0)
+		tween.tween_property(dream_shader_rect_2, "modulate:a", 1.0, 2.0)
 	else:
 		animated_sprite.modulate.a = 1
+		tween.tween_property(dream_shader_rect, "modulate:a", 0.0, 2.0)
+		tween.tween_property(dream_shader_rect_2, "modulate:a", 0.0, 2.0)
