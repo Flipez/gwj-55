@@ -12,5 +12,6 @@ follow_viewport_enabled = true
 follow_viewport_scale = 4.0
 
 [node name="Office" parent="PixelArt" instance=ExtResource("1_an0jp")]
+position = Vector2(-12.75, -8.25)
 
 [node name="HUD" parent="." instance=ExtResource("2_yewid")]

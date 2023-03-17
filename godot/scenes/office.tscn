@@ -36807,7 +36807,7 @@ position = Vector2(908, 402)
 view_direction = "Down"
 
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
-position = Vector2(1144, 51)
+position = Vector2(1209, 57)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
