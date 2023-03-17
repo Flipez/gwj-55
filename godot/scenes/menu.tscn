@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmhrj8lkhws01"]
+
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_7fxkh"]
+[ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="1_g16j6"]
+[ext_resource type="FontFile" uid="uid://mp1ljy5uk88x" path="res://fonts/IndieFlower-Regular.ttf" id="2_o5tes"]
+[ext_resource type="Texture2D" uid="uid://nrslqmm84x1o" path="res://assets/intro/cyberpunk-street-files/foreground.png" id="3_qf4mi"]
+[ext_resource type="Texture2D" uid="uid://d1o61pegnkxej" path="res://assets/intro/cyberpunk-street-files/middle.png" id="4_kh7v8"]
+[ext_resource type="FontFile" uid="uid://5q4su2qmavjw" path="res://fonts/CrimsonText-Bold.ttf" id="6_ss6th"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_7fxkh")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Middleground" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kh7v8")
+
+[node name="Foreground" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qf4mi")
+
+[node name="Action" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Action"]
+layout_mode = 2
+
+[node name="New Game" type="Button" parent="Action/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_g16j6")
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="Help" type="Button" parent="Action/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_g16j6")
+theme_override_font_sizes/font_size = 30
+text = "Help"
+
+[node name="Title" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 150)
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 103.0
+offset_bottom = 253.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.317647, 0.192157, 0.00392157, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_o5tes")
+theme_override_font_sizes/font_size = 100
+text = "Detective Dave Jackson"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Footer" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.317647, 0.192157, 0.00392157, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_o5tes")
+theme_override_font_sizes/font_size = 30
+text = "a game for the Godot Wild Jam 55 \"Dream\" by Flipez and Kjarrigan"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HelpScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OuterBorder" type="MarginContainer" parent="HelpScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="BG" type="ColorRect" parent="HelpScreen/OuterBorder"]
+layout_mode = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.952941)
+
+[node name="InnerBorder" type="MarginContainer" parent="HelpScreen/OuterBorder"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Text" type="RichTextLabel" parent="HelpScreen/OuterBorder/InnerBorder"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_g16j6")
+theme_override_fonts/bold_font = ExtResource("6_ss6th")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[b]Controls[/b]
+
+WASD	- Movement
+F				- Interaction
+
+Interact with the Couch to Toggle Dream Mode"
+
+[connection signal="pressed" from="Action/Buttons/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Action/Buttons/Help" to="." method="_on_help_pressed"]
