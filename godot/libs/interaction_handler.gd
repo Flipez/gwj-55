@@ -19,7 +19,7 @@ var objects = {
 	"KAR" = Callable(self, "karen"),
 	"FAL" = Callable(self, "falko"),
 	"HEL" = Callable(self, "helmine"),
-	"JOH" = func(): chat("Johannes", "I've learned to not ask questions I don't want the answer to."),
+	"JOH" = func(): chat("Johannes", "I've learned to not ask questions I don't want the answer to."); unlock("JOHANNES"),
 	"FRE" = Callable(self, "fred"),
 	"D00" = func(): chat("DJ", "A normal desk full of stuff for work"), # Generic desk
 	"P00" = func(): chat("DJ", "This is a plant. They absorb CO2 from the air."), # Generic plant
@@ -212,7 +212,7 @@ func _helmine_adam():
 	add_to_chat("DJ", "So you're admitting that you have trying to poison your coworker?")
 	add_to_chat("Helmine", "Poison? Nah. Just a little spice to get this ***** out of the office. She's a plague...")
 	add_to_chat("DJ", "You'll have plenty of time to tell me all the details at the police station. Follow me.")
-	Globals.game_over.emit(len(milestones))
+	event_to_chat(func(): Globals.game_over.emit(len(milestones)))
 
 func fred():
 	if has_found("ACCOMPLICE_FRED"):
@@ -246,6 +246,17 @@ func fred():
 		add_to_chat("DJ", "I've heard enough. You'll come with me to the police station after I've talked to Helmine.")
 		unlock("ACCOMPLICE_FRED")
 		journal("Fred has confessed that he poisoned the yoghurt for Helmine.")
+	elif has_found("EDDIE") and not has_found("SUS_FRED"):
+		chat("DJ", "Why have you lied to me? You were in the kitchen. Fred saw you put your lunch in the fridge.")
+		add_to_chat("Fred", "Uhm...Now that you mentioned it. I have. Must have slipped my mind. A lot of work lately. Sorry")
+		add_to_chat("DJ", "Anything else you have forgotten to mention?")
+		add_to_chat("Fred", "Look I have put stuff INTO the fridge. Aren't you looking for someone that took something OUT?")
+		add_to_chat("DJ", "How do you know? Haven't said anything about that yet?")
+		add_to_chat("Fred", "The yelling from the kitchen was hard to miss...")
+		add_to_chat("DJ", "I see. Still, anything else you want to tell me?")
+		add_to_chat("Fred", "Nope. And I have to continue my work. Bye")
+		journal("Fred is behaving suspicious. He has been in the kitchen. But why?")
+		unlock("SUS_FRED")
 	else:
 		chat("Fred", "A lot of trolls today...")
 
