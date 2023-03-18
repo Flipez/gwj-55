@@ -174,7 +174,7 @@ func helmine():
 		add_to_chat("DJ", "Someone put Chilli into it. Maybe someone that wanted to try a 'different' prank than last time?")
 		add_to_chat("Helmine", "I have been here all the time, remember?")
 		if has_found("EDDI"):
-			add_to_chat("Well actually. Eddi told me he did saw you sending Fred to the kitchen with ramen and a glas of chilli-sauce.")
+			add_to_chat("DJ", "Well actually. Eddi told me he did saw you sending Fred to the kitchen with ramen and a glas of chilli-sauce.")
 			add_to_chat("Helmine", "Whatever. Doesn't prove anything.")
 			if has_found("ACCOMPLICE_FRED"):
 				add_to_chat("DJ", "It does. Because Fred admitted to poison the yoghurt on your behalf.")
@@ -187,7 +187,7 @@ func helmine():
 				add_to_chat("DJ", "I'll find out.")
 				return
 		elif has_found("ACCOMPLICE_FRED"):
-			add_to_chat("You're wrong, because Fred admitted to poison the yoghurt on your behalf.")
+			add_to_chat("DJ", "You're wrong, because Fred admitted to poison the yoghurt on your behalf.")
 			if has_found("FOUND_ADAM"):
 				_helmine_adam()
 			else:
@@ -266,7 +266,7 @@ func gabi():
 	journal("Gabi noticed that someone is blocking the bathroom for hours. Since Karen is in the kitchen someone else must be in there.")
 	
 func angie():
-	unlock("GABI")
+	unlock("ANGIE")
 
 func locked_toilet():
 	if has_found("SPARE_KEY"):
