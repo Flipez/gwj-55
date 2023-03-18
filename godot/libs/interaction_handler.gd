@@ -214,6 +214,10 @@ func _helmine_adam():
 	Globals.game_over.emit(len(milestones))
 
 func fred():
+	if has_found("ACCOMPLICE_FRED"):
+		chat("DJ", "Stay right here until I pick you up.")
+		return
+	
 	if has_found("HELMINE_IS_INNOCENT") and not has_found("ONLYFANS"):
 		chat("DJ", "Can you confirm that Helmine hasn't been to the kitchen today?")
 		add_to_chat("Fred", "Absolutely.")
@@ -228,7 +232,18 @@ func fred():
 		add_to_chat("DJ", "Ok. Eddi then...")
 		unlock("ONLYFANS")
 		journal("Helmine is streaming on OnlyFans while Fred constanly watches here. And both get PAID for that?")
-		journal("Niclas has been to the kitchen to fetch Fred a coffee.")
+		journal("Eddi has been to the kitchen to fetch Fred a coffee.")
+	elsif has_found("ADAM"):
+		chat("DJ", "Why have you poisoned Karens yoghurt?")
+		add_to_chat("Fred", "Wait. I'm innocent. It was all Helmines idea. I just...")
+		add_to_chat("DJ", "Poisoned a poor boy threwing up for hours.")
+		add_to_chat("Fred", "Wait. What?")
+		add_to_chat("DJ", "Adam has eaten the yoghurt and is feeling sick ever since.")
+		add_to_chat("Fred", "I... I didn't want him to get sick.")
+		add_to_chat("DJ", "But Karen would've been acceptable for you?")
+		add_to_chat("Fred", "Yes. She's an aweful person.")
+		add_to_chat("DJ", "I've heard enough. You'll come with me to the police station after I've talked to Helmine.")
+		unlock("ACCOMPLICE_FRED")
 	else:
 		chat("Fred", "A lot of trolls today...")
 
