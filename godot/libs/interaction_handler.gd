@@ -6,6 +6,8 @@ signal interaction_stopped
 var milestones = []
 var objects = {
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
+	"ANG" = Callable(self, "angie"),
+	"GAB" = Callable(self, "gabi"),
 	"C00" = func(): Globals.toggle_dream(), # Couch that triggers dream mode
 	"KAR" = Callable(self, "karen"),
 	"FAL" = Callable(self, "falko"),
@@ -17,7 +19,10 @@ var objects = {
 	"INT" = Callable(self, "intro"),
 	"FRI" = Callable(self, "fridge"),
 	"END" = func(): Globals.game_over.emit(len(milestones)),
-	"S00" = func(): chat("DJ", "A vending machine full of Spezi. I should ask Robert which one is the best!")
+	"S00" = func(): chat("DJ", "A vending machine full of Spezi. I should ask Robert which one is the best!"),
+	"TOL" = func(): chat("DJ", "Ugh. Where does this smell come from?"),
+	"TLC" = Callable(self, "left_toilet"),
+	"TOR" = Callable(self, "locked_toilet"),
 }
 func _ready():
 	randomize()
@@ -37,6 +42,9 @@ func unlock(milestone):
 	
 func has_found(milestone) -> bool:
 	return milestones.find(milestone) > -1
+	
+func is_dreaming() -> bool:
+	return Globals.dream_mode
 
 func interact(id : String):
 	# Do not allow interaction in dream mode except couch to end it
@@ -125,6 +133,15 @@ func falko():
 		add_to_chat("Falko", "Our Lead-Social Media Manager. Shes over in the big office on the other side of the building.")
 		journal("Helmine seems to have issues with Karen and has interfered with her food in the past. Shes over in the office on the west side of the building.")
 		unlock("PRANKSTER_HELMINE")
+	elif has_found("STINKY_STUFF"):
+		chat("DJ", "Someone threw up in your bathroom. Do you know of anyone else having allergies besides Karen?")
+		add_to_chat("Falko", "No. She is the only one I know of. She makes sure everyone knows that.")
+		add_to_chat("DJ", "Has anyone left early today, or did someone look ill?")
+		add_to_chat("Falko", "I don't think so....wait. I haven't seen Adam in quite some time.")
+		add_to_chat("DJ", "Adam? Whos that?")
+		add_to_chat("Falko", "Our apprentice. He was supposed to bring Gabi my notes for the upcoming meeting.")
+		add_to_chat("DJ", "Thanks. I'll see if I can find him.")
+		unlock("ADAMS_MISSING")
 	else:
 		chat("Falko", "I'm in an important meeting. Can you come back later?")
 
@@ -161,3 +178,77 @@ func fred():
 		journal("Niclas has been to the kitchen to fetch Fred a coffee.")
 	else:
 		chat("Fred", "A lot of trolls today...")
+
+func angie():
+	if has_found("ANGIE"):
+		if has_found("ADAMS_MISSING") and not has_found("ADAM_NEVER_SHOWED_UP"):
+			add_to_chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
+			add_to_chat("Angie", "No. I have been waiting for him. But so far he hasn't showed up.")	
+		else:
+			chat("Angie", "Sorry detective. My meeting starts soon and I have a lot to prepare. Can we talk later?")
+		return	
+	
+	if has_found("GABI"):
+		chat("DJ", "Uhm. Didn't I just see you down in the office?")
+		add_to_chat("Angie", "Ehm. No. I have been here all the time. But you might have seen my twin sister Gabi.")
+		add_to_chat("DJ", "That make sense. And whats your name and what are you doing here?")
+	else:
+		chat("DJ", "Excuse me Madame. Can I have 5 minutes of our time?")
+		add_to_chat("Angie", "Sure. How may I help you?")
+		add_to_chat("DJ", "I'm Detective Dave Jackson looking into a misdeed. May I ask who you are and what you are doing here?")
+	add_to_chat("Angie", "I'm Angie. Lead Programmer for Herzmut Games. I'm preparing our next meeting.")
+	add_to_chat("DJ", "How long have you been here and have you been to the kitchen today?")
+	add_to_chat("Angie", "Let's see. What time is it.... oh my. 11:30 already? So I have been here for 2,5 hours and no I haven't been in the kitchen.")
+	add_to_chat("DJ", "Did you see anything suspicious today?")
+	add_to_chat("Angie", "Well, Someone has been blocking the bathroom for ages. But that's probably Karen again. She basically lives there.")
+	add_to_chat("DJ", "What do you mean? She told me she was only 5 minutes in there.")
+	add_to_chat("Angie", "Ha. This tarted up slug. Every day she comes in. Goes straight to the kitchen for some coffee and then hides the rest of the day in the bathroom playing on here phone only coming out every know and then for food or drinks.")
+	if has_found("ADAMS_MISSING"):
+		add_to_chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
+		add_to_chat("Angie", "No. I have been waiting for him. But so far he hasn't showed up.")
+		unlock("ADAM_NEVER_SHOWED_UP")
+	add_to_chat("DJ", "Thank you for your time. You have been really helpful.")
+	unlock("ANGIE")
+	journal("Angie has told me that Karen actually stays most of the time in the bathroom. Not just 5 minutes as she claimed. Why has she lied to me?")
+	journal("Angie noticed that someone is blocking the bathroom for hours. Since Karen is in the kitchen someone else must be in there.")
+	
+func gabi():
+	unlock("GABI")
+
+func locked_toilet():
+	if has_found("SPARE_KEY"):
+		chat("DJ", "I'm coming in.")
+		Globals.open_toilet_door.emit()
+		return
+		
+	if has_found("ANGIE"):
+		chat("DJ", "Hey. Is anyone in there?")
+		add_to_chat("???", "Go away. I'm...")
+		add_to_chat("DJ", "Are you okay?")
+		add_to_chat("???", "No I'm not ok...")
+		add_to_chat("DJ", "Open the door!")
+		add_to_chat("???", "Can't...move...find spare key.")
+		unlock("MISSING_KEY")
+		journal("Someone is stuck in the toilet and is obviously sick. I have to find the spare key.")
+	else:
+		chat("DJ", "The door is locked.")
+	
+func left_toilet():
+	if is_dreaming():
+		chat("DJ", "It smells even worse. How is this even possible, but wait. Something is in that goo...")
+		add_to_chat("DJ", "The remains of a yoghurt cup. 'super delicious, triple choclate' that must be Karens.")
+		add_to_chat("DJ", "So whoever ate it, has upset it's stomach. But what is that smell?")
+		add_to_chat("DJ", "Is that chilli ... absolutely! Someone put chilli in Karens yoghurt. But why poison it first and then eat it? Or are there, multiple culprits?")
+		unlock("CHILLI")
+		return
+	
+	if has_found("STINKY_STUFF"):
+		chat("DJ", "I'm wouldn't dream of looking at this mess any longer. Or would I?")
+		return
+	
+	chat("DJ", "Absolutely disgusting. What happened here. Wait... Is that half-digested yoghurt?")
+	if has_found("PRANKSTER_HELMINE"):
+		add_to_chat("DJ", "Maybe the thief had an allergic reaction. But Falko mentioned only Karens soy allergy. I should ask him about that.")
+	else:
+		add_to_chat("DJ", "I'm not touching that.")
+	unlock("STINKY_STUFF")

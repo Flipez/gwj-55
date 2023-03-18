@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcn4dyp5jy785"]
+
+[ext_resource type="Script" path="res://props/locked_toilet_door.gd" id="1_8tdm6"]
+[ext_resource type="Texture2D" uid="uid://ctlq41aimnahw" path="res://assets/props/animated_door_big_2.png" id="2_4oi5p"]
+[ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="3_iw51a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o78be"]
+atlas = ExtResource("2_4oi5p")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jbow"]
+atlas = ExtResource("2_4oi5p")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dcae"]
+atlas = ExtResource("2_4oi5p")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7pkf"]
+atlas = ExtResource("2_4oi5p")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2gat"]
+atlas = ExtResource("2_4oi5p")
+region = Rect2(64, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d14gw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o78be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jbow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dcae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7pkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2gat")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewheo"]
+size = Vector2(16, 13)
+
+[node name="LockedToiletDoor" type="StaticBody2D"]
+position = Vector2(856, 185)
+script = ExtResource("1_8tdm6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 0)
+sprite_frames = SubResource("SpriteFrames_d14gw")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_iw51a")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+polygon = PackedVector2Array(-24, -5, -24, 23, -8, 23, -8, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 16.5)
+shape = SubResource("RectangleShape2D_ewheo")

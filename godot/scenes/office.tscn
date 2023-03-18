@@ -1,5 +1,6 @@
-[gd_scene load_steps=65 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=68 format=3 uid="uid://b41488nxwj85q"]
 
+[ext_resource type="Script" path="res://scenes/office.gd" id="1_o1gsx"]
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
 [ext_resource type="PackedScene" uid="uid://d0grkbyj5rood" path="res://props/office/corner_desk_left_normal.tscn" id="2_28je1"]
@@ -34,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://dw5ltmn3ewyyk" path="res://assets/props/toaster.png" id="37_ova1f"]
 [ext_resource type="Texture2D" uid="uid://drcnakwps4piq" path="res://assets/props/dishwasher.png" id="38_b8gub"]
 [ext_resource type="Texture2D" uid="uid://k2velj6x3g4s" path="res://assets/props/fridge_drinks.png" id="39_7tv72"]
+[ext_resource type="PackedScene" uid="uid://dcn4dyp5jy785" path="res://props/locked_toilet_door.tscn" id="42_atx6j"]
 [ext_resource type="PackedScene" uid="uid://dcuy4a582pvrh" path="res://props/poempel.tscn" id="43_j3i42"]
 [ext_resource type="PackedScene" uid="uid://buxc0ktdnelu" path="res://props/toilet_paper_roll.tscn" id="44_h8ok1"]
 [ext_resource type="PackedScene" uid="uid://yxnsrec3ug0s" path="res://props/toilet_paper_roll_empty.tscn" id="45_5qpkf"]
@@ -51,13 +53,14 @@
 [ext_resource type="PackedScene" uid="uid://cx0posk61mann" path="res://npcs/helmine.tscn" id="52_5pl3r"]
 [ext_resource type="PackedScene" uid="uid://idvyx75w71gf" path="res://npcs/eddie.tscn" id="52_dgpw0"]
 [ext_resource type="PackedScene" uid="uid://b2amvmjranb1j" path="res://props/office/fridge.tscn" id="52_e5rf7"]
-[ext_resource type="PackedScene" uid="uid://da6ln40e5m0ky" path="res://npcs/adam.tscn" id="52_mf4ps"]
+[ext_resource type="PackedScene" path="res://npcs/adam.tscn" id="52_mf4ps"]
 [ext_resource type="Shader" path="res://shaders/dream2.gdshader" id="52_xxq1s"]
 [ext_resource type="PackedScene" uid="uid://bmcm2bdinl8fi" path="res://npcs/fred.tscn" id="53_axrwr"]
 [ext_resource type="PackedScene" uid="uid://cn6ltmahm6nrd" path="res://player/player_dream.tscn" id="57_hj08r"]
 [ext_resource type="Script" path="res://player/player_dream.gd" id="58_1lvaa"]
-[ext_resource type="PackedScene" uid="uid://cgk3iyfjjsx0x" path="res://scenes/generic_collision.tscn" id="59_ecoav"]
-[ext_resource type="PackedScene" uid="uid://d2pbt4stjjjbh" path="res://props/coffee.tscn" id="60_juvgp"]
+[ext_resource type="PackedScene" uid="uid://qqxpv2x0tmes" path="res://npcs/gabi.tscn" id="59_2d7y5"]
+[ext_resource type="PackedScene" path="res://scenes/generic_collision.tscn" id="59_ecoav"]
+[ext_resource type="PackedScene" path="res://props/coffee.tscn" id="60_juvgp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
 texture = ExtResource("1_wf3p5")
@@ -36362,6 +36365,7 @@ shader_parameter/speed = 0.1
 shader_parameter/height = 0.003
 
 [node name="Office" type="Node2D"]
+script = ExtResource("1_o1gsx")
 metadata/_edit_vertical_guides_ = [313.0]
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -36643,62 +36647,87 @@ position = Vector2(1212, 109)
 [node name="SeatingGroup4" parent="Tiles" instance=ExtResource("34_k6bc5")]
 position = Vector2(1247, 109)
 
-[node name="Toilet1" type="Node2D" parent="Tiles"]
+[node name="ToiletLeft" type="Node2D" parent="Tiles"]
 
-[node name="ToiletOpen" parent="Tiles/Toilet1" instance=ExtResource("45_h3se4")]
+[node name="ToiletOpen" parent="Tiles/ToiletLeft" instance=ExtResource("45_h3se4")]
 position = Vector2(847, 145)
 
-[node name="Poempel" parent="Tiles/Toilet1/ToiletOpen" instance=ExtResource("43_j3i42")]
+[node name="Poempel" parent="Tiles/ToiletLeft/ToiletOpen" instance=ExtResource("43_j3i42")]
 position = Vector2(-10, -5)
 
-[node name="ToiletPaperRoll" parent="Tiles/Toilet1/ToiletOpen" instance=ExtResource("44_h8ok1")]
+[node name="ToiletPaperRoll" parent="Tiles/ToiletLeft/ToiletOpen" instance=ExtResource("44_h8ok1")]
 position = Vector2(11, -1)
 
-[node name="Pee" type="Sprite2D" parent="Tiles/Toilet1/ToiletOpen"]
+[node name="Pee" type="Sprite2D" parent="Tiles/ToiletLeft/ToiletOpen"]
 modulate = Color(1, 1, 1, 0.615686)
 self_modulate = Color(0.862745, 0.85098, 0, 1)
 position = Vector2(8, 21)
 texture = ExtResource("48_yxoxu")
 
-[node name="Pee2" type="Sprite2D" parent="Tiles/Toilet1/ToiletOpen"]
+[node name="Pee2" type="Sprite2D" parent="Tiles/ToiletLeft/ToiletOpen"]
 modulate = Color(1, 1, 1, 0.615686)
 self_modulate = Color(0.862745, 0.85098, 0, 1)
 position = Vector2(-4, 9)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("48_yxoxu")
 
-[node name="Pee3" type="Sprite2D" parent="Tiles/Toilet1/ToiletOpen"]
+[node name="Pee3" type="Sprite2D" parent="Tiles/ToiletLeft/ToiletOpen"]
 modulate = Color(1, 1, 1, 0.615686)
 self_modulate = Color(0.862745, 0.85098, 0, 1)
 position = Vector2(-3, 10)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("48_yxoxu")
 
-[node name="Pee4" type="Sprite2D" parent="Tiles/Toilet1/ToiletOpen"]
+[node name="Pee4" type="Sprite2D" parent="Tiles/ToiletLeft/ToiletOpen"]
 modulate = Color(1, 1, 1, 0.615686)
 self_modulate = Color(0.862745, 0.85098, 0, 1)
 position = Vector2(3, 10.5)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("48_yxoxu")
 
-[node name="ToiletDoor" parent="Tiles/Toilet1" instance=ExtResource("49_xc74u")]
+[node name="ToiletDoor" parent="Tiles/ToiletLeft" instance=ExtResource("49_xc74u")]
+interaction_id = "TOL"
 
-[node name="Toilet3" type="Node2D" parent="Tiles"]
+[node name="ToiletRight" type="Node2D" parent="Tiles"]
 
-[node name="ToiletDoor" parent="Tiles/Toilet3" instance=ExtResource("49_xc74u")]
-position = Vector2(904, 185)
-
-[node name="ToiletOpen" parent="Tiles/Toilet3" instance=ExtResource("45_h3se4")]
+[node name="ToiletOpen" parent="Tiles/ToiletRight" instance=ExtResource("45_h3se4")]
 position = Vector2(897, 144)
 
-[node name="ToiletPaperRollEmpty" parent="Tiles/Toilet3/ToiletOpen" instance=ExtResource("45_5qpkf")]
+[node name="ToiletPaperRollEmpty" parent="Tiles/ToiletRight/ToiletOpen" instance=ExtResource("45_5qpkf")]
 position = Vector2(-11, -3)
 
-[node name="TissueBox" type="StaticBody2D" parent="Tiles/Toilet3/ToiletOpen"]
+[node name="TissueBox" type="StaticBody2D" parent="Tiles/ToiletRight/ToiletOpen"]
 position = Vector2(-1, -15)
 
-[node name="Sprite2D" type="Sprite2D" parent="Tiles/Toilet3/ToiletOpen/TissueBox"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/ToiletRight/ToiletOpen/TissueBox"]
 texture = ExtResource("46_r1ugf")
+
+[node name="ToiletDoor" parent="Tiles/ToiletRight" instance=ExtResource("42_atx6j")]
+position = Vector2(904, 185)
+interaction_id = "TOR"
+
+[node name="Fridge" parent="Tiles" instance=ExtResource("52_e5rf7")]
+position = Vector2(1240, 26)
+interaction_id = "FRI"
+
+[node name="CopyMachine" type="Sprite2D" parent="Tiles"]
+position = Vector2(1016, 131)
+texture = ExtResource("51_awgc0")
+
+[node name="CopyMachine2" type="Sprite2D" parent="Tiles"]
+position = Vector2(1016, 157)
+texture = ExtResource("51_awgc0")
+
+[node name="Coffee" parent="Tiles" instance=ExtResource("60_juvgp")]
+position = Vector2(884, 335)
+
+[node name="ToiletRoof" type="ColorRect" parent="Tiles"]
+z_index = 100
+custom_minimum_size = Vector2(40, 60)
+offset_left = 865.0
+offset_top = 117.0
+offset_right = 912.0
+offset_bottom = 180.0
 
 [node name="NPCs" type="Node2D" parent="."]
 
@@ -36745,6 +36774,10 @@ position = Vector2(848, 437)
 position = Vector2(1169, 473)
 interaction_id = "EDD"
 
+[node name="Gabi" parent="NPCs" instance=ExtResource("59_2d7y5")]
+position = Vector2(761, 67)
+view_direction = "Right"
+
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
 position = Vector2(1209, 57)
 metadata/_edit_group_ = true
@@ -36776,18 +36809,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.333333)
 
-[node name="Fridge" parent="." instance=ExtResource("52_e5rf7")]
-position = Vector2(1240, 26)
-interaction_id = "FRI"
-
-[node name="CopyMachine" type="Sprite2D" parent="."]
-position = Vector2(1016, 131)
-texture = ExtResource("51_awgc0")
-
-[node name="CopyMachine2" type="Sprite2D" parent="."]
-position = Vector2(1016, 157)
-texture = ExtResource("51_awgc0")
-
 [node name="Collisions" type="Node2D" parent="."]
 
 [node name="GenericCollision" parent="Collisions" instance=ExtResource("59_ecoav")]
@@ -36796,5 +36817,6 @@ position = Vector2(920, 184)
 [node name="GenericCollision2" parent="Collisions" instance=ExtResource("59_ecoav")]
 position = Vector2(872, 184)
 
-[node name="Coffee" parent="." instance=ExtResource("60_juvgp")]
-position = Vector2(884, 335)
+[node name="GenericCollision3" parent="Collisions" instance=ExtResource("59_ecoav")]
+position = Vector2(1176, 37)
+scale = Vector2(7, 1)

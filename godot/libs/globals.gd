@@ -14,6 +14,7 @@ signal abort_chat()
 signal dream_mode_toggled(state : bool)
 signal new_game()
 signal game_over(score : int)
+signal open_toilet_door()
 const max_milestones = 6
 
 func _ready():

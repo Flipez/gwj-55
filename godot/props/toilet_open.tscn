@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bggexf2itluku"]
+[gd_scene load_steps=6 format=3 uid="uid://bggexf2itluku"]
 
+[ext_resource type="Script" path="res://props/toilet_open.gd" id="1_4rmhh"]
 [ext_resource type="Texture2D" uid="uid://ilpirdcy5cne" path="res://assets/props/toilet_open_dirty.png" id="1_i4x7g"]
 [ext_resource type="PackedScene" uid="uid://bxvk6qalhavya" path="res://scenes/interaction_area.tscn" id="2_dtvwd"]
 
@@ -11,6 +12,8 @@ size = Vector2(14, 35)
 
 [node name="ToiletOpen" type="StaticBody2D"]
 position = Vector2(846, 186)
+script = ExtResource("1_4rmhh")
+interaction_id = "TLC"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_i4x7g")
