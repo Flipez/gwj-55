@@ -12,6 +12,7 @@ signal fridge_close
 var milestones = []
 var objects = {
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
+	"ADA" = Callable(self, "adam"),
 	"ANG" = Callable(self, "angie"),
 	"GAB" = Callable(self, "gabi"),
 	"C00" = func(): Globals.toggle_dream(), # Couch that triggers dream mode
@@ -178,7 +179,7 @@ func helmine():
 			add_to_chat("Helmine", "Whatever. Doesn't prove anything.")
 			if has_found("ACCOMPLICE_FRED"):
 				add_to_chat("DJ", "It does. Because Fred admitted to poison the yoghurt on your behalf.")
-			if has_found("FOUND_ADAM"):
+			if has_found("ADAM"):
 				_helmine_adam()
 			else:
 				add_to_chat("Helmine", "Maybe I have done that. But she never ate it. So what's the issue?")
@@ -188,7 +189,7 @@ func helmine():
 				return
 		elif has_found("ACCOMPLICE_FRED"):
 			add_to_chat("DJ", "You're wrong, because Fred admitted to poison the yoghurt on your behalf.")
-			if has_found("FOUND_ADAM"):
+			if has_found("ADAM"):
 				_helmine_adam()
 			else:
 				add_to_chat("Helmine", "Maybe I have done that. But she never ate it. So what's the issue?")
@@ -223,8 +224,8 @@ func fred():
 		add_to_chat("DJ", "Aren't you supposed to be working?")
 		add_to_chat("Fred", "What do you think I'm doing. I'm her stream moderator.")
 		add_to_chat("DJ", "But... anyhow. Have you been to the kitchen today?")
-		add_to_chat("Fred", "No I haven't. Niclas was kind enough the bring me a coffee so I can focus on my task.")
-		add_to_chat("DJ", "Ok. Niclas then...")
+		add_to_chat("Fred", "No I haven't. Eddi was kind enough the bring me a coffee so I can focus on my task.")
+		add_to_chat("DJ", "Ok. Eddi then...")
 		unlock("ONLYFANS")
 		journal("Helmine is streaming on OnlyFans while Fred constanly watches here. And both get PAID for that?")
 		journal("Niclas has been to the kitchen to fetch Fred a coffee.")
@@ -233,7 +234,7 @@ func fred():
 
 func gabi():
 	if has_found("GABI"):
-		if has_found("ADAMS_MISSING") and not has_found("ADAM_NEVER_SHOWED_UP") and not has_found("FOUND_ADAM"):
+		if has_found("ADAMS_MISSING") and not has_found("ADAM_NEVER_SHOWED_UP") and not has_found("ADAM"):
 			chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
 			add_to_chat("Gabi", "No. I have been waiting for him. But so far he hasn't showed up.")	
 		else:
@@ -255,7 +256,7 @@ func gabi():
 	add_to_chat("Gabi", "Well, Someone has been blocking the bathroom for ages. But that's probably Karen again. She basically lives there.")
 	add_to_chat("DJ", "What do you mean? She told me she was only 5 minutes in there.")
 	add_to_chat("Gabi", "Ha. This tarted up slug. Every day she comes in. Goes straight to the kitchen for some coffee and then hides the rest of the day in the bathroom playing on here phone only coming out every know and then for food or drinks.")
-	if has_found("ADAMS_MISSING") and not has_found("FOUND_ADAM"):
+	if has_found("ADAMS_MISSING") and not has_found("ADAM"):
 		add_to_chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
 		add_to_chat("Gabi", "No. I have been waiting for him. But so far he hasn't showed up.")
 		unlock("ADAM_NEVER_SHOWED_UP")
@@ -266,15 +267,30 @@ func gabi():
 	journal("Gabi noticed that someone is blocking the bathroom for hours. Since Karen is in the kitchen someone else must be in there.")
 	
 func angie():
+	if has_found("ANGIE"):
+		chat("Angie", "Sorry detective, but I'm preparing for an important meeting.")
+		return
+	
+	chat("Angie", "Hi I'm Angie. The marketing assistent. How may I help you?")
+	add_to_chat("DJ", "I'm Detective Dave Jackson searching for clues for a missing yoghurt.")
+	add_to_chat("Angie", "That doesn't sound like a job for the police.")
+	add_to_chat("DJ", "It doesn't but Karen has called and I'm here, so...")
+	add_to_chat("Angie", "I see. Well I haven't been in the kitchen yet. I just arrived, but maybe ask Helmine. She's been here for a while.")
+	if has_found("HELMINE_IS_INNOCENT"):
+		add_to_chat("DJ", "I already talked to her.")
+		add_to_chat("Angie", "Well. Then. Haven't seen anyone else besides her.")
+		add_to_chat("DJ", "Ok. Then I'll look around.")
+	else:
+		add_to_chat("DJ", "Thanks. I'll do that.")
 	unlock("ANGIE")
-
+	
 func locked_toilet():
 	if has_found("SPARE_KEY"):
 		chat("DJ", "I'm coming in.")
 		Globals.open_toilet_door.emit()
 		return
 		
-	if has_found("ANGIE"):
+	if has_found("GABI"):
 		chat("DJ", "Hey. Is anyone in there?")
 		add_to_chat("???", "Go away. I'm...")
 		add_to_chat("DJ", "Are you okay?")
@@ -317,3 +333,33 @@ func missing_key():
 		chat("DJ", "There is a key blocking the door! Looks like a task for disembodied me.")
 	else:
 		chat("DJ", "Out of order. Something seems to be stuck in there.")
+
+func adam():
+	if has_found("ADAM"):
+		chat("Adam", "Sorry detective. But I need a bit more time for myself to recover. Can you come back later?")
+		return
+	
+	if has_found("ADAMS_MISSING"):
+		chat("DJ", "You are Adam, aren't you? You look horrible. What happened?")
+		add_to_chat("Adam", "I...can't...talk...")
+	else:
+		chat("DJ", "Poo boy. You look horrible! Who are you and what happened?")
+		add_to_chat("Adam", "I'm Adam... and I... can't...")
+	add_to_chat("DJ", "Here drink that...")
+	add_to_chat("Adam", "That's tastes aweful. What is that stuff?")
+	add_to_chat("DJ", "Whiskey. If you have to work with aweful stuff all day long, a little sip here and there helps a lot.")
+	add_to_chat("Adam", "I'm barely old enough to drink that and it hasn't helped....wait I'm feeling better.")
+	add_to_chat("DJ", "See? So now. What happened to you?")
+	add_to_chat("Adam", "I saw Fred putting something into Karens yoghurt and I wanted to find out what so I stole it and...")
+	if has_found("CHILLI"):
+		add_to_chat("DJ", "... and you have found out that there was chilli in there?")
+		add_to_chat("Adam", "Yeah. How do you know?")
+		add_to_chat("DJ", "I found the remains of the yoghurt in the other toilet.")
+		add_to_chat("Adam", "Why has Fred done that?")
+	else:
+		add_to_chat("DJ", "Something was in there that you couldn't handle.")
+		add_to_chat("Adam", "Yeah. I don't know what it was but...")
+	add_to_chat("DJ", "I'll find out! I'll have a talk with Fred.")
+	unlock("ADAM")
+	
+	
