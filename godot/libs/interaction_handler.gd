@@ -131,7 +131,7 @@ func falko():
 		add_to_chat("DJ", "So someone tried to cause an allergic reaction? No trivial offense. Allergic reactions can be fatal...")
 		add_to_chat("Falko", "Nah. She's exaggerating. She just starts to fart a lot and spend even more time in the bathroom.")
 		add_to_chat("DJ", "How do you know?")
-		add_to_chat("Falko", "Because the last time Helmine pulled that off it that toilet was unusable for days.")
+		add_to_chat("Falko", "Because the last time Helmine pulled that off the toilet was unusable for days.")
 		add_to_chat("DJ", "Helmine?")
 		add_to_chat("Falko", "Our Lead-Social Media Manager. Shes over in the big office on the other side of the building.")
 		journal("Helmine seems to have issues with Karen and has interfered with her food in the past. Shes over in the office on the west side of the building.")
