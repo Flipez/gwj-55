@@ -27,6 +27,6 @@ func _game_over(score : int):
 	help_screen.hide()
 	
 	var perc = float(score) / Globals.max_milestones * 100
-	game_over_score.text = ("You have found %d of %d clues (%.1f)" % [score, Globals.max_milestones, perc])
+	game_over_score.text = ("You have found %d of %d clues (%.1f%%)" % [score, Globals.max_milestones, perc])
 	game_over.show()
 	show()

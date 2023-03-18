@@ -59,7 +59,7 @@ func is_dreaming() -> bool:
 
 func interact(id : String):
 	# Do not allow interaction in dream mode except couch to end it
-	if Globals.dream_mode && ["C00", "TLC", "KEY"].find(id) == -1:
+	if Globals.dream_mode && ["C00", "TLC", "KEY", "FRI"].find(id) == -1:
 		return
 
 	if objects.has(id):
@@ -69,7 +69,6 @@ func interact(id : String):
 		chat("Lt. Oak", "This itsn't the time to use that.")
 
 func intro():
-	# TODO: DJ walks into the Kitchen
 	chat("DJ", "Hi I'm Detective Dave Jackson. Did you call us?")
 	add_to_chat("Karen", "I did. Because some horrible monster ate my baby!")
 	add_to_chat("DJ", "SOMEONE ATE YOUR BABY! That's horri... wait. Why did you bring your baby to the office.")
@@ -95,13 +94,11 @@ func intro():
 	add_to_chat("Karen", "Yes. This yoghurt thief is probably one of the worst bastards you ever had to put in jail.")
 	add_to_chat("DJ", "Oh my... Well. Then I guess I'll start the 'investigation' of this crime scene. See you later.")
 	add_to_chat("Karen", "Do that. I'll wait right here.")
-	# TODO: Unfreeze Player-Movement
 	
 	journal("An employee named Karen called me, because someone ate her yoghurt. How low have I fallen...")
 
 func karen():
 	if has_found("FRIDGE") and not has_found("MOVED_LABEL"):
-		# TODO, 
 		chat("DJ", "There is a yoghurt in the fridge with a 'KAREN'-label on it. Is that the one you are missing?")
 		add_to_chat("Karen", "Of course not. That's not a super delicious, triple choclate, jumbo yoghurt. Can't you read?")
 		add_to_chat("DJ", "But is that your handwriting?")

@@ -36962,6 +36962,7 @@ position = Vector2(1247, 109)
 [node name="Fridge" parent="Tiles/Kitchen" instance=ExtResource("52_e5rf7")]
 position = Vector2(1128, 26)
 interaction_id = "FRI"
+item_of_interest = true
 
 [node name="Plant1" parent="Tiles/Kitchen" instance=ExtResource("27_li6ah")]
 position = Vector2(1256, 33)
@@ -37042,7 +37043,7 @@ offset_bottom = 180.0
 position = Vector2(1234, 55)
 
 [node name="Helmine" parent="NPCs" instance=ExtResource("52_5pl3r")]
-position = Vector2(909, 406)
+position = Vector2(785, 520)
 
 [node name="Johannes" parent="NPCs" instance=ExtResource("51_lntmk")]
 position = Vector2(926, 333)
@@ -37074,7 +37075,7 @@ rotation = 1.08084
 script = ExtResource("50_krnja")
 
 [node name="Angie" parent="NPCs" instance=ExtResource("51_4yjr2")]
-position = Vector2(823, 438)
+position = Vector2(909, 405)
 
 [node name="Eddie" parent="NPCs" instance=ExtResource("52_dgpw0")]
 position = Vector2(1169, 473)
