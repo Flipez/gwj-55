@@ -41,6 +41,8 @@ position = Vector2(7.5, -10.5)
 shape = SubResource("RectangleShape2D_vbxho")
 
 [node name="InteractionArea" parent="." instance=ExtResource("5_avmju")]
+monitoring = false
+monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
 polygon = PackedVector2Array(24, -6, -8, -6, -8, 16, -24, 16, -24, -20, 24, -20)
