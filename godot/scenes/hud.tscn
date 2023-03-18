@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="5_aavwy"]
 [ext_resource type="FontFile" uid="uid://5q4su2qmavjw" path="res://fonts/CrimsonText-Bold.ttf" id="6_5o0ng"]
 [ext_resource type="Texture2D" uid="uid://ccl0pgs17b74h" path="res://assets/sideswipe.png" id="7_ic485"]
-[ext_resource type="PackedScene" uid="uid://cmhrj8lkhws01" path="res://scenes/menu.tscn" id="8_qf8ks"]
+[ext_resource type="PackedScene" path="res://scenes/menu.tscn" id="8_qf8ks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkbsl"]
 bg_color = Color(0.458824, 0.603922, 0.835294, 0.686275)

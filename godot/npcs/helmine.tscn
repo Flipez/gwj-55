@@ -50,7 +50,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle_Down",
-"speed": 5.0
+"speed": 4.7
 }]
 
 [node name="Helmine" instance=ExtResource("1_jbrnl")]

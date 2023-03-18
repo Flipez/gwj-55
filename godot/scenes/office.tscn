@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=66 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -24,9 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dpant5c07c0wa" path="res://props/office/plant_2.tscn" id="27_li6ah"]
 [ext_resource type="PackedScene" uid="uid://btcehpkbbqu1w" path="res://props/office/whiteboard_2.tscn" id="28_e0i4w"]
 [ext_resource type="Texture2D" uid="uid://cgmareexk5ory" path="res://assets/props/fire_extinguisher.png" id="29_vv17v"]
-[ext_resource type="Texture2D" uid="uid://crrehat7dw6fd" path="res://assets/props/fridge_closed.png" id="30_n7hgf"]
 [ext_resource type="PackedScene" uid="uid://de3ev4cjvt82p" path="res://player/player.tscn" id="31_5toy6"]
-[ext_resource type="Texture2D" uid="uid://ck5lr8hd5stud" path="res://assets/props/fridge_open.png" id="31_43jcg"]
 [ext_resource type="Texture2D" uid="uid://bpk2dw0ko86dr" path="res://assets/props/oven_closed.png" id="32_68tp7"]
 [ext_resource type="Texture2D" uid="uid://cj5k2dkwkquf4" path="res://assets/props/countertop_base_1.png" id="32_rrnon"]
 [ext_resource type="Texture2D" uid="uid://uivjg0xpvlmt" path="res://assets/props/oven_open.png" id="33_c0doo"]
@@ -46,10 +44,13 @@
 [ext_resource type="PackedScene" uid="uid://bx0ecabvq4g1w" path="res://npcs/karen.tscn" id="49_i4iy2"]
 [ext_resource type="PackedScene" uid="uid://byukqm682xubo" path="res://props/toilet_door.tscn" id="49_xc74u"]
 [ext_resource type="PackedScene" uid="uid://5tf14h8epbiy" path="res://npcs/falko.tscn" id="50_gatu7"]
+[ext_resource type="Script" path="res://npcs/falko.gd" id="50_krnja"]
 [ext_resource type="Shader" path="res://shaders/dream.gdshader" id="51_3vlb3"]
+[ext_resource type="PackedScene" uid="uid://cgl5f8pgnyoqa" path="res://npcs/angie.tscn" id="51_4yjr2"]
 [ext_resource type="Texture2D" uid="uid://cldt6hblpt247" path="res://assets/props/copy_machine.png" id="51_awgc0"]
 [ext_resource type="PackedScene" uid="uid://g0lq07sl7tww" path="res://npcs/johannes.tscn" id="51_lntmk"]
 [ext_resource type="PackedScene" uid="uid://cx0posk61mann" path="res://npcs/helmine.tscn" id="52_5pl3r"]
+[ext_resource type="PackedScene" uid="uid://idvyx75w71gf" path="res://npcs/eddie.tscn" id="52_dgpw0"]
 [ext_resource type="PackedScene" uid="uid://b2amvmjranb1j" path="res://props/office/fridge.tscn" id="52_e5rf7"]
 [ext_resource type="PackedScene" uid="uid://da6ln40e5m0ky" path="res://npcs/adam.tscn" id="52_mf4ps"]
 [ext_resource type="Shader" path="res://shaders/dream2.gdshader" id="52_xxq1s"]
@@ -36341,6 +36342,12 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lygpe")
 sources/3 = SubResource("TileSetAtlasSource_h04x6")
 
+[sub_resource type="Curve2D" id="Curve2D_3wy4g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1031, 170, 0, 0, 0, 0, 1055, 170, 0, 0, 0, 0, 1056, 76, 0, 0, 0, 0, 1187, 72)
+}
+point_count = 4
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ix70y"]
 shader = ExtResource("52_xxq1s")
 shader_parameter/player_position = Vector2(0.5, 0.5)
@@ -36356,6 +36363,7 @@ shader_parameter/speed = 0.1
 shader_parameter/height = 0.003
 
 [node name="Office" type="Node2D"]
+metadata/_edit_vertical_guides_ = [313.0]
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -36591,19 +36599,6 @@ position = Vector2(1256, 376)
 [node name="Sprite2D" type="Sprite2D" parent="Tiles/FireExtinguisher3"]
 texture = ExtResource("29_vv17v")
 
-[node name="Fridge" type="StaticBody2D" parent="Tiles"]
-position = Vector2(1238, 26)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tiles/Fridge"]
-position = Vector2(18, 0)
-texture = ExtResource("30_n7hgf")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Fridge"]
-visible = false
-position = Vector2(21.376, -0.0352937)
-scale = Vector2(1, 1.02857)
-texture = ExtResource("31_43jcg")
-
 [node name="Oven" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1126, 31)
 
@@ -36806,10 +36801,6 @@ texture = ExtResource("46_r1ugf")
 [node name="Karen" parent="NPCs" instance=ExtResource("49_i4iy2")]
 position = Vector2(1234, 55)
 
-[node name="Falko" parent="NPCs" instance=ExtResource("50_gatu7")]
-position = Vector2(1031, 153)
-view_direction = "Up"
-
 [node name="Helmine" parent="NPCs" instance=ExtResource("52_5pl3r")]
 position = Vector2(909, 406)
 
@@ -36825,8 +36816,30 @@ interaction_id = "ADA"
 [node name="Player2" parent="NPCs" instance=ExtResource("57_hj08r")]
 position = Vector2(943, 31)
 rotation = -1.43641
-scale = Vector2(1, 1)
 script = ExtResource("58_1lvaa")
+
+[node name="Path2D" type="Path2D" parent="NPCs"]
+curve = SubResource("Curve2D_3wy4g")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="NPCs/Path2D"]
+position = Vector2(1031, 170)
+rotation = -1.08084
+rotates = false
+loop = false
+lookahead = 20.0
+
+[node name="Falko" parent="NPCs/Path2D/PathFollow2D" instance=ExtResource("50_gatu7")]
+position = Vector2(15, -8)
+rotation = 1.08084
+script = ExtResource("50_krnja")
+interaction_id = ""
+
+[node name="Angie" parent="NPCs" instance=ExtResource("51_4yjr2")]
+position = Vector2(848, 437)
+
+[node name="Eddie" parent="NPCs" instance=ExtResource("52_dgpw0")]
+position = Vector2(1169, 473)
+interaction_id = "EDD"
 
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
 position = Vector2(1209, 57)
