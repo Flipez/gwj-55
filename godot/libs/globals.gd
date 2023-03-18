@@ -16,7 +16,7 @@ signal dream_mode_toggled(state : bool)
 signal new_game()
 signal game_over(score : int)
 signal open_toilet_door()
-const max_milestones = 15
+const max_milestones = 19
 
 func _ready():
 	get_parent().add_child.call_deferred(audio_player)
