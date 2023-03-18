@@ -15,7 +15,7 @@ enum {
 }
 
 var direction_vector = Vector2.RIGHT
-var state = RUN
+var state = INTERACT
 var targets = []
 var direction = Vector2.ZERO
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=92 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Script" path="res://scenes/office.gd" id="1_o1gsx"]
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bs1cft4ag6s4h" path="res://assets/props/desk_large_flat.png" id="6_7bjyy"]
 [ext_resource type="PackedScene" uid="uid://wq4b2fmyip02" path="res://props/office/shelf.tscn" id="8_6gk6s"]
 [ext_resource type="PackedScene" uid="uid://c5pn1kt4r5wsw" path="res://props/office/conference_table.tscn" id="8_cm6yu"]
+[ext_resource type="Texture2D" uid="uid://cop2hdu4upei8" path="res://assets/props/animated_cat.png" id="9_oqjif"]
 [ext_resource type="PackedScene" uid="uid://b2ps6x2otbfa8" path="res://props/office/plant_1.tscn" id="13_7paim"]
 [ext_resource type="PackedScene" uid="uid://ci4wkeb1y0py3" path="res://props/office/table.tscn" id="15_ivxmn"]
 [ext_resource type="PackedScene" uid="uid://d3jppmd0n7cei" path="res://props/office/soda.tscn" id="15_spt2m"]
@@ -36344,6 +36345,137 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lygpe")
 sources/3 = SubResource("TileSetAtlasSource_h04x6")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dehaj"]
+size = Vector2(42, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2lnf"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p3em"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q05k"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee8bi"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5oa1"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81vm4"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_regry"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(288, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teb60"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(336, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7puh"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(384, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isrf1"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(432, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pkmk"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(480, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x15iq"]
+atlas = ExtResource("9_oqjif")
+region = Rect2(528, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qdm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2lnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p3em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q05k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee8bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5oa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81vm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_regry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_teb60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7puh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isrf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pkmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x15iq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc78o"]
+size = Vector2(28, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45cg6"]
+size = Vector2(28, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx08o"]
+size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_he7qa"]
+size = Vector2(40, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u56uy"]
+size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce2yi"]
+size = Vector2(28, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgckq"]
+size = Vector2(41, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi3p0"]
+size = Vector2(52, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5v5l"]
+size = Vector2(28, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hba1"]
+size = Vector2(16, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m78ne"]
+size = Vector2(96, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yej1y"]
+size = Vector2(11, 5)
+
 [sub_resource type="Curve2D" id="Curve2D_3wy4g"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1031, 170, 0, 0, 0, 0, 1055, 170, 0, 0, 0, 0, 1056, 76, 0, 0, 0, 0, 1187, 72)
@@ -36398,9 +36530,11 @@ texture = ExtResource("3_t5ms7")
 position = Vector2(952, 40)
 
 [node name="Couch" parent="Tiles/CouchArea2" instance=ExtResource("18_m2600")]
+position = Vector2(-4, 0)
 interaction_id = "C00"
 
 [node name="Soda" parent="Tiles/CouchArea2" instance=ExtResource("15_spt2m")]
+position = Vector2(122, -14)
 interaction_id = "S00"
 item_of_interest = true
 
@@ -36409,6 +36543,26 @@ position = Vector2(-16, 32)
 item_of_interest = true
 
 [node name="Table" parent="Tiles/CouchArea2" instance=ExtResource("15_ivxmn")]
+position = Vector2(-1, 4)
+
+[node name="Couch2" type="StaticBody2D" parent="Tiles/CouchArea2"]
+position = Vector2(60, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/CouchArea2/Couch2"]
+position = Vector2(-7, -2)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("26_3fin3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/CouchArea2/Couch2"]
+position = Vector2(-7, -2)
+shape = SubResource("RectangleShape2D_dehaj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tiles/CouchArea2"]
+position = Vector2(56, -8)
+sprite_frames = SubResource("SpriteFrames_6qdm6")
+autoplay = "default"
+frame = 2
+frame_progress = 0.37919
 
 [node name="OpenOffice1" type="Node2D" parent="Tiles"]
 
@@ -36420,6 +36574,54 @@ position = Vector2(1048, 195)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("18_gydbe")
 
+[node name="Plant1" parent="Tiles/LogoArea" instance=ExtResource("13_7paim")]
+position = Vector2(1095, 207)
+
+[node name="Plant4" parent="Tiles/LogoArea" instance=ExtResource("13_7paim")]
+position = Vector2(813, 282)
+
+[node name="Plant5" parent="Tiles/LogoArea" instance=ExtResource("13_7paim")]
+position = Vector2(861, 283)
+
+[node name="Plant3" parent="Tiles/LogoArea" instance=ExtResource("13_7paim")]
+position = Vector2(765, 281)
+
+[node name="Plant9" parent="Tiles/LogoArea" instance=ExtResource("13_7paim")]
+position = Vector2(911, 284)
+
+[node name="Plant2" parent="Tiles/LogoArea" instance=ExtResource("27_li6ah")]
+position = Vector2(1001, 207)
+
+[node name="Plant6" parent="Tiles/LogoArea" instance=ExtResource("27_li6ah")]
+position = Vector2(789, 285)
+
+[node name="Plant7" parent="Tiles/LogoArea" instance=ExtResource("27_li6ah")]
+position = Vector2(837, 287)
+
+[node name="Plant8" parent="Tiles/LogoArea" instance=ExtResource("27_li6ah")]
+position = Vector2(886, 287)
+
+[node name="GenericCollision" parent="Tiles/LogoArea" instance=ExtResource("59_ecoav")]
+position = Vector2(765, 277)
+
+[node name="GenericCollision2" parent="Tiles/LogoArea" instance=ExtResource("59_ecoav")]
+position = Vector2(789, 284)
+
+[node name="GenericCollision3" parent="Tiles/LogoArea" instance=ExtResource("59_ecoav")]
+position = Vector2(813, 279)
+
+[node name="GenericCollision4" parent="Tiles/LogoArea" instance=ExtResource("59_ecoav")]
+position = Vector2(837, 286)
+
+[node name="GenericCollision5" parent="Tiles/LogoArea" instance=ExtResource("59_ecoav")]
+position = Vector2(861, 280)
+
+[node name="GenericCollision6" parent="Tiles/LogoArea" instance=ExtResource("59_ecoav")]
+position = Vector2(886, 286)
+
+[node name="GenericCollision7" parent="Tiles/LogoArea" instance=ExtResource("59_ecoav")]
+position = Vector2(911, 281)
+
 [node name="ConferenceRoom2" type="Node2D" parent="Tiles"]
 y_sort_enabled = true
 position = Vector2(448, -304)
@@ -36430,8 +36632,16 @@ position = Vector2(384, 392)
 [node name="Whiteboard1" parent="Tiles/ConferenceRoom2" instance=ExtResource("24_ilfqg")]
 position = Vector2(390, 322)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ConferenceRoom2/Whiteboard1"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_wc78o")
+
 [node name="Whiteboard2" parent="Tiles/ConferenceRoom2" instance=ExtResource("28_e0i4w")]
 position = Vector2(359, 322)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ConferenceRoom2/Whiteboard2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_45cg6")
 
 [node name="OpenOffice2" type="Node2D" parent="Tiles"]
 
@@ -36504,6 +36714,10 @@ interaction_id = "END"
 [node name="ChairBlackFront" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("20_vvr5u")]
 position = Vector2(1080, 400)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/OpenOffice2/InterviewRoom/ChairBlackFront"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_tx08o")
+
 [node name="InterviewTable" type="StaticBody2D" parent="Tiles/OpenOffice2/InterviewRoom"]
 position = Vector2(1080, 416)
 
@@ -36524,6 +36738,9 @@ position = Vector2(-5, -1)
 rotation = -1.55509
 texture = ExtResource("22_uhpob")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/OpenOffice2/InterviewRoom/InterviewTable"]
+shape = SubResource("RectangleShape2D_he7qa")
+
 [node name="Fred" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("53_axrwr")]
 position = Vector2(1080, 417)
 view_direction = "Up"
@@ -36534,7 +36751,15 @@ interaction_id = "P00"
 
 [node name="ChairBlackBack" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("23_bqsoi")]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/OpenOffice2/InterviewRoom/ChairBlackBack"]
+position = Vector2(1080, 432)
+shape = SubResource("RectangleShape2D_u56uy")
+
 [node name="Whiteboard1" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("24_ilfqg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/OpenOffice2/InterviewRoom/Whiteboard1"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ce2yi")
 
 [node name="ManagerFrontOffice" type="Node2D" parent="Tiles/OpenOffice2"]
 
@@ -36548,6 +36773,10 @@ texture = ExtResource("6_7bjyy")
 position = Vector2(0, -9)
 texture = ExtResource("25_1t21j")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/OpenOffice2/ManagerFrontOffice/FrontOfficeTable"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_cgckq")
+
 [node name="ManagerOffice" type="Node2D" parent="Tiles/OpenOffice2"]
 
 [node name="CornerDeskRightNormal" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("4_w0sc1")]
@@ -36559,11 +36788,8 @@ position = Vector2(1158, 480)
 [node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
 texture = ExtResource("26_3fin3")
 
-[node name="Couch" type="StaticBody2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
-position = Vector2(1158, 480)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch/Couch"]
-texture = ExtResource("26_3fin3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/OpenOffice2/ManagerOffice/Couch"]
+shape = SubResource("RectangleShape2D_wi3p0")
 
 [node name="Plant1" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("27_li6ah")]
 position = Vector2(1120, 480)
@@ -36571,6 +36797,10 @@ interaction_id = "P00"
 
 [node name="Whiteboard1" parent="Tiles/OpenOffice2/ManagerOffice" instance=ExtResource("28_e0i4w")]
 position = Vector2(1091, 466)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/OpenOffice2/ManagerOffice/Whiteboard1"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_w5v5l")
 
 [node name="OfficeRightMiddle" type="Node2D" parent="Tiles"]
 
@@ -36596,58 +36826,75 @@ position = Vector2(1253, 374)
 [node name="FireExtinguisher3" parent="Tiles" instance=ExtResource("25_iq2sr")]
 position = Vector2(1096, 34)
 
-[node name="Oven" type="StaticBody2D" parent="Tiles"]
+[node name="Kitchen" type="Node2D" parent="Tiles"]
+
+[node name="Oven" type="StaticBody2D" parent="Tiles/Kitchen"]
 position = Vector2(1126, 31)
 
-[node name="Sprite2D" type="Sprite2D" parent="Tiles/Oven"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/Kitchen/Oven"]
 position = Vector2(18, 0.5)
 texture = ExtResource("32_68tp7")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Oven"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Kitchen/Oven"]
 visible = false
 position = Vector2(18, 2)
 texture = ExtResource("33_c0doo")
 
-[node name="Countertop" type="StaticBody2D" parent="Tiles"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Kitchen/Oven"]
+position = Vector2(18, -0.5)
+shape = SubResource("RectangleShape2D_3hba1")
+
+[node name="Countertop" type="StaticBody2D" parent="Tiles/Kitchen"]
 position = Vector2(1238, 29)
 
-[node name="Sprite2D" type="Sprite2D" parent="Tiles/Countertop"]
+[node name="Sprite2D" type="Sprite2D" parent="Tiles/Kitchen/Countertop"]
 position = Vector2(-38, 9.5)
 texture = ExtResource("32_rrnon")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Countertop"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tiles/Kitchen/Countertop"]
 position = Vector2(-38.0001, -1)
 texture = ExtResource("33_gupos")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Tiles/Countertop"]
+[node name="Sprite2D3" type="Sprite2D" parent="Tiles/Kitchen/Countertop"]
 position = Vector2(-21.0001, -3)
 scale = Vector2(1, 0.857143)
 texture = ExtResource("36_b1r01")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Tiles/Countertop"]
+[node name="Sprite2D6" type="Sprite2D" parent="Tiles/Kitchen/Countertop"]
 position = Vector2(-60.9999, -7)
 texture = ExtResource("37_ova1f")
 
-[node name="Sprite2D7" type="Sprite2D" parent="Tiles/Countertop"]
+[node name="Sprite2D7" type="Sprite2D" parent="Tiles/Kitchen/Countertop"]
 position = Vector2(-78, 2.5)
 texture = ExtResource("38_b8gub")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Tiles/Countertop"]
-position = Vector2(-110, -3)
+[node name="Sprite2D4" type="Sprite2D" parent="Tiles/Kitchen/Countertop"]
+position = Vector2(2, -3)
 texture = ExtResource("39_7tv72")
 
-[node name="SeatingGroup" parent="Tiles" instance=ExtResource("34_k6bc5")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Kitchen/Countertop"]
+position = Vector2(-38, 1.5)
+shape = SubResource("RectangleShape2D_m78ne")
 
-[node name="SeatingGroup2" parent="Tiles" instance=ExtResource("34_k6bc5")]
+[node name="SeatingGroup" parent="Tiles/Kitchen" instance=ExtResource("34_k6bc5")]
+
+[node name="SeatingGroup2" parent="Tiles/Kitchen" instance=ExtResource("34_k6bc5")]
 position = Vector2(1175, 109)
 
-[node name="SeatingGroup3" parent="Tiles" instance=ExtResource("34_k6bc5")]
+[node name="SeatingGroup3" parent="Tiles/Kitchen" instance=ExtResource("34_k6bc5")]
 position = Vector2(1212, 109)
 
-[node name="SeatingGroup4" parent="Tiles" instance=ExtResource("34_k6bc5")]
+[node name="SeatingGroup4" parent="Tiles/Kitchen" instance=ExtResource("34_k6bc5")]
 position = Vector2(1247, 109)
 
 [node name="ToiletLeft" type="Node2D" parent="Tiles"]
+[node name="Fridge" parent="Tiles/Kitchen" instance=ExtResource("52_e5rf7")]
+position = Vector2(1128, 26)
+interaction_id = "FRI"
+
+[node name="Plant1" parent="Tiles/Kitchen" instance=ExtResource("27_li6ah")]
+position = Vector2(1256, 33)
+
 
 [node name="ToiletOpen" parent="Tiles/ToiletLeft" instance=ExtResource("45_h3se4")]
 position = Vector2(847, 145)
@@ -36697,14 +36944,12 @@ position = Vector2(897, 144)
 position = Vector2(-11, -3)
 
 [node name="TissueBox" type="StaticBody2D" parent="Tiles/ToiletRight/ToiletOpen"]
-position = Vector2(-1, -15)
+z_index = 1
+position = Vector2(0, -17)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tiles/ToiletRight/ToiletOpen/TissueBox"]
 texture = ExtResource("46_r1ugf")
 
-[node name="ToiletDoor" parent="Tiles/ToiletRight" instance=ExtResource("42_atx6j")]
-position = Vector2(904, 185)
-interaction_id = "TOR"
 
 [node name="Fridge" parent="Tiles" instance=ExtResource("52_e5rf7")]
 position = Vector2(1240, 26)
@@ -36765,7 +37010,6 @@ lookahead = 20.0
 position = Vector2(15, -8)
 rotation = 1.08084
 script = ExtResource("50_krnja")
-interaction_id = ""
 
 [node name="Angie" parent="NPCs" instance=ExtResource("51_4yjr2")]
 position = Vector2(848, 437)
@@ -36779,7 +37023,7 @@ position = Vector2(761, 67)
 view_direction = "Right"
 
 [node name="Player" parent="." instance=ExtResource("31_5toy6")]
-position = Vector2(1209, 57)
+position = Vector2(1213, 58)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

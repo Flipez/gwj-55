@@ -3,6 +3,12 @@ extends Node
 signal interaction_started
 signal interaction_stopped
 
+signal falko_forwards
+signal falko_backwards
+
+signal fridge_open
+signal fridge_close
+
 var milestones = []
 var objects = {
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
@@ -34,6 +40,9 @@ func chat(speaker : String, message : String):
 func add_to_chat(speaker : String, message : String):
 	Globals.emit_signal("continue_chat", speaker, message)
 	
+func event_to_chat(event : Callable):
+	Globals.emit_signal("continue_chat_event", event)
+	
 func journal(message : String):
 	Globals.emit_signal("update_journal", message)
 
@@ -63,8 +72,8 @@ func intro():
 	add_to_chat("Karen", "I did. Because some horrible monster ate my baby!")
 	add_to_chat("DJ", "SOMEONE ATE YOUR BABY! That's horri... wait. Why did you bring your baby to the office.")
 	add_to_chat("Karen", "Obviously, because I wanted to eat it.")
+	event_to_chat(func(): InteractionHandler.emit_signal("falko_forwards"))
 	add_to_chat("DJ", "YOU WANTED TO EAT YOUR BABY!")
-	# TODO: Falko walks ins
 	add_to_chat("Falko", "Karen, why are you yelling again? Some of us are trying to work here...")
 	add_to_chat("Karen", "I'm not yelling. The detective is, because...")
 	add_to_chat("DJ", "STOP! Let's start again with the earing babys part. Karen was it? Please tell me what happened. In order, please.")
@@ -73,7 +82,7 @@ func intro():
 	add_to_chat("Karen", "Stop interupting your betters. Don't you have something to clean?")
 	add_to_chat("Falko", "How often shall I explain to you that 'Clean Code' has nothing to do with tidying...")
 	add_to_chat("Karen", "Stop wasting my time. Leave!")
-	# TODO: Falko leaves
+	event_to_chat(func(): InteractionHandler.emit_signal("falko_backwards"))
 	add_to_chat("DJ", "Ok. Yoghurt, Fridge. What happened next?")
 	add_to_chat("Karen", "So I just went for 5 minutes to the bathroom to check my Make-Up for the upcoming meeting and when I came back. It ... it ... was gone. (sniff)")
 	add_to_chat("DJ", "Your yoghurt? ")
@@ -104,6 +113,7 @@ func karen():
 			chat("Karen", "You're wasting my time. I'll talk to your manager!")
 
 func fridge():
+	InteractionHandler.emit_signal("fridge_open")
 	if has_found("BIG_FINGERPRINT"):
 		chat("DJ", "I already checked this. I should look somewhere else.")
 	elif has_found("MOVED_LABEL"):
@@ -116,6 +126,7 @@ func fridge():
 		chat("DJ", "Multiple dishes and yoghurts are in here but one space is noticable empty. One yoghurt though has a 'KAREN' sticker on it.")
 		journal("I found a yoghurt in the fridge labeled 'KAREN'. I should ask her about it.")
 		unlock("FRIDGE")
+	event_to_chat(func(): InteractionHandler.emit_signal("fridge_close"))
 	
 func falko():
 	if has_found("BIG_FINGERPRINT") and not has_found("PRANKSTER_HELMINE"):
@@ -128,7 +139,7 @@ func falko():
 		add_to_chat("DJ", "So someone tried to cause an allergic reaction? No trivial offense. Allergic reactions can be fatal...")
 		add_to_chat("Falko", "Nah. She's exaggerating. She just starts to fart a lot and spend even more time in the bathroom.")
 		add_to_chat("DJ", "How do you know?")
-		add_to_chat("Falko", "Because the last time Helmine pulled that off it that toilet was unusable for days.")
+		add_to_chat("Falko", "Because the last time Helmine pulled that off the toilet was unusable for days.")
 		add_to_chat("DJ", "Helmine?")
 		add_to_chat("Falko", "Our Lead-Social Media Manager. Shes over in the big office on the other side of the building.")
 		journal("Helmine seems to have issues with Karen and has interfered with her food in the past. Shes over in the office on the west side of the building.")
