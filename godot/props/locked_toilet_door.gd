@@ -7,6 +7,6 @@ func _ready():
 	Globals.open_toilet_door.connect(open_door)
 
 func open_door():
-	$AnimatedSprite2D.play_backwards("default")
-	$CollisionShape2D.set_deferred("disabled", false)
+	$AnimatedSprite2D.play("default")
+	$CollisionShape2D.set_deferred("disabled", true)
 	interaction_area.hide()
