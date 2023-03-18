@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=67 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -36341,6 +36341,12 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lygpe")
 sources/3 = SubResource("TileSetAtlasSource_h04x6")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hba1"]
+size = Vector2(16, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m78ne"]
+size = Vector2(96, 23)
+
 [sub_resource type="Curve2D" id="Curve2D_3wy4g"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1031, 170, 0, 0, 0, 0, 1055, 170, 0, 0, 0, 0, 1056, 76, 0, 0, 0, 0, 1187, 72)
@@ -36604,6 +36610,10 @@ visible = false
 position = Vector2(18, 2)
 texture = ExtResource("33_c0doo")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Oven"]
+position = Vector2(18, -0.5)
+shape = SubResource("RectangleShape2D_3hba1")
+
 [node name="Countertop" type="StaticBody2D" parent="Tiles"]
 position = Vector2(1238, 29)
 
@@ -36629,8 +36639,12 @@ position = Vector2(-78, 2.5)
 texture = ExtResource("38_b8gub")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Tiles/Countertop"]
-position = Vector2(-110, -3)
+position = Vector2(2, -3)
 texture = ExtResource("39_7tv72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Countertop"]
+position = Vector2(-38, 1.5)
+shape = SubResource("RectangleShape2D_m78ne")
 
 [node name="SeatingGroup" parent="Tiles" instance=ExtResource("34_k6bc5")]
 
@@ -36642,6 +36656,10 @@ position = Vector2(1212, 109)
 
 [node name="SeatingGroup4" parent="Tiles" instance=ExtResource("34_k6bc5")]
 position = Vector2(1247, 109)
+
+[node name="Fridge" parent="Tiles" instance=ExtResource("52_e5rf7")]
+position = Vector2(1128, 26)
+interaction_id = "FRI"
 
 [node name="Toilet1" type="Node2D" parent="Tiles"]
 
@@ -36736,7 +36754,6 @@ lookahead = 20.0
 position = Vector2(15, -8)
 rotation = 1.08084
 script = ExtResource("50_krnja")
-interaction_id = ""
 
 [node name="Angie" parent="NPCs" instance=ExtResource("51_4yjr2")]
 position = Vector2(848, 437)
@@ -36775,10 +36792,6 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.333333)
-
-[node name="Fridge" parent="." instance=ExtResource("52_e5rf7")]
-position = Vector2(1240, 26)
-interaction_id = "FRI"
 
 [node name="CopyMachine" type="Sprite2D" parent="."]
 position = Vector2(1016, 131)

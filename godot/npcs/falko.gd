@@ -5,13 +5,14 @@ extends "res://npcs/npc.gd"
 var old_pos = Vector2.ZERO
 
 func _ready():
+	InteractionHandler.connect("falko_forwards", _falko_forwards)
+	InteractionHandler.connect("falko_backwards", _falko_backwards)
 	super._ready()
 
 	_follow.progress_ratio = 0
-	var tween :Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(_follow, 'progress_ratio', 1, 10)
 
-func _process(delta):
+
+func _process(_delta):
 	var pos_delta = old_pos - get_position_delta()
 	
 	if pos_delta.x < -0.2:
@@ -28,3 +29,11 @@ func _process(delta):
 		$AnimatedSprite2D.play("Idle_" + dir)
 	
 	old_pos = get_position_delta()
+
+func _falko_forwards():
+	var tween :Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(_follow, 'progress_ratio', 1, 10)
+	
+func _falko_backwards():
+	var tween :Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(_follow, 'progress_ratio', 0, 10)

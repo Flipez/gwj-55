@@ -13,6 +13,7 @@ func _ready():
 	Globals.connect("update_journal", _update_journal)
 	Globals.connect("initiate_chat", _start_chat)
 	Globals.connect("continue_chat", _append_message)
+	Globals.connect("continue_chat_event", _append_event)
 	Globals.connect("abort_chat", _abort_chat)
 	menu.show()
 	chat.hide()
@@ -45,15 +46,19 @@ func _on_next_text_pressed():
 		_abort_chat()
 	else:
 		var msg = message_queue.pop_front()
-		chatbox.text = "[b]%s[/b]: " % msg[0]
-		chatbox.text += msg[1]
+		if typeof(msg) == TYPE_ARRAY:
+			chatbox.text = "[b]%s[/b]: " % msg[0]
+			chatbox.text += msg[1]
+		elif typeof(msg) == TYPE_CALLABLE:
+			msg.call()
+			_on_next_text_pressed()
 
 # TODO, support "complex" chats with questions and different paths
 func _start_chat(speaker : String, message : String):
-	message_queue = []
 	chat.show()
 	chatbox.text = "[b]%s[/b]: " % speaker
 	chatbox.text += message
+	message_queue = []
 
 func _abort_chat():
 	message_queue.clear()
@@ -63,3 +68,6 @@ func _abort_chat():
 
 func _append_message(speaker : String, message : String):
 	message_queue.push_back([speaker, message])
+
+func _append_event(event : Callable):
+	message_queue.push_back(event)
