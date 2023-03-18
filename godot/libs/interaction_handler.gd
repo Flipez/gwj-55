@@ -19,7 +19,7 @@ var objects = {
 	"KAR" = Callable(self, "karen"),
 	"FAL" = Callable(self, "falko"),
 	"HEL" = Callable(self, "helmine"),
-	"JOH" = func(): chat("Johannes", "I've learned to not ask questions I don't want the answer to."); unlock("JOHANNES"),
+	"JOH" = Callable(self, "johannes"),
 	"FRE" = Callable(self, "fred"),
 	"D00" = func(): chat("DJ", "A normal desk full of stuff for work"), # Generic desk
 	"P00" = func(): chat("DJ", "This is a plant. They absorb CO2 from the air."), # Generic plant
@@ -78,7 +78,7 @@ func intro():
 	add_to_chat("DJ", "YOU WANTED TO EAT YOUR BABY!")
 	add_to_chat("Falko", "Karen, why are you yelling again? Some of us are trying to work here...")
 	add_to_chat("Karen", "I'm not yelling. The detective is, because...")
-	add_to_chat("DJ", "STOP! Let's start again with the earing babys part. Karen was it? Please tell me what happened. In order, please.")
+	add_to_chat("DJ", "STOP! Let's start again with the eating babys part. Karen was it? Please tell me what happened. In order, please.")
 	add_to_chat("Karen", "Ok. So this morning I brought this super delicious, triple choclate, jumbo yoghurt and put it into my fridge.")
 	add_to_chat("Falko", "The fridge isn't yours Karen. Everyone is allowed to use it.")
 	add_to_chat("Karen", "Stop interupting your betters. Don't you have something to clean?")
@@ -403,3 +403,7 @@ func eddie():
 	else:
 		chat("Eddie", "Sorry Mister. I'm preparing my slideshow for the big meeting today. Can you talk to someone else please?")
 
+func johannes():
+	chat("Johannes", "I've learned to not ask questions I don't want the answer to.")
+	if not has_found("JOHANNES"):
+		unlock("JOHANNES")
