@@ -139,12 +139,12 @@ func falko():
 		add_to_chat("DJ", "So someone tried to cause an allergic reaction? No trivial offense. Allergic reactions can be fatal...")
 		add_to_chat("Falko", "Nah. She's exaggerating. She just starts to fart a lot and spend even more time in the bathroom.")
 		add_to_chat("DJ", "How do you know?")
-		add_to_chat("Falko", "Because the last time Helmine pulled that off the toilet was unusable for days.")
+		add_to_chat("Falko", "Because the last time Helmine pulled that off it that toilet was unusable for days.")
 		add_to_chat("DJ", "Helmine?")
 		add_to_chat("Falko", "Our Lead-Social Media Manager. Shes over in the big office on the other side of the building.")
 		journal("Helmine seems to have issues with Karen and has interfered with her food in the past. Shes over in the office on the west side of the building.")
 		unlock("PRANKSTER_HELMINE")
-	elif has_found("STINKY_STUFF"):
+	elif has_found("STINKY_STUFF") and has_found("PRANKSTER_HELMINE"):
 		chat("DJ", "Someone threw up in your bathroom. Do you know of anyone else having allergies besides Karen?")
 		add_to_chat("Falko", "No. She is the only one I know of. She makes sure everyone knows that.")
 		add_to_chat("DJ", "Has anyone left early today, or did someone look ill?")
@@ -190,40 +190,41 @@ func fred():
 	else:
 		chat("Fred", "A lot of trolls today...")
 
-func angie():
-	if has_found("ANGIE"):
-		if has_found("ADAMS_MISSING") and not has_found("ADAM_NEVER_SHOWED_UP"):
-			add_to_chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
-			add_to_chat("Angie", "No. I have been waiting for him. But so far he hasn't showed up.")	
-		else:
-			chat("Angie", "Sorry detective. My meeting starts soon and I have a lot to prepare. Can we talk later?")
-		return	
-	
+func gabi():
 	if has_found("GABI"):
+		if has_found("ADAMS_MISSING") and not has_found("ADAM_NEVER_SHOWED_UP") and not has_found("FOUND_ADAM"):
+			add_to_chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
+			add_to_chat("Gabi", "No. I have been waiting for him. But so far he hasn't showed up.")	
+		else:
+			chat("Gabi", "Sorry detective. My meeting starts soon and I have a lot to prepare. Can we talk later?")
+		return
+	
+	if has_found("ANGIE"):
 		chat("DJ", "Uhm. Didn't I just see you down in the office?")
-		add_to_chat("Angie", "Ehm. No. I have been here all the time. But you might have seen my twin sister Gabi.")
+		add_to_chat("Gabi", "Ehm. No. I have been here all the time. But you might have seen my twin sister Gabi.")
 		add_to_chat("DJ", "That make sense. And whats your name and what are you doing here?")
 	else:
 		chat("DJ", "Excuse me Madame. Can I have 5 minutes of our time?")
-		add_to_chat("Angie", "Sure. How may I help you?")
+		add_to_chat("Gabi", "Sure. How may I help you?")
 		add_to_chat("DJ", "I'm Detective Dave Jackson looking into a misdeed. May I ask who you are and what you are doing here?")
-	add_to_chat("Angie", "I'm Angie. Lead Programmer for Herzmut Games. I'm preparing our next meeting.")
+	add_to_chat("Gabi", "I'm Gabi. Lead Programmer for Herzmut Games. I'm preparing our next meeting.")
 	add_to_chat("DJ", "How long have you been here and have you been to the kitchen today?")
-	add_to_chat("Angie", "Let's see. What time is it.... oh my. 11:30 already? So I have been here for 2,5 hours and no I haven't been in the kitchen.")
+	add_to_chat("Gabi", "Let's see. What time is it.... oh my. 11:30 already? So I have been here for 2,5 hours and no I haven't been in the kitchen.")
 	add_to_chat("DJ", "Did you see anything suspicious today?")
-	add_to_chat("Angie", "Well, Someone has been blocking the bathroom for ages. But that's probably Karen again. She basically lives there.")
+	add_to_chat("Gabi", "Well, Someone has been blocking the bathroom for ages. But that's probably Karen again. She basically lives there.")
 	add_to_chat("DJ", "What do you mean? She told me she was only 5 minutes in there.")
-	add_to_chat("Angie", "Ha. This tarted up slug. Every day she comes in. Goes straight to the kitchen for some coffee and then hides the rest of the day in the bathroom playing on here phone only coming out every know and then for food or drinks.")
-	if has_found("ADAMS_MISSING"):
+	add_to_chat("Gabi", "Ha. This tarted up slug. Every day she comes in. Goes straight to the kitchen for some coffee and then hides the rest of the day in the bathroom playing on here phone only coming out every know and then for food or drinks.")
+	if has_found("ADAMS_MISSING") and not has_found("FOUND_ADAM"):
 		add_to_chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
-		add_to_chat("Angie", "No. I have been waiting for him. But so far he hasn't showed up.")
+		add_to_chat("Gabi", "No. I have been waiting for him. But so far he hasn't showed up.")
 		unlock("ADAM_NEVER_SHOWED_UP")
+		journal("Adam hasn't reached Gabi. Where is he?")
 	add_to_chat("DJ", "Thank you for your time. You have been really helpful.")
-	unlock("ANGIE")
-	journal("Angie has told me that Karen actually stays most of the time in the bathroom. Not just 5 minutes as she claimed. Why has she lied to me?")
-	journal("Angie noticed that someone is blocking the bathroom for hours. Since Karen is in the kitchen someone else must be in there.")
+	unlock("GABI")
+	journal("Gabi has told me that Karen actually stays most of the time in the bathroom. Not just 5 minutes as she claimed. Why has she lied to me?")
+	journal("Gabi noticed that someone is blocking the bathroom for hours. Since Karen is in the kitchen someone else must be in there.")
 	
-func gabi():
+func angie():
 	unlock("GABI")
 
 func locked_toilet():
