@@ -30,6 +30,7 @@ var objects = {
 	"TLC" = Callable(self, "left_toilet"),
 	"TOR" = Callable(self, "locked_toilet"),
 	"KEY" = Callable(self, "missing_key"),
+	"EDD" = Callable(self, "eddie"),
 }
 func _ready():
 	randomize()
@@ -174,7 +175,7 @@ func helmine():
 		add_to_chat("Helmine", "How should I know?")
 		add_to_chat("DJ", "Someone put Chilli into it. Maybe someone that wanted to try a 'different' prank than last time?")
 		add_to_chat("Helmine", "I have been here all the time, remember?")
-		if has_found("EDDI"):
+		if has_found("EDDIE"):
 			add_to_chat("DJ", "Well actually. Eddi told me he did saw you sending Fred to the kitchen with ramen and a glas of chilli-sauce.")
 			add_to_chat("Helmine", "Whatever. Doesn't prove anything.")
 			if has_found("ACCOMPLICE_FRED"):
@@ -233,7 +234,7 @@ func fred():
 		unlock("ONLYFANS")
 		journal("Helmine is streaming on OnlyFans while Fred constanly watches here. And both get PAID for that?")
 		journal("Eddi has been to the kitchen to fetch Fred a coffee.")
-	elsif has_found("ADAM"):
+	elif has_found("ADAM"):
 		chat("DJ", "Why have you poisoned Karens yoghurt?")
 		add_to_chat("Fred", "Wait. I'm innocent. It was all Helmines idea. I just...")
 		add_to_chat("DJ", "Poisoned a poor boy threwing up for hours.")
@@ -244,6 +245,7 @@ func fred():
 		add_to_chat("Fred", "Yes. She's an aweful person.")
 		add_to_chat("DJ", "I've heard enough. You'll come with me to the police station after I've talked to Helmine.")
 		unlock("ACCOMPLICE_FRED")
+		journal("Fred has confessed that he poisoned the yoghurt for Helmine.")
 	else:
 		chat("Fred", "A lot of trolls today...")
 
@@ -377,4 +379,16 @@ func adam():
 	add_to_chat("DJ", "I'll find out! I'll have a talk with Fred.")
 	unlock("ADAM")
 	
-	
+func eddie():
+	if has_found("ONLYFANS"):
+		chat("DJ", "Excue me. Are you Eddie?")
+		add_to_chat("Eddie", "Yes. How my I help you?")
+		add_to_chat("DJ", "Fred mentioned you brought him coffee.")
+		add_to_chat("Eddie", "I did. But why?")
+		add_to_chat("DJ", "I'm investigating an incident in the kitchen and he claimed he hasn't been there because you brought him coffee.")
+		add_to_chat("Eddie", "That's odd. Yes I have brought him coffee but he has been in the kitchen. He put his lunch in the fridge.")
+		add_to_chat("DJ", "Interesting. Thanks for the hint.")
+		unlock("EDDIE")
+	else:
+		chat("Eddie", "Sorry Mister. I'm preparing my slideshow for the big meeting today. Can you talk to someone else please?")
+
