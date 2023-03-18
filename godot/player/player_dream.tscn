@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cn6ltmahm6nrd"]
+[gd_scene load_steps=53 format=3 uid="uid://cn6ltmahm6nrd"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_fwbop"]
 [ext_resource type="Texture2D" uid="uid://mio5pgtutc08" path="res://assets/Bob_16x16.png" id="2_532v0"]
@@ -382,6 +382,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs25u"]
+size = Vector2(14, 22)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fwbop")
 
@@ -390,3 +393,7 @@ sprite_frames = SubResource("SpriteFrames_nbgul")
 animation = &"Idle_Down"
 autoplay = "Idle_Down"
 frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_gs25u")
