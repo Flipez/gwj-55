@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmhrj8lkhws01"]
+[gd_scene load_steps=7 format=3 uid="uid://d0th0tihtxkl4"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_7fxkh"]
 [ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="1_g16j6"]
 [ext_resource type="FontFile" uid="uid://mp1ljy5uk88x" path="res://fonts/IndieFlower-Regular.ttf" id="2_o5tes"]
+[ext_resource type="Texture2D" uid="uid://crypuikciq2e6" path="res://assets/intro/36074-O0MQRI.jpg" id="2_pxila"]
 [ext_resource type="Texture2D" uid="uid://nrslqmm84x1o" path="res://assets/intro/cyberpunk-street-files/foreground.png" id="3_qf4mi"]
-[ext_resource type="Texture2D" uid="uid://d1o61pegnkxej" path="res://assets/intro/cyberpunk-street-files/middle.png" id="4_kh7v8"]
 [ext_resource type="FontFile" uid="uid://5q4su2qmavjw" path="res://fonts/CrimsonText-Bold.ttf" id="6_ss6th"]
 
 [node name="Menu" type="Control"]
@@ -29,11 +29,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -207.0
+offset_top = -257.0
+offset_right = 179.0
+offset_bottom = 689.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_kh7v8")
+texture = ExtResource("2_pxila")
 
 [node name="Foreground" type="TextureRect" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +52,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -140.0
+offset_right = -1.0
+offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -72,8 +81,8 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 103.0
-offset_bottom = 253.0
+offset_top = 1.0
+offset_bottom = 151.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.317647, 0.192157, 0.00392157, 1)

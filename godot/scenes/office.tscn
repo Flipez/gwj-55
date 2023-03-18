@@ -64,14 +64,14 @@
 [ext_resource type="PackedScene" uid="uid://cx0posk61mann" path="res://npcs/helmine.tscn" id="52_5pl3r"]
 [ext_resource type="PackedScene" uid="uid://idvyx75w71gf" path="res://npcs/eddie.tscn" id="52_dgpw0"]
 [ext_resource type="PackedScene" uid="uid://b2amvmjranb1j" path="res://props/office/fridge.tscn" id="52_e5rf7"]
-[ext_resource type="PackedScene" path="res://npcs/adam.tscn" id="52_mf4ps"]
+[ext_resource type="PackedScene" uid="uid://da6ln40e5m0ky" path="res://npcs/adam.tscn" id="52_mf4ps"]
 [ext_resource type="Shader" path="res://shaders/dream2.gdshader" id="52_xxq1s"]
 [ext_resource type="PackedScene" uid="uid://bmcm2bdinl8fi" path="res://npcs/fred.tscn" id="53_axrwr"]
 [ext_resource type="PackedScene" uid="uid://cn6ltmahm6nrd" path="res://player/player_dream.tscn" id="57_hj08r"]
 [ext_resource type="Script" path="res://player/player_dream.gd" id="58_1lvaa"]
 [ext_resource type="PackedScene" uid="uid://qqxpv2x0tmes" path="res://npcs/gabi.tscn" id="59_2d7y5"]
-[ext_resource type="PackedScene" path="res://scenes/generic_collision.tscn" id="59_ecoav"]
-[ext_resource type="PackedScene" path="res://props/coffee.tscn" id="60_juvgp"]
+[ext_resource type="PackedScene" uid="uid://cgk3iyfjjsx0x" path="res://scenes/generic_collision.tscn" id="59_ecoav"]
+[ext_resource type="PackedScene" uid="uid://d2pbt4stjjjbh" path="res://props/coffee.tscn" id="60_juvgp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
 texture = ExtResource("1_wf3p5")
@@ -37025,10 +37025,6 @@ texture = ExtResource("46_r1ugf")
 position = Vector2(904, 185)
 interaction_id = "TOR"
 
-[node name="Fridge" parent="Tiles" instance=ExtResource("52_e5rf7")]
-position = Vector2(1240, 26)
-interaction_id = "FRI"
-
 [node name="CopyMachine" type="Sprite2D" parent="Tiles"]
 position = Vector2(1016, 131)
 texture = ExtResource("51_awgc0")
@@ -37136,5 +37132,7 @@ position = Vector2(920, 184)
 position = Vector2(872, 184)
 
 [node name="GenericCollision3" parent="Collisions" instance=ExtResource("59_ecoav")]
-position = Vector2(1176, 37)
-scale = Vector2(7, 1)
+position = Vector2(1208, 440)
+
+[node name="GenericCollision4" parent="Collisions" instance=ExtResource("59_ecoav")]
+position = Vector2(1224, 440)
