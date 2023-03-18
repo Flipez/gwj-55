@@ -24,11 +24,11 @@ var objects = {
 	"P00" = func(): chat("DJ", "This is a plant. They absorb CO2 from the air."), # Generic plant
 	"INT" = Callable(self, "intro"),
 	"FRI" = Callable(self, "fridge"),
-	"END" = func(): Globals.game_over.emit(len(milestones)),
 	"S00" = func(): chat("DJ", "A vending machine full of Spezi. I should ask Robert which one is the best!"),
 	"TOL" = func(): chat("DJ", "Ugh. Where does this smell come from?"),
 	"TLC" = Callable(self, "left_toilet"),
 	"TOR" = Callable(self, "locked_toilet"),
+	"KEY" = Callable(self, "missing_key"),
 }
 func _ready():
 	randomize()
@@ -57,7 +57,7 @@ func is_dreaming() -> bool:
 
 func interact(id : String):
 	# Do not allow interaction in dream mode except couch to end it
-	if Globals.dream_mode && id != "C00":
+	if Globals.dream_mode && ["C00", "TLC", "KEY"].find(id) == -1:
 		return
 
 	if objects.has(id):
@@ -168,8 +168,49 @@ func helmine():
 		add_to_chat("Helmine", "Is that the reasons she's yelling all the time? No. In fact. I haven't been to the kitchen today. Ask Fred over there.")
 		journal("Helmine claims to be innocent and that she hasn't been in the kitchen today. Someone named Fred could confirm that.")
 		unlock("HELMINE_IS_INNOCENT")
+	elif has_found("HELMINE_IS_INNOCENT") and has_found("CHILLI"):
+		chat("DJ", "I found the missing yoghurt. Or whatever remains of it. Do you know what I found there?")
+		add_to_chat("Helmine", "How should I know?")
+		add_to_chat("DJ", "Someone put Chilli into it. Maybe someone that wanted to try a 'different' prank than last time?")
+		add_to_chat("Helmine", "I have been here all the time, remember?")
+		if has_found("EDDI"):
+			add_to_chat("Well actually. Eddi told me he did saw you sending Fred to the kitchen with ramen and a glas of chilli-sauce.")
+			add_to_chat("Helmine", "Whatever. Doesn't prove anything.")
+			if has_found("ACCOMPLICE_FRED"):
+				add_to_chat("DJ", "It does. Because Fred admitted to poison the yoghurt on your behalf.")
+			if has_found("FOUND_ADAM"):
+				_helmine_adam()
+			else:
+				add_to_chat("Helmine", "Maybe I have done that. But she never ate it. So what's the issue?")
+				add_to_chat("DJ", "Someone ate it and threw up in the bathroom!")
+				add_to_chat("Helmine", "And who is this 'victim' of yours?")
+				add_to_chat("DJ", "I'll find out.")
+				return
+		elif has_found("ACCOMPLICE_FRED"):
+			add_to_chat("You're wrong, because Fred admitted to poison the yoghurt on your behalf.")
+			if has_found("FOUND_ADAM"):
+				_helmine_adam()
+			else:
+				add_to_chat("Helmine", "Maybe I have done that. But she never ate it. So what's the issue?")
+				add_to_chat("DJ", "Someone ate it and threw up in the bathroom!")
+				add_to_chat("Helmine", "And who is this 'victim' of yours?")
+				add_to_chat("DJ", "I'll find out.")
+				return
+		else:
+			add_to_chat("DJ", "I'm coming back!")
 	else:
 		chat("Helmine", "Don't interrupt me. I have to keep my community happy.")
+		
+func _helmine_adam():
+	add_to_chat("DJ", "And I have found Adam, that poor boy. He's having a nightmare in the bathroom, because of you!")
+	add_to_chat("Helmine", "Adam? I haven't seen him today. Why would I be responsible for his misery?")
+	add_to_chat("DJ", "Because he saw Fred meddling with Karens yoghurt. So he took it to check what you have done this time.")
+	add_to_chat("DJ", "Unfortunately he didn't smell the chilli and ate quite a bit until it kicked in.")
+	add_to_chat("Helmine", "Such an idiot. He should have just let her eat it so she would finally leave us.")
+	add_to_chat("DJ", "So you're admitting that you have trying to poison your coworker?")
+	add_to_chat("Helmine", "Poison? Nah. Just a little spice to get this ***** out of the office. She's a plague...")
+	add_to_chat("DJ", "You'll have plenty of time to tell me all the details at the police station. Follow me.")
+	Globals.game_over.emit(len(milestones))
 
 func fred():
 	if has_found("HELMINE_IS_INNOCENT") and not has_found("ONLYFANS"):
@@ -193,7 +234,7 @@ func fred():
 func gabi():
 	if has_found("GABI"):
 		if has_found("ADAMS_MISSING") and not has_found("ADAM_NEVER_SHOWED_UP") and not has_found("FOUND_ADAM"):
-			add_to_chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
+			chat("DJ", "Have you seen Adam today? Falko said he was supposed to bring you something.")
 			add_to_chat("Gabi", "No. I have been waiting for him. But so far he hasn't showed up.")	
 		else:
 			chat("Gabi", "Sorry detective. My meeting starts soon and I have a lot to prepare. Can we talk later?")
@@ -252,6 +293,7 @@ func left_toilet():
 		add_to_chat("DJ", "So whoever ate it, has upset it's stomach. But what is that smell?")
 		add_to_chat("DJ", "Is that chilli ... absolutely! Someone put chilli in Karens yoghurt. But why poison it first and then eat it? Or are there, multiple culprits?")
 		unlock("CHILLI")
+		journal("Someone put chilli into Karens yoghurt. What's wrong with these people!")
 		return
 	
 	if has_found("STINKY_STUFF"):
@@ -264,3 +306,14 @@ func left_toilet():
 	else:
 		add_to_chat("DJ", "I'm not touching that.")
 	unlock("STINKY_STUFF")
+	journal("Someone, probably the thief has made a mess in the bathroom.")
+	
+func missing_key():
+	if is_dreaming() and has_found("MISSING_KEY"):
+		chat("DJ", "I got the key!")
+		unlock("SPARE_KEY")
+		journal("I have found the key for the locked toilet.")
+	elif has_found("MISSING_KEY"):
+		chat("DJ", "There is a key blocking the door! Looks like a task for disembodied me.")
+	else:
+		chat("DJ", "Out of order. Something seems to be stuck in there.")

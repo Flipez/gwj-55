@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=104 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Script" path="res://scenes/office.gd" id="1_o1gsx"]
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
@@ -36542,12 +36542,11 @@ interaction_id = "C00"
 
 [node name="Soda" parent="Tiles/CouchArea2" instance=ExtResource("15_spt2m")]
 position = Vector2(122, -14)
-interaction_id = "S00"
+interaction_id = "KEY"
 item_of_interest = true
 
 [node name="Plant1" parent="Tiles/CouchArea2" instance=ExtResource("27_li6ah")]
 position = Vector2(-16, 32)
-item_of_interest = true
 
 [node name="Table" parent="Tiles/CouchArea2" instance=ExtResource("15_ivxmn")]
 position = Vector2(-1, 4)
