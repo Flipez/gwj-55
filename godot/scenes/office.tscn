@@ -37082,7 +37082,7 @@ rotation = 1.08084
 script = ExtResource("50_krnja")
 
 [node name="Angie" parent="NPCs" instance=ExtResource("51_4yjr2")]
-position = Vector2(848, 437)
+position = Vector2(823, 438)
 
 [node name="Eddie" parent="NPCs" instance=ExtResource("52_dgpw0")]
 position = Vector2(1169, 473)
