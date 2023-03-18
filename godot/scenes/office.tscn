@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://b41488nxwj85q"]
+[gd_scene load_steps=102 format=3 uid="uid://b41488nxwj85q"]
 
 [ext_resource type="Texture2D" uid="uid://cegmkys652t4d" path="res://assets/Room_Builder_16x16.png" id="1_wf3p5"]
 [ext_resource type="Texture2D" uid="uid://djenlxna44i0h" path="res://assets/Interiors_16x16.png" id="2_005ap"]
@@ -11,9 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://wq4b2fmyip02" path="res://props/office/shelf.tscn" id="8_6gk6s"]
 [ext_resource type="PackedScene" uid="uid://c5pn1kt4r5wsw" path="res://props/office/conference_table.tscn" id="8_cm6yu"]
 [ext_resource type="Texture2D" uid="uid://cop2hdu4upei8" path="res://assets/props/animated_cat.png" id="9_oqjif"]
+[ext_resource type="Texture2D" uid="uid://csho7ub60n0to" path="res://assets/props/basket_ball_basket.png" id="10_v5swf"]
 [ext_resource type="PackedScene" uid="uid://b2ps6x2otbfa8" path="res://props/office/plant_1.tscn" id="13_7paim"]
+[ext_resource type="Texture2D" uid="uid://bikfw75ap5g0q" path="res://assets/props/image_1.png" id="14_tf4sc"]
 [ext_resource type="PackedScene" uid="uid://ci4wkeb1y0py3" path="res://props/office/table.tscn" id="15_ivxmn"]
 [ext_resource type="PackedScene" uid="uid://d3jppmd0n7cei" path="res://props/office/soda.tscn" id="15_spt2m"]
+[ext_resource type="Texture2D" uid="uid://dy3lh6gkgpp3u" path="res://assets/props/image_2.png" id="15_t3nr8"]
 [ext_resource type="Texture2D" uid="uid://b35ssgj4ljf1c" path="res://assets/props/homelogo-400.png" id="18_gydbe"]
 [ext_resource type="PackedScene" uid="uid://cdt3anfrguhp7" path="res://props/office/couch.tscn" id="18_m2600"]
 [ext_resource type="PackedScene" uid="uid://bqex5o7t77xwp" path="res://props/office/chair_black_front.tscn" id="20_vvr5u"]
@@ -25,13 +28,20 @@
 [ext_resource type="Texture2D" uid="uid://dm7iqnqke0eqb" path="res://assets/props/couch.png" id="26_3fin3"]
 [ext_resource type="PackedScene" uid="uid://dpant5c07c0wa" path="res://props/office/plant_2.tscn" id="27_li6ah"]
 [ext_resource type="PackedScene" uid="uid://btcehpkbbqu1w" path="res://props/office/whiteboard_2.tscn" id="28_e0i4w"]
+[ext_resource type="Texture2D" uid="uid://c2m4e30g25nve" path="res://assets/props/post_1.png" id="30_uatvt"]
 [ext_resource type="PackedScene" uid="uid://de3ev4cjvt82p" path="res://player/player.tscn" id="31_5toy6"]
+[ext_resource type="Texture2D" uid="uid://cxqbqjbssjdp8" path="res://assets/props/post_2.png" id="31_ci4aa"]
 [ext_resource type="Texture2D" uid="uid://bpk2dw0ko86dr" path="res://assets/props/oven_closed.png" id="32_68tp7"]
 [ext_resource type="Texture2D" uid="uid://cj5k2dkwkquf4" path="res://assets/props/countertop_base_1.png" id="32_rrnon"]
+[ext_resource type="Texture2D" uid="uid://87gcmqky0bt7" path="res://assets/props/post_3.png" id="32_tglsp"]
 [ext_resource type="Texture2D" uid="uid://uivjg0xpvlmt" path="res://assets/props/oven_open.png" id="33_c0doo"]
+[ext_resource type="Texture2D" uid="uid://2s7g2f7t2pi4" path="res://assets/props/post_4.png" id="33_fcv8m"]
 [ext_resource type="Texture2D" uid="uid://cg60ajj8nwtpc" path="res://assets/props/countertop_top_1.png" id="33_gupos"]
 [ext_resource type="PackedScene" uid="uid://qf131u6n8g0x" path="res://props/office/seating_group.tscn" id="34_k6bc5"]
+[ext_resource type="Texture2D" uid="uid://ba6xuxq3fgf37" path="res://assets/props/post_5.png" id="34_ki8ou"]
+[ext_resource type="Texture2D" uid="uid://dia4tuyflfrp5" path="res://assets/props/post_6.png" id="35_fat0b"]
 [ext_resource type="Texture2D" uid="uid://bvtp5pe4pblw6" path="res://assets/props/sink.png" id="36_b1r01"]
+[ext_resource type="PackedScene" uid="uid://ddsesexqmp77s" path="res://props/office/bonsai.tscn" id="36_k5xsj"]
 [ext_resource type="Texture2D" uid="uid://dw5ltmn3ewyyk" path="res://assets/props/toaster.png" id="37_ova1f"]
 [ext_resource type="Texture2D" uid="uid://drcnakwps4piq" path="res://assets/props/dishwasher.png" id="38_b8gub"]
 [ext_resource type="Texture2D" uid="uid://k2velj6x3g4s" path="res://assets/props/fridge_drinks.png" id="39_7tv72"]
@@ -36560,6 +36570,13 @@ autoplay = "default"
 frame = 2
 frame_progress = 0.37919
 
+[node name="BasketballBasket" type="Sprite2D" parent="Tiles/CouchArea2"]
+position = Vector2(91, -22)
+texture = ExtResource("10_v5swf")
+
+[node name="Coffee4" parent="Tiles/CouchArea2" instance=ExtResource("60_juvgp")]
+position = Vector2(4, 6)
+
 [node name="OpenOffice1" type="Node2D" parent="Tiles"]
 
 [node name="LogoArea" type="Node2D" parent="Tiles"]
@@ -36617,6 +36634,16 @@ position = Vector2(886, 286)
 
 [node name="GenericCollision7" parent="Tiles/LogoArea" instance=ExtResource("59_ecoav")]
 position = Vector2(911, 281)
+
+[node name="WallImage" type="Sprite2D" parent="Tiles/LogoArea"]
+z_index = 1
+position = Vector2(1128, 289)
+texture = ExtResource("14_tf4sc")
+
+[node name="WallImage2" type="Sprite2D" parent="Tiles/LogoArea"]
+z_index = 1
+position = Vector2(1164, 289)
+texture = ExtResource("15_t3nr8")
 
 [node name="ConferenceRoom2" type="Node2D" parent="Tiles"]
 y_sort_enabled = true
@@ -36757,6 +36784,9 @@ shape = SubResource("RectangleShape2D_u56uy")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ce2yi")
 
+[node name="Coffee3" parent="Tiles/OpenOffice2/InterviewRoom" instance=ExtResource("60_juvgp")]
+position = Vector2(1094, 402)
+
 [node name="ManagerFrontOffice" type="Node2D" parent="Tiles/OpenOffice2"]
 
 [node name="FrontOfficeTable" type="StaticBody2D" parent="Tiles/OpenOffice2/ManagerFrontOffice"]
@@ -36798,6 +36828,45 @@ position = Vector2(1091, 466)
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_w5v5l")
 
+[node name="Poster" type="Sprite2D" parent="Tiles/OpenOffice2"]
+z_index = 1
+position = Vector2(769, 321)
+texture = ExtResource("30_uatvt")
+
+[node name="Poster2" type="Sprite2D" parent="Tiles/OpenOffice2"]
+z_index = 1
+position = Vector2(806, 321)
+texture = ExtResource("31_ci4aa")
+
+[node name="Poster3" type="Sprite2D" parent="Tiles/OpenOffice2"]
+z_index = 1
+position = Vector2(823, 321)
+texture = ExtResource("32_tglsp")
+
+[node name="Poster4" type="Sprite2D" parent="Tiles/OpenOffice2"]
+z_index = 1
+position = Vector2(858, 321)
+texture = ExtResource("33_fcv8m")
+
+[node name="Poster5" type="Sprite2D" parent="Tiles/OpenOffice2"]
+z_index = 1
+position = Vector2(876, 321)
+texture = ExtResource("34_ki8ou")
+
+[node name="Poster6" type="Sprite2D" parent="Tiles/OpenOffice2"]
+z_index = 1
+position = Vector2(893, 321)
+texture = ExtResource("35_fat0b")
+
+[node name="Bonsai" parent="Tiles/OpenOffice2" instance=ExtResource("36_k5xsj")]
+position = Vector2(761, 504)
+
+[node name="Coffee" parent="Tiles/OpenOffice2" instance=ExtResource("60_juvgp")]
+position = Vector2(884, 335)
+
+[node name="Coffee2" parent="Tiles/OpenOffice2" instance=ExtResource("60_juvgp")]
+position = Vector2(759, 406)
+
 [node name="OfficeRightMiddle" type="Node2D" parent="Tiles"]
 
 [node name="CornerDeskLeftNormal" parent="Tiles/OfficeRightMiddle" instance=ExtResource("2_28je1")]
@@ -36812,6 +36881,12 @@ position = Vector2(1232, 264)
 
 [node name="CornerDeskRightUpside" parent="Tiles/OfficeRightMiddle" instance=ExtResource("5_ivkia")]
 position = Vector2(1184, 264)
+
+[node name="Bonsai" parent="Tiles/OfficeRightMiddle" instance=ExtResource("36_k5xsj")]
+position = Vector2(1091, 126)
+
+[node name="Coffee5" parent="Tiles/OfficeRightMiddle" instance=ExtResource("60_juvgp")]
+position = Vector2(1200, 162)
 
 [node name="FireExtinguisher" parent="Tiles" instance=ExtResource("25_iq2sr")]
 position = Vector2(808, 135)
@@ -37042,6 +37117,3 @@ position = Vector2(920, 184)
 
 [node name="GenericCollision2" parent="Collisions" instance=ExtResource("59_ecoav")]
 position = Vector2(872, 184)
-
-[node name="Coffee" parent="." instance=ExtResource("60_juvgp")]
-position = Vector2(884, 335)

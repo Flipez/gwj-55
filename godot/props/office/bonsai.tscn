@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddsesexqmp77s"]
+
+[ext_resource type="Texture2D" uid="uid://ihlgiiaimg2a" path="res://assets/props/bonsai.png" id="1_5lf4c"]
+
+[node name="Bonsai" type="StaticBody2D"]
+position = Vector2(1091, 129)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5lf4c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(8, -7.9, 8, 10.5, -8, 10.5, -8, -10.5, 4.1, -10.5)
