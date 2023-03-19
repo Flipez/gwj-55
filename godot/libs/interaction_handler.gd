@@ -11,7 +11,6 @@ signal fridge_close
 
 var milestones = []
 var objects = {
-	"END" = func(): Globals.game_over.emit(len(milestones)),
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
 	"ADA" = Callable(self, "adam"),
 	"ANG" = Callable(self, "angie"),
@@ -155,7 +154,7 @@ func falko():
 		add_to_chat("DJ", "Thanks. I'll see if I can find him.")
 		unlock("ADAMS_MISSING")
 	else:
-		chat("Falko", "I'm in an important meeting. Can you come back later?")
+		chat("Falko", "I need to copy those printed mails. Can you come back later?")
 
 func helmine():
 	if has_found("PRANKSTER_HELMINE") and not has_found("HELMINE_IS_INNOCENT"):

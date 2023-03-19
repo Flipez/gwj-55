@@ -36733,7 +36733,7 @@ interaction_id = "S01"
 
 [node name="Plant2" parent="Tiles/OpenOffice2" instance=ExtResource("13_7paim")]
 position = Vector2(999, 287)
-interaction_id = "END"
+interaction_id = "P00"
 
 [node name="InterviewRoom" type="Node2D" parent="Tiles/OpenOffice2"]
 
