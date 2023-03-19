@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0th0tihtxkl4" path="res://scenes/menu.tscn" id="8_qf8ks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj1j6"]
-bg_color = Color(0.137255, 0.137255, 0.137255, 0.894118)
+bg_color = Color(0.137255, 0.168627, 0.137255, 0.784314)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_4358g")
@@ -52,7 +52,6 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Text" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 200.0
@@ -101,7 +100,6 @@ texture_normal = ExtResource("7_2uj5a")
 stretch_mode = 0
 
 [node name="Menu" parent="." instance=ExtResource("8_qf8ks")]
-visible = false
 
 [connection signal="timeout" from="UI/HideStatus" to="." method="_on_hide_status_timeout"]
 [connection signal="pressed" from="Text/NextText" to="." method="_on_next_text_pressed"]
