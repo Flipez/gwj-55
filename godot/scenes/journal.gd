@@ -40,6 +40,7 @@ func _on_next_page_pressed():
 	turn_page(2)
 
 func _on_update_journal(content: String):
+	$AudioStreamPlayer.play()
 	var page_data = pages.pop_back()
 	var char_count = page_data.count("\n") * 42 + len(page_data)
 	

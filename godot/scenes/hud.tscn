@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csylntjtnmsra" path="res://scenes/journal.tscn" id="4_0wvsj"]
 [ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="5_aavwy"]
 [ext_resource type="FontFile" uid="uid://5q4su2qmavjw" path="res://fonts/CrimsonText-Bold.ttf" id="6_5o0ng"]
-[ext_resource type="Texture2D" uid="uid://ccl0pgs17b74h" path="res://assets/sideswipe.png" id="7_ic485"]
+[ext_resource type="Texture2D" uid="uid://rgor80nd5svi" path="res://assets/key_f.png" id="7_2uj5a"]
 [ext_resource type="PackedScene" uid="uid://d0th0tihtxkl4" path="res://scenes/menu.tscn" id="8_qf8ks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkbsl"]
@@ -38,11 +38,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button" type="Button" parent="UI"]
+visible = false
 layout_mode = 0
-offset_left = 13.0
-offset_top = 643.0
-offset_right = 121.0
-offset_bottom = 751.0
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 131.0
+offset_bottom = 128.0
 scale = Vector2(0.6, 0.6)
 focus_mode = 0
 theme_override_styles/hover = SubResource("StyleBoxFlat_dkbsl")
@@ -53,10 +54,10 @@ icon_alignment = 1
 
 [node name="StatusMessage" type="RichTextLabel" parent="UI"]
 layout_mode = 0
-offset_left = 88.0
-offset_top = 656.0
-offset_right = 436.0
-offset_bottom = 712.0
+offset_left = 19.0
+offset_top = 34.0
+offset_right = 367.0
+offset_bottom = 90.0
 theme_override_fonts/normal_font = ExtResource("3_w4uc1")
 theme_override_font_sizes/normal_font_size = 23
 scroll_active = false
@@ -120,8 +121,8 @@ offset_bottom = 977.0
 scale = Vector2(0.1, 0.1)
 shortcut_feedback = false
 shortcut_in_tooltip = false
-texture_normal = ExtResource("7_ic485")
-flip_h = true
+texture_normal = ExtResource("7_2uj5a")
+stretch_mode = 0
 
 [node name="Menu" parent="." instance=ExtResource("8_qf8ks")]
 

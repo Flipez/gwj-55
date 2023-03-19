@@ -18,12 +18,13 @@ func _ready():
 	menu.show()
 	chat.hide()
 	journal.hide()
-	
-func _unhandled_input(event):
-	if event.is_action_pressed("help"):
-		menu.visible = !menu.visible
 
 func _process(_delta):
+	if Input.is_action_just_pressed("journal"):
+		journal.visible = !journal.visible
+	if Input.is_action_just_pressed("help"):
+		menu.toggle_help()
+		#menu.visible = !menu.visible
 	if Input.is_action_just_pressed("ui_interact") && chat.visible:
 		_on_next_text_pressed()
 

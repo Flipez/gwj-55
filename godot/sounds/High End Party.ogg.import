@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://iem3wrp4khwf"
+path="res://.godot/imported/High End Party.ogg-f88ba335712006c141397a41faa0049a.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/High End Party.ogg"
+dest_files=["res://.godot/imported/High End Party.ogg-f88ba335712006c141397a41faa0049a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

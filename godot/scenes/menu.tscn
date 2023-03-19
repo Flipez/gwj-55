@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0th0tihtxkl4"]
+[gd_scene load_steps=8 format=3 uid="uid://d0th0tihtxkl4"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_7fxkh"]
 [ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="1_g16j6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://crypuikciq2e6" path="res://assets/intro/36074-O0MQRI.jpg" id="2_pxila"]
 [ext_resource type="Texture2D" uid="uid://nrslqmm84x1o" path="res://assets/intro/cyberpunk-street-files/foreground.png" id="3_qf4mi"]
 [ext_resource type="FontFile" uid="uid://5q4su2qmavjw" path="res://fonts/CrimsonText-Bold.ttf" id="6_ss6th"]
+[ext_resource type="Texture2D" uid="uid://jrope7dvmto8" path="res://assets/key_h.png" id="7_uek8p"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -70,6 +71,7 @@ theme_override_font_sizes/font_size = 30
 text = "New Game"
 
 [node name="Help" type="Button" parent="Action/Buttons"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_g16j6")
@@ -161,7 +163,18 @@ text = "[b]Controls[/b]
 WASD	- Movement
 F				- Interaction
 H				- Help
+J               - Journal
+
 Interact with the Couch to Toggle Dream Mode"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="HelpScreen"]
+layout_mode = 0
+offset_left = 1079.0
+offset_top = 617.0
+offset_right = 1119.0
+offset_bottom = 657.0
+texture = ExtResource("7_uek8p")
 
 [node name="GameOver" type="Control" parent="."]
 visible = false

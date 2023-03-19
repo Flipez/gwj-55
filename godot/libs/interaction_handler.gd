@@ -11,6 +11,7 @@ signal fridge_close
 
 var milestones = []
 var objects = {
+	"END" = func(): Globals.game_over.emit(len(milestones)),
 	"AAB" = func(): chat("DJ", "This is a plant"), # Generic plant
 	"ADA" = Callable(self, "adam"),
 	"ANG" = Callable(self, "angie"),
