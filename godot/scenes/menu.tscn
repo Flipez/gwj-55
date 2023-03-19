@@ -154,6 +154,8 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Text" type="RichTextLabel" parent="HelpScreen/OuterBorder/InnerBorder"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("1_g16j6")
 theme_override_fonts/bold_font = ExtResource("6_ss6th")
 theme_override_font_sizes/normal_font_size = 40

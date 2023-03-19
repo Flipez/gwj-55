@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dplq7pgybgilo"]
+[gd_scene load_steps=9 format=3 uid="uid://dplq7pgybgilo"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_4358g"]
-[ext_resource type="Texture2D" uid="uid://xrinmivk82p5" path="res://assets/white-book.png" id="1_gerog"]
 [ext_resource type="FontFile" uid="uid://mp1ljy5uk88x" path="res://fonts/IndieFlower-Regular.ttf" id="3_w4uc1"]
 [ext_resource type="PackedScene" uid="uid://csylntjtnmsra" path="res://scenes/journal.tscn" id="4_0wvsj"]
 [ext_resource type="FontFile" uid="uid://ujqmqsuyhdxx" path="res://fonts/CrimsonText-Regular.ttf" id="5_aavwy"]
@@ -9,22 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://rgor80nd5svi" path="res://assets/key_f.png" id="7_2uj5a"]
 [ext_resource type="PackedScene" uid="uid://d0th0tihtxkl4" path="res://scenes/menu.tscn" id="8_qf8ks"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkbsl"]
-bg_color = Color(0.458824, 0.603922, 0.835294, 0.686275)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-
-[sub_resource type="InputEventKey" id="InputEventKey_2b5ay"]
-device = -1
-keycode = 74
-unicode = 106
-
-[sub_resource type="Shortcut" id="Shortcut_5q8u3"]
-events = [SubResource("InputEventKey_2b5ay")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj1j6"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 0.894118)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_4358g")
@@ -37,29 +22,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="UI"]
-visible = false
-layout_mode = 0
-offset_left = 23.0
-offset_top = 20.0
-offset_right = 131.0
-offset_bottom = 128.0
-scale = Vector2(0.6, 0.6)
-focus_mode = 0
-theme_override_styles/hover = SubResource("StyleBoxFlat_dkbsl")
-shortcut = SubResource("Shortcut_5q8u3")
-icon = ExtResource("1_gerog")
-flat = true
-icon_alignment = 1
-
 [node name="StatusMessage" type="RichTextLabel" parent="UI"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 34.0
 offset_right = 367.0
 offset_bottom = 90.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("3_w4uc1")
 theme_override_font_sizes/normal_font_size = 23
+text = "Hello World"
 scroll_active = false
 
 [node name="HideStatus" type="Timer" parent="UI"]
@@ -95,6 +68,7 @@ anchor_bottom = 1.0
 offset_top = -174.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yj1j6")
 
 [node name="Box" type="MarginContainer" parent="Text/Panel"]
 layout_mode = 2
@@ -105,6 +79,8 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Content" type="RichTextLabel" parent="Text/Panel/Box"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("5_aavwy")
 theme_override_fonts/bold_font = ExtResource("6_5o0ng")
 theme_override_font_sizes/normal_font_size = 40
@@ -125,7 +101,7 @@ texture_normal = ExtResource("7_2uj5a")
 stretch_mode = 0
 
 [node name="Menu" parent="." instance=ExtResource("8_qf8ks")]
+visible = false
 
-[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="UI/HideStatus" to="." method="_on_hide_status_timeout"]
 [connection signal="pressed" from="Text/NextText" to="." method="_on_next_text_pressed"]
