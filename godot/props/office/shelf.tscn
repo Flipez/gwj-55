@@ -19,6 +19,8 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_fsvcb")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_pvn58")]
+monitoring = false
+monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
 polygon = PackedVector2Array(1, -15, 8, -15.5, 8, -11.5, 10, -11.5, 10, -15.5, 15, -15.5, 15, 15.5, -15, 15.5, -15, -15.5, -10, -12.9, -10, -15.5, -0.7, -15.5)

@@ -31,9 +31,9 @@ func _process(_delta):
 	old_pos = get_position_delta()
 
 func _falko_forwards():
-	var tween :Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(_follow, 'progress_ratio', 1, 10)
+	var tween :Tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(_follow, 'progress_ratio', 1, 5)
 	
 func _falko_backwards():
-	var tween :Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(_follow, 'progress_ratio', 0, 10)
+	var tween :Tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(_follow, 'progress_ratio', 0, 5)

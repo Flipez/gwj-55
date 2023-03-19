@@ -44,6 +44,7 @@ offset_top = 643.0
 offset_right = 121.0
 offset_bottom = 751.0
 scale = Vector2(0.6, 0.6)
+focus_mode = 0
 theme_override_styles/hover = SubResource("StyleBoxFlat_dkbsl")
 shortcut = SubResource("Shortcut_5q8u3")
 icon = ExtResource("1_gerog")

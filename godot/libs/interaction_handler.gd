@@ -26,6 +26,7 @@ var objects = {
 	"INT" = Callable(self, "intro"),
 	"FRI" = Callable(self, "fridge"),
 	"S00" = func(): chat("DJ", "A vending machine full of Spezi. I should ask Robert which one is the best!"),
+	"S01" = func(): chat("DJ", "A vending machine full of Fritz Kola. Seems to be a popular choice here."),
 	"TOL" = func(): chat("DJ", "Ugh. Where does this smell come from?"),
 	"TLC" = Callable(self, "left_toilet"),
 	"TOR" = Callable(self, "locked_toilet"),
@@ -66,14 +67,14 @@ func interact(id : String):
 		emit_signal("interaction_started")
 		objects[id].call()
 	else:
-		chat("Lt. Oak", "This itsn't the time to use that.")
+		chat("Lt. Oak", "This isn't the time to use that.")
 
 func intro():
 	chat("DJ", "Hi I'm Detective Dave Jackson. Did you call us?")
+	event_to_chat(func(): InteractionHandler.emit_signal("falko_forwards"))
 	add_to_chat("Karen", "I did. Because some horrible monster ate my baby!")
 	add_to_chat("DJ", "SOMEONE ATE YOUR BABY! That's horri... wait. Why did you bring your baby to the office.")
 	add_to_chat("Karen", "Obviously, because I wanted to eat it.")
-	event_to_chat(func(): InteractionHandler.emit_signal("falko_forwards"))
 	add_to_chat("DJ", "YOU WANTED TO EAT YOUR BABY!")
 	add_to_chat("Falko", "Karen, why are you yelling again? Some of us are trying to work here...")
 	add_to_chat("Karen", "I'm not yelling. The detective is, because...")
@@ -251,7 +252,7 @@ func fred():
 		add_to_chat("DJ", "How do you know? Haven't said anything about that yet?")
 		add_to_chat("Fred", "The yelling from the kitchen was hard to miss...")
 		add_to_chat("DJ", "I see. Still, anything else you want to tell me?")
-		add_to_chat("Fred", "Nope. And I have to continue my work. Bye")
+		add_to_chat("Fred", "Nope. And I have to continue my work. Bye!")
 		journal("Fred is behaving suspicious. He has been in the kitchen. But why?")
 		unlock("SUS_FRED")
 	else:
@@ -268,7 +269,7 @@ func gabi():
 	
 	if has_found("ANGIE"):
 		chat("DJ", "Uhm. Didn't I just see you down in the office?")
-		add_to_chat("Gabi", "Ehm. No. I have been here all the time. But you might have seen my twin sister Gabi.")
+		add_to_chat("Gabi", "Ehm. No. I have been here all the time. But you might have seen my twin sister Angie.")
 		add_to_chat("DJ", "That make sense. And whats your name and what are you doing here?")
 	else:
 		chat("DJ", "Excuse me Madame. Can I have 5 minutes of our time?")
@@ -350,7 +351,9 @@ func left_toilet():
 	journal("Someone, probably the thief has made a mess in the bathroom.")
 	
 func missing_key():
-	if is_dreaming() and has_found("MISSING_KEY"):
+	if has_found("SPARE_KEY"):
+		chat("DJ", "Seems to work ok again. Free Spezi for everyone!")
+	elif is_dreaming() and has_found("MISSING_KEY"):
 		chat("DJ", "I got the key!")
 		unlock("SPARE_KEY")
 		journal("I have found the key for the locked toilet.")

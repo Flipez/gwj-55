@@ -63,15 +63,15 @@
 [ext_resource type="PackedScene" uid="uid://cx0posk61mann" path="res://npcs/helmine.tscn" id="52_5pl3r"]
 [ext_resource type="PackedScene" uid="uid://idvyx75w71gf" path="res://npcs/eddie.tscn" id="52_dgpw0"]
 [ext_resource type="PackedScene" uid="uid://b2amvmjranb1j" path="res://props/office/fridge.tscn" id="52_e5rf7"]
-[ext_resource type="PackedScene" path="res://npcs/adam.tscn" id="52_mf4ps"]
+[ext_resource type="PackedScene" uid="uid://da6ln40e5m0ky" path="res://npcs/adam.tscn" id="52_mf4ps"]
 [ext_resource type="Shader" path="res://shaders/dream2.gdshader" id="52_xxq1s"]
 [ext_resource type="PackedScene" uid="uid://bmcm2bdinl8fi" path="res://npcs/fred.tscn" id="53_axrwr"]
 [ext_resource type="Texture2D" uid="uid://gchcmifthxhy" path="res://assets/props/toilet_open.png" id="56_75f4x"]
 [ext_resource type="PackedScene" uid="uid://cn6ltmahm6nrd" path="res://player/player_dream.tscn" id="57_hj08r"]
 [ext_resource type="Script" path="res://player/player_dream.gd" id="58_1lvaa"]
 [ext_resource type="PackedScene" uid="uid://qqxpv2x0tmes" path="res://npcs/gabi.tscn" id="59_2d7y5"]
-[ext_resource type="PackedScene" path="res://scenes/generic_collision.tscn" id="59_ecoav"]
-[ext_resource type="PackedScene" path="res://props/coffee.tscn" id="60_juvgp"]
+[ext_resource type="PackedScene" uid="uid://cgk3iyfjjsx0x" path="res://scenes/generic_collision.tscn" id="59_ecoav"]
+[ext_resource type="PackedScene" uid="uid://d2pbt4stjjjbh" path="res://props/coffee.tscn" id="60_juvgp"]
 [ext_resource type="Texture2D" uid="uid://c75ju2y0cfe2e" path="res://assets/props/toilet_paper_roll_empty.png" id="72_krk3k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lygpe"]
@@ -36725,9 +36725,11 @@ position = Vector2(892, 544)
 
 [node name="Soda" parent="Tiles/OpenOffice2" instance=ExtResource("15_spt2m")]
 position = Vector2(956, 288)
+interaction_id = "S00"
 
 [node name="Soda2" parent="Tiles/OpenOffice2" instance=ExtResource("15_spt2m")]
 position = Vector2(979, 288)
+interaction_id = "S01"
 
 [node name="Plant2" parent="Tiles/OpenOffice2" instance=ExtResource("13_7paim")]
 position = Vector2(999, 287)
